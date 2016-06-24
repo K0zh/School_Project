@@ -32,8 +32,7 @@
 			<a href="write.con">도움 요청 폼</a><br>
 			<hr>
 			<a href="test.do">테스트</a><br>
-			
-			변경 테스트
+			테스트테스트
 	</div>
 
 
