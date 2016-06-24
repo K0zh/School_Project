@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.att.content.model.Content">
+	<select id="GetAllContent" resultType="HashMap">
+		select * from contents
+	</select>
+	
+	<select id="GetContentById" resultType="MyContent" parameterType="int">
+		select * from contents where id = #{id}
+	</select>
+	
+	<insert id="InsertNeedData" parameterType="MyContent">
+		insert into contents(id, num, subject, need, c_date, location, personnel, gender, content)
+		values(#{id}, conseq.nextval, #{subject}, #{need}, #{c_date}, #{location}, #{personnel}, #{gender}, #{content})
+	</insert>
+	
+</mapper>
