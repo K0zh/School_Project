@@ -1,0 +1,61 @@
+PROJECT DB E-oood
+-------------------------------------------------------------------------------------
+-- 회원 테이블
+-------------------------------------------------------------------------------------
+drop sequence memseq ;
+create sequence memseq start with 1 increment by 1 nocache ;
+
+drop table members purge;
+
+create table members (
+	id number primary key,
+	email varchar2(30) not null,
+	password varchar2(30) not null,
+	name varchar2(30) not null,
+	gender varchar2(10) not null,
+	hp varchar2(30),
+	address varchar2(30),	
+	talentDt varchar2(30),
+	talentGet varchar2(30),
+	image varchar2(30),
+	like number default 0,
+	r_date date default sysdate
+);
+
+-- 추가
+insert into members(id, email, password, name, gender, hp, address, talentDt, talentGet)
+values(memseq.nextval,'test@email.com','test', 'testname', '남자', '01068505634', '서울시 강남구', '컴퓨터, 피아노','요리');
+
+insert into members(id, email, password, name, gender, hp, address, talentDt, talentGet)
+values(memseq.nextval,'test2@email.com','test2', 'testname2', '여자', '01012345678', '인천광역시 부평구', '청소, 육아','컴퓨터');
+ 
+commit ;
+	
+
+-------------------------------------------------------------------------------------
+-- 콘텐츠 테이블
+-------------------------------------------------------------------------------------
+drop sequence conseq;
+create sequence conseq start with 1 increment by 1 nocache ;
+drop table contents purge ;
+
+create table contents(
+	id	 		number primary key,
+	num number,
+	subject varchar2(50),
+	need		varchar2(100),		
+	c_date date default sysdate,
+	location varchar2(100),
+	personnel number,
+	gender varchar2(10),
+	content varchar2(300) 
+);
+-------------------------------------------------------------------------------------
+insert into contents(id, num, subject, need, c_date, location, personnel, gender, content)
+values('1', conseq.nextval, '제목테스트', '컴퓨터', '2016-01-01', '강남역, 37.498116, 127.027571', '3', '남','테스트테스트테스트');
+
+insert into contents(id, num, subject, need, c_date, location, personnel, gender, content)
+values('2', conseq.nextval, '제목테스트2', '요리', '2016-03-03', '테스트, 37.498516, 127.027971', '2', '여','테스트테스트테스트2');
+
+commit ;
+  
