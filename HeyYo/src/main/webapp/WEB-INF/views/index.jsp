@@ -26,7 +26,6 @@
 	<div id="wrapper">
 		<!-- Sidebar -->
 		<jsp:include page="/WEB-INF/common/sidebar.jsp" />
-<<<<<<< HEAD
 		<a href="need.do">도움 요청</a><br> <a href="#">도움 찾기(미구현)</a><br>
 		<a href="#">감사(미구현)</a><br> <a href="#">우리 동네 알림(미구현)</a><br>
 		<hr>
@@ -34,7 +33,6 @@
 			가입 폼</a><br> <a href="write.con">도움 요청 폼</a><br>
 		<hr>
 		<a href="test.do">테스트</a><br>
-=======
 			<a href="need.do">도움 요청</a><br>
 			<a href="#">도움 찾기(미구현)</a><br>
 			<a href="#">감사(미구현)</a><br>
@@ -45,9 +43,6 @@
 			<a href="write.con">도움 요청 폼</a><br>
 			<hr>
 			<a href="test.do">테스트</a><br>
-			asdasd
-			dsdsadasdsdfdfsdfsdf
->>>>>>> branch 'master' of https://github.com/K0zh/School_Project
 	</div>
 
 
