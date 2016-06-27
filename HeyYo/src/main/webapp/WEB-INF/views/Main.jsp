@@ -41,23 +41,25 @@
 			async: false
 			
 		});
-		
 
-		/* DB에서 가져온 주소값 (위치명, 위도, 경도) */
+		/* DB에서 가져온 주소값 */
 		var address = new Array();
+		var coordinate = new Array();
 
 		/* 마커 정보창 text */
 		var contentString = new Array();
 		
 		
 		<c:forEach items="${contentLists}" var="content" varStatus="status">
-		str = str.replace("$SUBJECT", "${content.SUBJECT}")
-		str = str.replace("$NEED", "${content.NEED}")
-		str = str.replace("$C_DATE", "${content.C_DATE}")
-		str = str.replace("$ID", "${content.ID}")
-		address.push("${content.LOCATION}"); //주소값
-		contentString
-				.push(str); //마커 정보
+			str = str.replace("$SUBJECT", "${content.SUBJECT}")
+			str = str.replace("$TALENT", "${content.TALENT}")
+			str = str.replace("$C_DATE", "${content.C_DATE}")
+			str = str.replace("$ID", "${content.ID}")
+		
+			address.push("${content.ADDRESS}"); //주소값
+			coordinate.push("${content.LOCATION}") //좌표값
+			
+			contentString.push(str); //마커 정보
 		</c:forEach>
 	</script>
 

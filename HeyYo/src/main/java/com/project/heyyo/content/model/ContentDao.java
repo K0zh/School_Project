@@ -32,10 +32,8 @@ public class ContentDao {
 	public void insertNeedData(Content content) {
 		String address = content.getAddress();
 		String location = content.getLocation();
-		location = location.replace("(", "").replace(")", "");
-		address = address + ", " + location; 
-		System.out.println(content.getNeed());
 		
+		//바뀐 날짜 형식과 위치 정보를 재설정
 		content.setLocation(address);
 		
 		sqlSessionTemplate.insert(namespace + ".InsertNeedData", content);

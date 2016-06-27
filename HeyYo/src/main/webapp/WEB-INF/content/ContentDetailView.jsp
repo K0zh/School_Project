@@ -12,7 +12,7 @@
 	아이디 : ${content.id }<br>
 	제목 : ${content.subject }<br>
 	본문 내용 : ${content.content }<br>
-	주소 : ${content.location }<br>
+	주소 : ${content.address }<br>
 	
 	<input type="button" value="신청하기">
 	

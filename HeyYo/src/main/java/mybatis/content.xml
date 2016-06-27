@@ -13,7 +13,7 @@
 	
 	<insert id="InsertNeedData" parameterType="MyContent">
 		insert into contents(id, num, subject, need, c_date, location, personnel, gender, content)
-		values(#{id}, conseq.nextval, #{subject}, #{need}, #{c_date}, #{location}, #{personnel}, #{gender}, #{content})
+		values(#{id}, conseq.nextval, #{subject}, #{talent}, #{c_date}, #{location}, #{personnel}, #{gender}, #{content})
 	</insert>
 	
 </mapper>

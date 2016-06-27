@@ -42,7 +42,6 @@ public class MainController {
 		mav.addObject( "contentLists", contentLists );
 		mav.setViewName("Main");
 		
-		System.out.println(contentLists);
 		return mav;
 	}
 	

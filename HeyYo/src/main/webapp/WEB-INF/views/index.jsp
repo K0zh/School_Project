@@ -8,9 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <!-- SideBar CSS -->
-<link
-	href="${pageContext.request.contextPath}/resources/css/sidebar.css"
-	rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/sidebar.css" rel="stylesheet">
 </head>
 <body>
 	<!-- Login Modal JSP-->
@@ -32,7 +30,6 @@
 			<a href="write.con">도움 요청 폼</a><br>
 			<hr>
 			<a href="test.do">테스트</a><br>
-			테스트테스트
 	</div>
 
 

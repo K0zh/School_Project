@@ -3,7 +3,7 @@ function initMap() {
 		// 위치정보 얻어옴
 		navigator.geolocation.getCurrentPosition(function(position) {
 			var lat_result = position.coords.latitude, // 위도
-				lng_result = position.coords.longitude;// 경도
+			lng_result = position.coords.longitude;// 경도
 
 			var map;
 			map = new google.maps.Map(document.getElementById('map'), { // 구글 맵
@@ -17,19 +17,19 @@ function initMap() {
 
 			/* 마커 위치 설정 */
 			var locations = [];
-			for (var i = 0; i < address.length; i++) {
-			  var address_detail = address[i].split(",");
-				locations.push(address_detail);
+			for (var i = 0; i < coordinate.length; i++) {
+				var coordinate_detail = coordinate[i].split(",");
+				locations.push(coordinate_detail);
 			}
-			
+
 			/* 마커 띄우기 */
 			for (i = 0; i < locations.length; i++) {
-				var myLatLng = new google.maps.LatLng(locations[i][1],
-						locations[i][2]);
+				var myLatLng = new google.maps.LatLng(locations[i][0],
+						locations[i][1]);
 				var marker = new google.maps.Marker({
 					position : myLatLng,
 					map : map,
-					title : locations[i][0]
+					title : address[i]
 				});
 				contentInfo(marker, contentString[i]);
 			}
@@ -50,9 +50,4 @@ function contentInfo(marker, contentString) {
 	marker.addListener('click', function() {
 		infowindow.open(marker.get('map'), marker);
 	});
-}
-
-function createList(list) {
-	console.log(list);
-	console.log($.type(list));
 }

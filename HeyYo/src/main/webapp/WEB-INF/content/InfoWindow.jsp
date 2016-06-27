@@ -5,7 +5,7 @@
 	</header>
 	<section>
 		<div>
-			<b>재능 : </b><br> &nbsp;&nbsp;&nbsp;$NEED
+			<b>재능 : </b><br> &nbsp;&nbsp;&nbsp;$TALENT
 		</div>
 		<div>
 			<b>시간 : </b><br> &nbsp;&nbsp;&nbsp;$C_DATE
