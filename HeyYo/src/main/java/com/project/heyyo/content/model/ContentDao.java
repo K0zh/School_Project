@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component("myContentDao")
 public class ContentDao {
-	private final String namespace = "com.project.att.content.model.Content";
+	private final String namespace = "com.project.heyyo.content.model.Content";
 
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
@@ -26,18 +26,19 @@ public class ContentDao {
 		 Content content;
 		 content = sqlSessionTemplate.selectOne(namespace + ".GetContentById", id);
 		 return content;
-		
 	}
 
-	public void insertNeedData(Content content) {
-		String address = content.getAddress();
+	public void insertTalentData(Content content) {
+
+		//얻어온 좌표 가공
 		String location = content.getLocation();
+		location = location.replace("(", "").replace(")", "");
 		
-		//바뀐 날짜 형식과 위치 정보를 재설정
-		content.setLocation(address);
+		//가공한 좌표 재설정
+		content.setLocation(location);
 		
-		sqlSessionTemplate.insert(namespace + ".InsertNeedData", content);
-			
+		sqlSessionTemplate.insert(namespace + ".InsertTalentData", content);
 	}
+
 }
 

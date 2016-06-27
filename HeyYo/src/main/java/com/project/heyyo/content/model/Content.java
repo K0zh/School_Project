@@ -1,6 +1,5 @@
 package com.project.heyyo.content.model;
 
-
 public class Content {
 	private int id; // 사용자 고유 아이디값
 	private int num; // 게시글 순번
@@ -128,7 +127,7 @@ public class Content {
 		this.content = content;
 	}
 
-	public String isClosed() {
+	public String getClosed() {
 		return closed;
 	}
 

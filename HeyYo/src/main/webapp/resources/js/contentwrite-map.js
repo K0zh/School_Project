@@ -12,7 +12,6 @@ function initMap() {
 				lat : lat_result,
 				lng : lng_result
 			}
-
 			myMap(myLatLng)
 
 		});
@@ -42,6 +41,7 @@ function myMap(myLatLng) {
 
 		var input = document.getElementById('location').value;
 			input = input.replace("(","").replace(")","");
+			
 		
 		var latlngStr = input.split(',', 2);
 			
@@ -49,10 +49,7 @@ function myMap(myLatLng) {
 			lat : parseFloat(latlngStr[0]),
 			lng : parseFloat(latlngStr[1])
 		};
-		console.log(latlngStr[0])
-		console.log(latlngStr[1])
-		console.log(document.getElementById('location').value)
-		console.log(latlng)
+
 		geocoder.geocode({
 			'location' : latlng
 		}, function(results, status) {

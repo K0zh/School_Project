@@ -37,8 +37,26 @@ public class ContentController {
 	public String doActionWrite(
 			@ModelAttribute("Content") @Valid Content content,
 			BindingResult bindingResult) {
+		System.out.println("write.com POST");
 		
-		contentDao.insertNeedData(content);
+		System.out.println("insertTalentData");
+		System.out.println(content.getId());
+		System.out.println(content.getNum());
+		System.out.println(content.getSubject());
+		System.out.println(content.getTalent());
+		System.out.println(content.getC_date());
+		System.out.println(content.getS_day());
+		System.out.println(content.getAddress());
+		System.out.println(content.getLocation());
+		System.out.println(content.getPersonnel());
+		System.out.println(content.getGender());
+		System.out.println(content.getContent());
+		System.out.println(content.getClosed());
+		System.out.println(content.getType());
+		
+		
+		contentDao.insertTalentData(content);
+		
 		
 		
 		return "redirect:need.do";
