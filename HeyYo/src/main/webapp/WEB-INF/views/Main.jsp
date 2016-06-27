@@ -7,6 +7,15 @@
 <title>Insert title here</title>
 <!-- SideBar CSS -->
 <link href="${pageContext.request.contextPath}/resources/css/sidebar.css" rel="stylesheet">
+<script type="text/javascript">
+function need() {
+	document.location.href="main.do?type=need";
+}
+function able() {
+	document.location.href="main.do?type=able";
+}
+
+</script>
 </head>
 <body>
 	<!-- Login Modal JSP-->
@@ -23,7 +32,10 @@
 		<div id="map" style="width: 80%; height: 50%; margin: 50px;"></div>
 
 
-		<input type="button" value="도움 요청하기" onclick="location.href='write.con'">
+		<input type="button" value="도움 요청하기" onclick="location.href='write.con'"><br>
+		<input type="button" value="전체보기"  onclick="location.href='main.do'"><br>
+		<input type="button" value="필요해요!"  onclick="need()"><br>
+		<input type="button" value="필요해요?"  onclick="able()"><br>
 	</div>
 	<!-- /#wrapper -->
 
@@ -48,7 +60,6 @@
 
 		/* 마커 정보창 text */
 		var contentString = new Array();
-		
 		
 		<c:forEach items="${contentLists}" var="content" varStatus="status">
 			str = str.replace("$SUBJECT", "${content.SUBJECT}")

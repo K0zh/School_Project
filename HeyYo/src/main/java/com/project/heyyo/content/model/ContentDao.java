@@ -2,6 +2,7 @@ package com.project.heyyo.content.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +15,10 @@ public class ContentDao {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 
-	public List<Content> getAllContent() {
+	public List<Content> getAllContent(Map<String, String> map) {
 		
 		List<Content> lists = new ArrayList<Content>();
-		lists = sqlSessionTemplate.selectList(namespace + ".GetAllContent");
+		lists = sqlSessionTemplate.selectList(namespace + ".GetAllContent", map);
 		
 		return lists; 
 	}
@@ -30,13 +31,6 @@ public class ContentDao {
 
 	public void insertTalentData(Content content) {
 
-		//얻어온 좌표 가공
-		String location = content.getLocation();
-		location = location.replace("(", "").replace(")", "");
-		
-		//가공한 좌표 재설정
-		content.setLocation(location);
-		
 		sqlSessionTemplate.insert(namespace + ".InsertTalentData", content);
 	}
 

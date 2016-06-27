@@ -24,7 +24,6 @@ public class ContentController {
 
 	@RequestMapping(value = "infowindow.con")
 	public String viewInfoWindow() {
-		System.out.println("ContentController doActionInfo 들어옴");
 		return "InfoWindow";
 	}
 
@@ -38,28 +37,17 @@ public class ContentController {
 			@ModelAttribute("Content") @Valid Content content,
 			BindingResult bindingResult) {
 		System.out.println("write.com POST");
-		
-		System.out.println("insertTalentData");
-		System.out.println(content.getId());
-		System.out.println(content.getNum());
-		System.out.println(content.getSubject());
-		System.out.println(content.getTalent());
-		System.out.println(content.getC_date());
-		System.out.println(content.getS_day());
-		System.out.println(content.getAddress());
-		System.out.println(content.getLocation());
-		System.out.println(content.getPersonnel());
-		System.out.println(content.getGender());
-		System.out.println(content.getContent());
-		System.out.println(content.getClosed());
-		System.out.println(content.getType());
-		
-		
+
+		// 얻어온 좌표 가공
+		String location = content.getLocation();
+		location = location.replace("(", "").replace(")", "");
+
+		// 가공한 좌표 재설정
+		content.setLocation(location);
+
 		contentDao.insertTalentData(content);
-		
-		
-		
-		return "redirect:need.do";
+
+		return "redirect:main.do";
 	}
 
 	@RequestMapping(value = "detail.con")

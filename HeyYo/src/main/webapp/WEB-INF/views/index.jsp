@@ -20,7 +20,7 @@
 		<!-- Sidebar -->
 		<jsp:include page="/WEB-INF/common/sidebar.jsp" />
 		
-			<a href="need.do">도움 요청</a><br>
+			<a href="main.do">도움 요청</a><br>
 			<a href="#">도움 찾기(미구현)</a><br>
 			<a href="#">감사(미구현)</a><br>
 			<a href="#">우리 동네 알림(미구현)</a><br>

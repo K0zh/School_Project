@@ -3,17 +3,27 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.project.heyyo.content.model.Content">
-	<select id="GetAllContent" resultType="HashMap">
-		select * from contents
+	<select id="GetAllContent" resultType="HashMap" parameterType="HashMap">
+		select * from contents 
+		<if test="type != null">
+			where type = #{type}
+		</if>
+		
+		
 	</select>
-	
-	<select id="GetContentById" resultType="MyContent" parameterType="int">
+
+	<select id="GetContentById" resultType="MyContent"
+		parameterType="int">
 		select * from contents where id = #{id}
 	</select>
-	
+
 	<insert id="InsertTalentData" parameterType="MyContent">
-		insert into contents(id, num, subject, talent, s_day, address, location, personnel, gender, content, closed, type)
-		values(#{id}, conseq.nextval, #{subject}, #{talent}, #{s_day}, #{address}, #{location}, #{personnel}, #{gender}, #{content}, 'open', #{type})
+		insert into
+		contents(id, num, subject, talent, s_day, address, location,
+		personnel, gender, content, closed, type)
+		values(#{id}, conseq.nextval,
+		#{subject}, #{talent}, #{s_day}, #{address}, #{location},
+		#{personnel}, #{gender}, #{content}, 'open', #{type})
 	</insert>
-	
+
 </mapper>
