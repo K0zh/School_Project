@@ -16,17 +16,19 @@ public class ContentDao {
 	SqlSessionTemplate sqlSessionTemplate;
 
 	public List<Content> getAllContent(Map<String, String> map) {
-		
+
 		List<Content> lists = new ArrayList<Content>();
-		lists = sqlSessionTemplate.selectList(namespace + ".GetAllContent", map);
-		
-		return lists; 
+		lists = sqlSessionTemplate
+				.selectList(namespace + ".GetAllContent", map);
+
+		return lists;
 	}
 
-	public Content getContentById(int id) {
-		 Content content;
-		 content = sqlSessionTemplate.selectOne(namespace + ".GetContentById", id);
-		 return content;
+	public Content getContentByNum(int num) {
+		Content content;
+		content = sqlSessionTemplate.selectOne(namespace + ".GetContentByNum",
+				num);
+		return content;
 	}
 
 	public void insertTalentData(Content content) {
@@ -35,4 +37,3 @@ public class ContentDao {
 	}
 
 }
-

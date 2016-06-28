@@ -18,7 +18,7 @@ create table members (
 	talentDt varchar2(30),
 	talentGet varchar2(30),
 	image varchar2(30),
-	like number default 0,
+	credibility number default 0,
 	r_date date default sysdate
 );
 
@@ -77,4 +77,26 @@ insert into contents(id, num, subject, talent, s_day, address, location, personn
 values('2', conseq.nextval, '제목테스트2', '요리', '2016-03-03', '테스트', '37.498516, 127.027971', '2', '여','테스트테스트테스트2', 'close', 'able');
 
 commit ;
+
+
+-------------------------------------------------------------------------------------
+-- 매칭 테이블
+-------------------------------------------------------------------------------------
+--num 고유 매칭 번호
+--id 신청한 사용자 id
+--m_date 신청 시간
+--introduce 소개글
+--accept 수락 및 거절 
+
+
+drop sequence matseq;
+create sequence matseq start with 1 increment by 1 nocache ;
+drop table matching purge ;
+create table matching(
+	m_num number,
+	m_id number,
+	m_date date default sysdate,
+	introduce varchar2(100),
+	accept varchar2(10)
+);
   

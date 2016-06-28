@@ -39,7 +39,7 @@ function initMap() {
 }
 
 function contentInfo(marker, contentString) {
-
+	
 	/* 마커 정보창 */
 	var infowindow = new google.maps.InfoWindow({
 		content : contentString, // 정보 내용

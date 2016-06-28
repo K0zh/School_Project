@@ -1,12 +1,14 @@
 package com.project.heyyo.content.model;
 
+import java.security.Timestamp;
+
 public class Content {
 	private int id; // 사용자 고유 아이디값
 	private int num; // 게시글 순번
 	private String subject; // 게시글 제목
 	private String talent; // 필요 또는 요청 재능
-	private String c_date; // 글작성일
-	private String s_day; // 요청일
+	private Timestamp c_date; // 글작성일
+	private Timestamp s_day; // 요청일
 	private String address; // 주소
 	private String location; // 좌표
 	private int personnel; // 필요인원
@@ -20,7 +22,7 @@ public class Content {
 	}
 
 	public Content(int id, int num, String subject, String talent,
-			String c_date, String s_day, String address, String location,
+			Timestamp c_date, Timestamp s_day, String address, String location,
 			int personnel, String gender, String content, String closed,
 			String type) {
 		super();
@@ -71,19 +73,19 @@ public class Content {
 		this.talent = talent;
 	}
 
-	public String getC_date() {
+	public Timestamp getC_date() {
 		return c_date;
 	}
 
-	public void setC_date(String c_date) {
+	public void setC_date(Timestamp c_date) {
 		this.c_date = c_date;
 	}
 
-	public String getS_day() {
+	public Timestamp getS_day() {
 		return s_day;
 	}
 
-	public void setS_day(String s_day) {
+	public void setS_day(Timestamp s_day) {
 		this.s_day = s_day;
 	}
 

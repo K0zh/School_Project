@@ -38,11 +38,11 @@ public class MainController {
 	public ModelAndView viewMain(@RequestParam(value="type", required = false) String type) {
 		ModelAndView mav = new ModelAndView();
 		
-		System.out.println("viewMain");
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("type", type);
 		List<Content> contentLists = contentDao.getAllContent(map);
 
+		System.out.println(contentLists);
 		mav.addObject("contentLists", contentLists);
 		mav.setViewName("Main");
 

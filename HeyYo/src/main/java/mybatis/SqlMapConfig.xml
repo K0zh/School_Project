@@ -11,11 +11,13 @@
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 	</settings>
 	<typeAliases>
-		<typeAlias alias="MyContent" type="com.project.heyyo.content.model.Content"/>
 		<typeAlias alias="MyMember" type="com.project.heyyo.member.model.Member"/>
+		<typeAlias alias="MyContent" type="com.project.heyyo.content.model.Content"/>
+		<typeAlias alias="MyMatching" type="com.project.heyyo.content.matching.Matching"/>
 	</typeAliases>
 	<mappers>
+		<mapper resource="mybatis/member.xml"/>
 		<mapper resource="mybatis/content.xml"/>
-		<mapper resource="mybatis/member.xml"/> 
+		<mapper resource="mybatis/matching.xml"/> 
 	</mappers>
 </configuration>

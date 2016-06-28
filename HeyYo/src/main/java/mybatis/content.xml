@@ -4,24 +4,23 @@
 
 <mapper namespace="com.project.heyyo.content.model.Content">
 	<select id="GetAllContent" resultType="HashMap" parameterType="HashMap">
-		select * from contents 
+		select * from contents
 		<if test="type != null">
 			where type = #{type}
 		</if>
-		
-		
 	</select>
 
-	<select id="GetContentById" resultType="MyContent"
+	<select id="GetContentByNum" resultType="MyContent"
 		parameterType="int">
-		select * from contents where id = #{id}
+		select * from contents where num = #{num}
 	</select>
 
 	<insert id="InsertTalentData" parameterType="MyContent">
 		insert into
 		contents(id, num, subject, talent, s_day, address, location,
 		personnel, gender, content, closed, type)
-		values(#{id}, conseq.nextval,
+		values
+		(#{id}, conseq.nextval,
 		#{subject}, #{talent}, #{s_day}, #{address}, #{location},
 		#{personnel}, #{gender}, #{content}, 'open', #{type})
 	</insert>

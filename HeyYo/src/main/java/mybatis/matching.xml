@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.heyyo.content.matching.Matching">
+
+<insert id="InsertRequestMatching" parameterType="MyMatching">
+	insert into matching(m_num, m_id, introduce, accept)
+	values(#{m_num}, #{m_id}, #{introduce}, 'wait')
+</insert>
+
+<select id="SelectMatchingByNum" parameterType="HashMap" resultType="HashMap">
+	select * from matching
+	<if test="m_num != null">
+	where m_num = #{num}
+	</if>
+	order by m_date
+</select>
+
+</mapper>

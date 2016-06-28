@@ -1,6 +1,8 @@
 package com.project.heyyo.content;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -63,11 +65,14 @@ public class ContentController {
 		ModelAndView mav = new ModelAndView();
 		Content content = contentDao.getContentByNum(num);
 		
-		//List<Matching> lists = matchingDao.selectMatchingByNum(num);
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("num", num);
+		List<Matching> lists = matchingDao.selectMatchingByNum(map);
 		
 		mav.addObject("content", content);
-		//System.out.println("LISTS" + lists);
-		//mav.addObject("matchingList", lists);
+		System.out.println("LISTS" + lists);
+		mav.addObject("matchingList", lists);
 		
 		mav.setViewName("ContentDetailView");
 		
