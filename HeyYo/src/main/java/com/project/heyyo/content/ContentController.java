@@ -1,5 +1,8 @@
 package com.project.heyyo.content;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.heyyo.content.matching.Matching;
+import com.project.heyyo.content.matching.MatchingDao;
 import com.project.heyyo.content.model.Content;
 import com.project.heyyo.content.model.ContentDao;
 
@@ -21,6 +26,10 @@ public class ContentController {
 	@Autowired
 	@Qualifier("myContentDao")
 	private ContentDao contentDao;
+	
+	@Autowired
+	@Qualifier("myMatchingDao")
+	private MatchingDao matchingDao;
 
 	@RequestMapping(value = "infowindow.con")
 	public String viewInfoWindow() {
@@ -36,7 +45,6 @@ public class ContentController {
 	public String doActionWrite(
 			@ModelAttribute("Content") @Valid Content content,
 			BindingResult bindingResult) {
-		System.out.println("write.com POST");
 
 		// 얻어온 좌표 가공
 		String location = content.getLocation();
@@ -51,13 +59,30 @@ public class ContentController {
 	}
 
 	@RequestMapping(value = "detail.con")
-	public ModelAndView viewDetail(@RequestParam(value = "id") int id) {
+	public ModelAndView viewDetail(@RequestParam(value = "num") int num, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("id : " + id);
-		Content content;
-		content = contentDao.getContentById(id);
+		Content content = contentDao.getContentByNum(num);
+		
+		//List<Matching> lists = matchingDao.selectMatchingByNum(num);
+		
 		mav.addObject("content", content);
+		//System.out.println("LISTS" + lists);
+		//mav.addObject("matchingList", lists);
+		
 		mav.setViewName("ContentDetailView");
+		
 		return mav;
+	}
+
+	@RequestMapping(value = "matching.con")
+	public String doActionMatching(
+			@ModelAttribute("Matching") @Valid Matching matching,
+			BindingResult bindingResult) {
+		
+		int num = matching.getM_num();
+		matchingDao.insertRequestMatching(matching);
+		
+		return "redirect:detail.con?num="+num;
+
 	}
 }
