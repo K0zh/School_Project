@@ -4,8 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpSession;
-
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -19,7 +18,9 @@ import com.project.heyyo.content.model.ContentDao;
 
 @Controller
 public class MainController {
-
+	
+	public static final Logger LOGGER = Logger.getLogger(MainController.class);
+	
 	@Autowired
 	@Qualifier("myContentDao")
 	private ContentDao contentDao;
@@ -36,6 +37,7 @@ public class MainController {
 
 	@RequestMapping(value = "main.do", method = RequestMethod.GET)
 	public ModelAndView viewMain(@RequestParam(value="type", required = false) String type) {
+		LOGGER.info("메인 실행");
 		ModelAndView mav = new ModelAndView();
 		
 		Map<String, String> map = new HashMap<String, String>();

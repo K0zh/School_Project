@@ -3,6 +3,7 @@ package com.project.heyyo.content.matching;
 import java.security.Timestamp;
 
 public class Matching {
+	private String m_name;
 	private int m_num;
 	private int m_id;
 	private Timestamp m_date;
@@ -13,14 +14,23 @@ public class Matching {
 		super();
 	}
 
-	public Matching(int m_num, int m_id, Timestamp m_date, String introduce,
-			String accept) {
+	public Matching(String m_name, int m_num, int m_id, Timestamp m_date,
+			String introduce, String accept) {
 		super();
+		this.m_name = m_name;
 		this.m_num = m_num;
 		this.m_id = m_id;
 		this.m_date = m_date;
 		this.introduce = introduce;
 		this.accept = accept;
+	}
+
+	public String getM_name() {
+		return m_name;
+	}
+
+	public void setM_name(String m_name) {
+		this.m_name = m_name;
 	}
 
 	public int getM_num() {

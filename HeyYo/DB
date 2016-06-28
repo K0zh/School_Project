@@ -82,21 +82,32 @@ commit ;
 -------------------------------------------------------------------------------------
 -- 매칭 테이블
 -------------------------------------------------------------------------------------
---num 고유 매칭 번호
---id 신청한 사용자 id
+--m_num 고유 매칭 번호
+--m_id 신청한 사용자 id
 --m_date 신청 시간
 --introduce 소개글
 --accept 수락 및 거절 
 
-
-drop sequence matseq;
-create sequence matseq start with 1 increment by 1 nocache ;
 drop table matching purge ;
 create table matching(
+	m_name varchar2(20),
 	m_num number,
 	m_id number,
 	m_date date default sysdate,
 	introduce varchar2(100),
 	accept varchar2(10)
 );
-  
+ 
+-------------------------------------------------------------------------------------
+-- 매칭 상세 테이블
+-------------------------------------------------------------------------------------
+ 
+drop table matching purge ;
+create table matching_detail(
+	m_num number,
+	m_id1 number,
+	m_id2 number,
+	m_date date default sysdate,
+	introduce varchar2(100),
+	accept varchar2(10)
+);

@@ -33,5 +33,11 @@ public class MatchingDao {
 		return lists;
 
 	}
+
+	public void deleteRequest(int id) {
+		
+		sqlSessionTemplate.delete(namespace + ".DeleteRequest", id);
+		
+	}
 	
 }

@@ -28,7 +28,7 @@ public class ContentController {
 	@Autowired
 	@Qualifier("myContentDao")
 	private ContentDao contentDao;
-	
+
 	@Autowired
 	@Qualifier("myMatchingDao")
 	private MatchingDao matchingDao;
@@ -61,21 +61,22 @@ public class ContentController {
 	}
 
 	@RequestMapping(value = "detail.con")
-	public ModelAndView viewDetail(@RequestParam(value = "num") int num, HttpSession session) {
+	public ModelAndView viewDetail(@RequestParam(value = "num") int num,
+			HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		Content content = contentDao.getContentByNum(num);
-		
+
 		Map<String, Object> map = new HashMap<String, Object>();
-		
+
 		map.put("num", num);
 		List<Matching> lists = matchingDao.selectMatchingByNum(map);
-		
+
 		mav.addObject("content", content);
 		System.out.println("LISTS" + lists);
 		mav.addObject("matchingList", lists);
-		
+
 		mav.setViewName("ContentDetailView");
-		
+
 		return mav;
 	}
 
@@ -83,11 +84,23 @@ public class ContentController {
 	public String doActionMatching(
 			@ModelAttribute("Matching") @Valid Matching matching,
 			BindingResult bindingResult) {
-		
+
 		int num = matching.getM_num();
 		matchingDao.insertRequestMatching(matching);
-		
-		return "redirect:detail.con?num="+num;
 
+		return "redirect:detail.con?num=" + num;
+
+	}
+
+	@RequestMapping(value = "agree.con")
+	public String doActionAgree() {
+		return "matching/test";
+	}
+
+	@RequestMapping(value = "deny.con")
+	public String doActionDeny(@RequestParam(value = "id") int id,
+			@RequestParam(value = "num") int num) {
+		matchingDao.deleteRequest(id);
+		return "redirect:detail.con?num=" + num;
 	}
 }
