@@ -2,8 +2,8 @@ PROJECT DB E-oood
 -------------------------------------------------------------------------------------
 -- È¸¿ø Å×ÀÌºí
 -------------------------------------------------------------------------------------
-drop sequence memseq;
-create sequence memseq start with 1 increment by 1 nocache ;
+drop sequence t_memseq;
+create sequence t_memseq start with 1 increment by 1 nocache ;
 
 drop table t_members purge;
 
@@ -26,8 +26,9 @@ create table t_members(
 );
 
 -- Ãß°¡
-insert into t_members(num, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, M_like)
-values(member_sq.nextval,'abc@naver.com','1','È«±æµ¿','³²',0101234567, '°ø°³','2016-06-16','¼­¿ï°­ºÏ','#À½¾Ç','#Ãã',1);
+
+insert into member_test(num, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, M_like)
+values(t_memseq.nextval,'abc@naver.com','1','È«±æµ¿','³²',0101234567, '°ø°³','2016-06-16','¼­¿ï°­ºÏ','#À½¾Ç','#Ãã',1);
  
 commit ;
 	
