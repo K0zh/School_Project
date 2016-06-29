@@ -103,4 +103,10 @@ public class ContentController {
 		matchingDao.deleteRequest(id);
 		return "redirect:detail.con?num=" + num;
 	}
+	
+	@RequestMapping(value = "agree.con")
+	public String doActionAgree(@RequestParam(value = "id") int id,
+			@RequestParam(value = "num") int num) {
+		return "redirect:detail.con?num=" + num;
+	}
 }

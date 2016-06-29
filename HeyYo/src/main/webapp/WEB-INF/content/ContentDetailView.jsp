@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/common/common.jsp"%>
 <%session.setAttribute("id", 7);%>
-<%session.setAttribute("name", "kim");%>
+<%session.setAttribute("name", "park");%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
