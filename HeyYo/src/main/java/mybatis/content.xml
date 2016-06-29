@@ -8,6 +8,9 @@
 		<if test="type != null">
 			where type = #{type}
 		</if>
+		<if test="talent != null">
+			where talent = #{talent}
+		</if>
 	</select>
 
 	<select id="GetContentByNum" resultType="MyContent"

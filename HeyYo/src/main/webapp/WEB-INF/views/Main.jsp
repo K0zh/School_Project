@@ -34,11 +34,11 @@
 		<div id="map" style="width: 80%; height: 50%; margin: 50px;"></div>
 
 
-		<input type="button" value="도움 요청하기"
+		<!-- <input type="button" value="도움 요청하기"
 			onclick="location.href='write.con'"><br> <input
 			type="button" value="전체보기" onclick="location.href='main.do'"><br>
 		<input type="button" value="필요해요!" onclick="need()"><br>
-		<input type="button" value="필요해요?" onclick="able()"><br>
+		<input type="button" value="필요해요?" onclick="able()"><br> -->
 	</div>
 	<!-- /#wrapper -->
 
