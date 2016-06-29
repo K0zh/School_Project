@@ -35,6 +35,7 @@ public class MainController {
 		return "index";
 	}
 
+	//메인 화면 이동
 	@RequestMapping(value = "main.do", method = RequestMethod.GET)
 	public ModelAndView viewMain(@RequestParam(value="type", required = false) String type) {
 		LOGGER.info("메인 실행");

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component("myMemberDao")
 public class MemberDao {
-	private final String namespace = "com.project.att.content.model.Member";
+	private final String namespace = "com.project.heyyo.member.model.Member";
 
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
@@ -38,5 +38,10 @@ public class MemberDao {
 		return mb;
 	
 	}
+	public Member selectMemberById(int id) {
+		System.out.println("selectMemberById :  " + id);
+		Member mb = sqlSessionTemplate.selectOne(namespace + ".SelectMemberById", id);
+		
+		return mb;
+	}
 }
-

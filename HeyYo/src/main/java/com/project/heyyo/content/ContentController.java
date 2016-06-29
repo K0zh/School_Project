@@ -21,9 +21,15 @@ import com.project.heyyo.content.matching.Matching;
 import com.project.heyyo.content.matching.MatchingDao;
 import com.project.heyyo.content.model.Content;
 import com.project.heyyo.content.model.ContentDao;
+import com.project.heyyo.member.model.Member;
+import com.project.heyyo.member.model.MemberDao;
 
 @Controller
 public class ContentController {
+	
+	@Autowired
+	@Qualifier("myMemberDao")
+	private MemberDao memberDao;
 
 	@Autowired
 	@Qualifier("myContentDao")
@@ -38,11 +44,13 @@ public class ContentController {
 		return "InfoWindow";
 	}
 
+	// 요청하기 폼 이동
 	@RequestMapping(value = "write.con", method = RequestMethod.GET)
 	public String viewWriteForm() {
 		return "ContentWriteForm";
 	}
 
+	// 요청하기 콘텐츠 등록
 	@RequestMapping(value = "write.con", method = RequestMethod.POST)
 	public String doActionWrite(
 			@ModelAttribute("Content") @Valid Content content,
@@ -54,12 +62,14 @@ public class ContentController {
 
 		// 가공한 좌표 재설정
 		content.setLocation(location);
-
+		System.out.println("id: " + content.getId());
+		System.out.println("SDAY" + content.getS_day());
 		contentDao.insertTalentData(content);
 
 		return "redirect:main.do";
 	}
 
+	// 요청 내용 상세보기
 	@RequestMapping(value = "detail.con")
 	public ModelAndView viewDetail(@RequestParam(value = "num") int num,
 			HttpSession session) {
@@ -72,7 +82,6 @@ public class ContentController {
 		List<Matching> lists = matchingDao.selectMatchingByNum(map);
 
 		mav.addObject("content", content);
-		System.out.println("LISTS" + lists);
 		mav.addObject("matchingList", lists);
 
 		mav.setViewName("ContentDetailView");
@@ -92,21 +101,32 @@ public class ContentController {
 
 	}
 
-	@RequestMapping(value = "agree.con")
-	public String doActionAgree() {
-		return "matching/test";
-	}
-
+	// 요청 거절하기
 	@RequestMapping(value = "deny.con")
 	public String doActionDeny(@RequestParam(value = "id") int id,
 			@RequestParam(value = "num") int num) {
 		matchingDao.deleteRequest(id);
 		return "redirect:detail.con?num=" + num;
 	}
+
 	
-	@RequestMapping(value = "agree.con")
-	public String doActionAgree(@RequestParam(value = "id") int id,
-			@RequestParam(value = "num") int num) {
-		return "redirect:detail.con?num=" + num;
+	// 요청 수락하기
+	@RequestMapping(value = "agree.con", method = RequestMethod.POST)
+	public ModelAndView doActionAgree(
+			@RequestParam(value = "id_able") int id_able,
+			@RequestParam(value = "id_need") int id_need) {
+		System.out.println(id_able);
+		System.out.println(id_need);
+
+		ModelAndView mav = new ModelAndView();
+
+		Member responseMember = memberDao.selectMemberById(id_able);
+		Member requestMember = memberDao.selectMemberById(id_need);
+		
+		mav.addObject("responseMember", responseMember);
+		mav.addObject("requestMember", requestMember);
+		mav.setViewName("matching/MatchingDetail");
+
+		return mav;
 	}
 }

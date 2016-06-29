@@ -2,13 +2,30 @@ PROJECT DB E-oood
 -------------------------------------------------------------------------------------
 -- 회원 테이블
 -------------------------------------------------------------------------------------
+
+-- id 회원 고유 번호 
+-- email 이메일(로그인 id)
+-- pw 비밀번호
+-- name 이름
+-- gender 성별
+-- hp 핸드폰 번호
+-- hpopen 공개 유무 설정 
+-- birthday 생년월일
+-- address 주소	
+-- talentDt 할 수 있는 재능
+-- talentGet 필요한 재능
+-- image 회원 이미지
+-- grade number 회원 등급
+-- credibility 신뢰도
+-- R_date 가입일
+
+
 drop sequence memseq;
 create sequence memseq start with 1 increment by 1 nocache ;
-
 drop table members purge;
 
 create table members(
-	num number primary key,
+	id number primary key,
 	email varchar2(30) not null,
 	pw varchar2(30) not null,
 	name varchar2(30) not null,
@@ -21,13 +38,16 @@ create table members(
 	talentGet varchar2(30),
 	image varchar2(30),
 	grade number default 3,
-	M_like number default 0,
+	credibility number default 0,
 	R_date date default sysdate
 );
 
 -- 추가
-insert into member_test(num, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, M_like)
-values(member_sq.nextval,'abc@naver.com','1','홍길동','남',0101234567, '공개','2016-06-16','서울강북','#음악','#춤',1);
+insert into members(id, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, credibility)
+values(memseq.nextval,'admin@admin.com','admin','adminN','남',0101234567, '공개','2016-06-16','서울강북','#음악','#춤',1);
+
+insert into members(id, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, credibility)
+values(memseq.nextval,'abc@naver.com','1','홍길동','남',0101234567, '공개','2016-06-16','서울강북','#음악','#춤',1);
  
 commit ;
 	
@@ -104,10 +124,9 @@ create table matching(
  
 drop table matching purge ;
 create table matching_detail(
-	m_num number,
-	m_id1 number,
-	m_id2 number,
-	m_date date default sysdate,
-	introduce varchar2(100),
-	accept varchar2(10)
+	md_num number,
+	md_id1 number,
+	md_id2 number,
+	md_date date default sysdate,
+	state varchar2(10)
 );

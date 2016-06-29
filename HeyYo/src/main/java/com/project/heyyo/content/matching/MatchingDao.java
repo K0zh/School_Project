@@ -20,12 +20,13 @@ public class MatchingDao {
 		System.out.println("mcDAo");
 	}
 
+	// 매칭 신청 하기
 	public void insertRequestMatching(Matching matching) {
 		sqlSessionTemplate.insert(namespace + ".InsertRequestMatching",
 				matching);
-
 	}
-
+	
+	// 매칭 신청 리스트
 	public List<Matching> selectMatchingByNum(Map<String, Object> num) {
 		List<Matching> lists = new ArrayList<Matching>();
 		lists = sqlSessionTemplate.selectList(namespace + ".SelectMatchingByNum", num);
@@ -33,11 +34,10 @@ public class MatchingDao {
 		return lists;
 
 	}
-
+	
+	// 매칭 거절, 취소 
 	public void deleteRequest(int id) {
-		
 		sqlSessionTemplate.delete(namespace + ".DeleteRequest", id);
-		
 	}
 	
 }

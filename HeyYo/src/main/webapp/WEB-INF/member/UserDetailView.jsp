@@ -12,6 +12,6 @@
 <link href="${pageContext.request.contextPath}/resources/css/bootstrap-tokenfield.css" rel="stylesheet">
 </head>
 <body>
-test 페이지
+
 </body>
 </html>
