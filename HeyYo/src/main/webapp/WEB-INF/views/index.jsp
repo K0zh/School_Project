@@ -18,7 +18,7 @@
 
 	<div id="wrapper">
 		<!-- Sidebar -->
-		<jsp:include page="/WEB-INF/common/sidebar.jsp" />
+		<%-- <jsp:include page="/WEB-INF/common/sidebar.jsp" /> --%>
 		
 			<a href="main.do">도움 요청</a><br>
 			<a href="#">도움 찾기(미구현)</a><br>

@@ -8,6 +8,8 @@
 		<if test="type != null">
 			where type = #{type}
 		</if>
+		
+		order by c_date desc
 	</select>
 
 	<select id="GetContentByNum" resultType="MyContent"
