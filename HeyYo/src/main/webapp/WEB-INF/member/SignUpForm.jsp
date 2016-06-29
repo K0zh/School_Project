@@ -11,6 +11,7 @@
 <!-- 재능 입력 (Tokenfield) CSS -->
 <link href="${pageContext.request.contextPath}/resources/css/bootstrap-tokenfield.css" rel="stylesheet">
 </head>
+
 <body>
 	<!-- Login Modal JSP-->
 	<jsp:include page="/WEB-INF/common/loginmodal.jsp" />
@@ -21,18 +22,51 @@
 	<div id="wrapper">
 		<!-- Sidebar -->
 		<jsp:include page="/WEB-INF/common/sidebar.jsp" />
-		<form name="WriteForm" action="write.con" method="post">
+		<form name="WriteForm" action="write.mb" method="post">
 			<h3>원하는 시간에 재능을 나누세요</h3>
 
-			<div class="form-group has-success has-feedback">
-				<label>이름</label> 
-				<input type="text" class="form-control" placeholder="홍길동" name="name" aria-describedby="inputSuccess2Status">
-				<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-				<span id="inputSuccess2Status" class="sr-only">(success)</span>
-			</div>
-
+			
 			<div class="form-group">
-				<label>전화번호</label> <input type="text" class="form-control" placeholder="01012345678" name="tel">
+    		<label>이메일 주소</label>
+    		<input type="email" class="form-control" name="email" placeholder="이메일을 입력하세요">
+  			</div>
+  			
+  			<div class="form-group">
+  			<label>비밀번호</label>
+  			<input type="password" class="form-control" name="pw" placeholder="비밀번호">
+  			</div>
+  			
+  			
+			<div class="form-group">
+				<label>이름</label> 
+				<div class="form-inline">
+				<input type="text" class="form-control" placeholder="홍길동" name="name">
+				<select class="form-control" name="gender">
+  				<option value="남자">남자</option>
+  				<option value="여자">여자</option>
+				</select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+  			<label>생년월일</label>s
+  			<div class="form-inline">
+  			<input type="date" name="birthday"class="form-control" placeholder="date input">
+  			</div>
+  			</div>
+			
+			<div class="form-group">
+				<label>전화번호</label>
+				<div class="form-inline">
+				 <input type="text" class="form-control" placeholder="01012345678" name="hp">
+				<label class="radio-inline">
+ 				<input type="radio" name="hpopen" value="공개">공개
+				</label>
+				<label class="radio-inline">
+ 				<input type="radio" name="hpopen" value="비공개">비공개
+				</label>
+				<input class="btn btn-info" type="button" value="인증">
+				</div>
 			</div>
 
 			<div class="form-group">
@@ -65,12 +99,13 @@
 
 			<div class="form-group">
 				<label>나의 재능</label>
-				<input type="text" class="form-control" id="talent" name="talent">
+				<input type="text" class="form-control" id="talentDt" name="talentDt">
+			</div>
+			<div class="form-group">
+				<label>배울 재능</label>
+				<input type="text" class="form-control" id="talentGet" name="talentGet">
 			</div>
 
-			<div class="form-group">
-				<label>시간</label> <input type="text" class="form-control" name="time">
-			</div>
 			<input type="submit" value="신청하기" class="btn btn-primary btn-md btn-block">
 		</form>
 	</div>
@@ -82,9 +117,12 @@
 	<!-- 재능 입력 (Tokenfield) JS -->
 	<script src="${pageContext.request.contextPath}/resources/js/bootstrap-tokenfield.js"></script>
 	<script type="text/javascript">
-		$('#talent').tokenfield({
+		$('#talentDt').tokenfield({
 					showAutocompleteOnFocus : true
-				})
+				});
+		$('#talentGet').tokenfield({
+					showAutocompleteOnFocus : true
+				});
 	</script>
 
 </body>

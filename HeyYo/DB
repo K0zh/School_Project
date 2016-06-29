@@ -5,9 +5,9 @@ PROJECT DB E-oood
 drop sequence memseq;
 create sequence memseq start with 1 increment by 1 nocache ;
 
-drop table members purge;
+drop table t_members purge;
 
-create table members(
+create table t_members(
 	num number primary key,
 	email varchar2(30) not null,
 	pw varchar2(30) not null,
@@ -26,7 +26,7 @@ create table members(
 );
 
 -- Ãß°¡
-insert into member_test(num, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, M_like)
+insert into t_members(num, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, M_like)
 values(member_sq.nextval,'abc@naver.com','1','È«±æµ¿','³²',0101234567, '°ø°³','2016-06-16','¼­¿ï°­ºÏ','#À½¾Ç','#Ãã',1);
  
 commit ;
