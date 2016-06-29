@@ -2,6 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.project.heyyo.member.model.Member">
+<mapper namespace="com.project.att.content.model.Member">
 
+	<select id="InquiryEmail" resultType="MyMember" >
+	select * from member_test where email like #{email}
+	</select>
+	
+	<insert id="M_insert" parameterType="MyMember">
+	insert into member_test(num, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet)
+	values(member_sq.nextval,#{email},#{pw},#{name},#{gender},#{hp},#{hpopen},#{birthday},#{address},#{talentDt},#{talentGet})
+	</insert>
+	
+	<select id="email_test" resultType="MyMember">
+	select * from member_test where name=#{name} and hp=#{hp}
+	</select>
+	
+	<select id="pw_test" resultType="MyMember">
+	select * from member_test where email=#{email} and name=#{name} and hp=#{hp}
+	</select>
+	
+	
 </mapper>
