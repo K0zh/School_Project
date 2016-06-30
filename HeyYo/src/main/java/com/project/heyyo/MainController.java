@@ -27,21 +27,23 @@ public class MainController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
-		return "index";
+		return "initPage";
 	}
 
 	@RequestMapping(value = "home.do")
 	public String home2() {
-		return "index";
+		return "Main";
 	}
 
 	@RequestMapping(value = "main.do", method = RequestMethod.GET)
-	public ModelAndView viewMain(@RequestParam(value="type", required = false) String type) {
+	public ModelAndView viewMain(@RequestParam(value="type", required = false) String type,
+			@RequestParam(value="talent", required = false) String talent) {
 		LOGGER.info("메인 실행");
 		ModelAndView mav = new ModelAndView();
 		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("type", type);
+		map.put("talent", talent);
 		List<Content> contentLists = contentDao.getAllContent(map);
 
 		System.out.println(contentLists);

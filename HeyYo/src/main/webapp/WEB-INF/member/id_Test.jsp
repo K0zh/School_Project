@@ -6,18 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<!-- SideBar CSS -->
-<link href="${pageContext.request.contextPath}/resources/css/sidebar.css" rel="stylesheet">
 </head>
 <body>
-<!-- Login Modal JSP-->
-	<jsp:include page="/WEB-INF/common/loginmodal.jsp" />
 
-	<!-- Navigation Bar JSP  -->
-	<jsp:include page="/WEB-INF/common/navbar.jsp" />
 	<div id="wrapper">
-		<!-- Sidebar -->
-		<jsp:include page="/WEB-INF/common/sidebar.jsp"/>
+	
 		<center><h3>아이디 찾기</h3></center>
 		<form action="idInquiry.mb" method="post">
 		

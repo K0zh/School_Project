@@ -86,18 +86,18 @@ public class MemberController {
 		
 		if(mb==null){
 			System.out.println("아이디가 없습니다.");
-			mav.setViewName("SignUpForm.jsp");
+			mav.setViewName("SignUpForm");
 		}else{
 			if(member.getEmail().trim().equals(mb.getEmail())&&
 					member.getPw().trim().equals(mb.getPw())){
 				System.out.println("이메일 비번 맞음.");
 				
 				session.setAttribute("loginfo", mb); 
-				mav.setViewName("test");//수정해야됨
+				mav.setViewName("main");
 				
 			}else{
 				System.out.println("비밀번호가 틀렸습니다");
-				mav.setViewName("SignUpForm.jsp");
+				mav.setViewName("SignUpForm");
 			}
 		}
 		
