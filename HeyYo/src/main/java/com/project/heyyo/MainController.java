@@ -32,17 +32,27 @@ public class MainController {
 
 	@RequestMapping(value = "home.do")
 	public String home2() {
-		return "index";
+		return "Main";
 	}
 
+	
 	//메인 화면 이동
 	@RequestMapping(value = "main.do", method = RequestMethod.GET)
-	public ModelAndView viewMain(@RequestParam(value="type", required = false) String type) {
+	public ModelAndView viewMain(
+			@RequestParam(value="type", required = false) String type,
+			@RequestParam(value="talent", required = false) String talent,
+			@RequestParam(value="init_lat", required = false) String init_lat,
+			@RequestParam(value="init_lng", required = false) String init_lng
+			) {
 		LOGGER.info("메인 실행");
 		ModelAndView mav = new ModelAndView();
 		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("type", type);
+		map.put("talent", talent);
+		map.put("init_lat", init_lat);
+		map.put("init_lng", init_lng);
+		
 		List<Content> contentLists = contentDao.getAllContent(map);
 
 		System.out.println(contentLists);

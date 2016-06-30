@@ -58,10 +58,15 @@ public class ContentController {
 
 		// 얻어온 좌표 가공
 		String location = content.getLocation();
-		location = location.replace("(", "").replace(")", "");
+		String[] location_result = location.replace("(", "").replace(")", "").split(",");
+		content.setLat(location_result[0]);
+		content.setLng(location_result[1]);
+		
+		System.out.println("위도" + content.getLat());
+		System.out.println("경도" + content.getLng());
+		
 
 		// 가공한 좌표 재설정
-		content.setLocation(location);
 		System.out.println("id: " + content.getId());
 		System.out.println("SDAY" + content.getS_day());
 		contentDao.insertTalentData(content);

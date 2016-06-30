@@ -4,25 +4,37 @@
 
 <mapper namespace="com.project.heyyo.member.model.Member">
 
-	<select id="InquiryEmail" resultType="MyMember" >
-	select * from members where email like #{email}
+	<select id="InquiryEmail" resultType="MyMember">
+		select * from members where
+		email like #{email}
+		select * from t_members where email like #{email}
 	</select>
-	
+
 	<insert id="M_insert" parameterType="MyMember">
-	insert into members(id, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet)
-	values(memseq.nextval,#{email},#{pw},#{name},#{gender},#{hp},#{hpopen},#{birthday},#{address},#{talentDt},#{talentGet})
+		insert into members(id,
+		email, pw, name, gender, hp, hpopen, birthday,
+		address, talentDt,
+		talentGet)
+		values(memseq.nextval,#{email},#{pw},#{name},#{gender},#{hp},#{hpopen},#{birthday},#{address},#{talentDt},#{talentGet})
+		insert into t_members(num, email, pw, name, gender, hp, hpopen,
+		birthday, address, talentDt, talentGet)
+		values(t_memseq.nextval,#{email},#{pw},#{name},#{gender},#{hp},#{hpopen},#{birthday},#{address},#{talentDt},#{talentGet})
 	</insert>
-	
+
 	<select id="email_test" resultType="MyMember">
-	select * from members where name=#{name} and hp=#{hp}
+		select * from members where
+		name=#{name} and hp=#{hp}
+		select * from t_members where name=#{name}
+		and hp=#{hp}
 	</select>
-	
+
 	<select id="pw_test" resultType="MyMember">
-	select * from members where email=#{email} and name=#{name} and hp=#{hp}
+		select * from members where email=#{email} and name=#{name}
+		select * from t_members where email=#{email} and name=#{name}
 	</select>
-	
+
 	<select id="SelectMemberById" parameterType="int" resultType="MyMember">
-	select * from members where id = #{id}
+		select * from members where id = #{id}
 	</select>
-	
+
 </mapper>

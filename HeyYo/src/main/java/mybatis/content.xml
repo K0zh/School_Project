@@ -4,12 +4,20 @@
 
 <mapper namespace="com.project.heyyo.content.model.Content">
 	<select id="GetAllContent" resultType="HashMap" parameterType="HashMap">
-		select * from contents
+
+	 
+		SELECT id, ( 6371 * acos( cos( radians(#{init_lat}) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians(#{init_lng}) ) + sin( radians(#{init_lat}) ) * sin( radians( lat ) ) ) ) AS distance FROM contents
+			
 		<if test="type != null">
 			where type = #{type}
 		</if>
-		
-		order by c_date desc
+
+		<if test="talent != null">
+			where talent = #{talent}
+		</if>
+		<![CDATA[
+			where distance < 5 ORDER BY distance
+		]]> 
 	</select>
 
 	<select id="GetContentByNum" resultType="MyContent"
@@ -19,11 +27,11 @@
 
 	<insert id="InsertTalentData" parameterType="MyContent">
 		insert into
-		contents(id, num, subject, talent, s_day, address, location,
+		contents(id, num, subject, talent, s_day, address, lat, lng,
 		personnel, gender, content, closed, type)
 		values
 		(#{id}, conseq.nextval,
-		#{subject}, #{talent}, #{s_day}, #{address}, #{location},
+		#{subject}, #{talent}, #{s_day}, #{address}, #{lat}, #{lng},
 		#{personnel}, #{gender}, #{content}, 'open', #{type})
 	</insert>
 

@@ -34,11 +34,15 @@
 		<div id="map" style="width: 80%; height: 50%; margin: 50px;"></div>
 
 
-		<input type="button" value="도움 요청하기"
+		<!-- <input type="button" value="도움 요청하기"
 			onclick="location.href='write.con'"><br> <input
 			type="button" value="전체보기" onclick="location.href='main.do'"><br>
 		<input type="button" value="필요해요!" onclick="need()"><br>
-		<input type="button" value="필요해요?" onclick="able()"><br>
+		<input type="button" value="필요해요?" onclick="able()"><br> -->
+		
+		
+		test : ${sessionScope.init_lng }
+		test2 : ${sessionScope.init_lat }
 	</div>
 	<!-- /#wrapper -->
 
@@ -50,6 +54,8 @@
 
 		/* 마커 정보창 text */
 		var contentString = new Array();
+		var init_lat = new Array();
+		var init_lng = new Array();
 
 		<c:forEach items="${contentLists}" var="content" varStatus="status">
 			var str = "";
@@ -72,6 +78,8 @@
 
 			address.push("${content.ADDRESS}"); //주소값
 			coordinate.push("${content.LOCATION}") //좌표값
+			init_lat.push("${content.LAT}")
+			init_lng.push("${content.LNG}")
 
 			contentString.push(str); //마커 정보
 		</c:forEach>

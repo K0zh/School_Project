@@ -15,17 +15,10 @@ function initMap() {
 				zoom : 18
 			});
 
-			/* 마커 위치 설정 */
-			var locations = [];
-			for (var i = 0; i < coordinate.length; i++) {
-				var coordinate_detail = coordinate[i].split(",");
-				locations.push(coordinate_detail);
-			}
-
 			/* 마커 띄우기 */
-			for (i = 0; i < locations.length; i++) {
-				var myLatLng = new google.maps.LatLng(locations[i][0],
-						locations[i][1]);
+			for (i = 0; i < address.length; i++) {
+				var myLatLng = new google.maps.LatLng(init_lat[i],
+						init_lng[i]);
 				var marker = new google.maps.Marker({
 					position : myLatLng,
 					map : map,

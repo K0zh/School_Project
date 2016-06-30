@@ -8,7 +8,12 @@ public class Content {
 	private String c_date; // 글작성일
 	private String s_day; // 요청일
 	private String address; // 주소
-	private String location; // 좌표
+
+	private String location; // 전체 좌표
+
+	private String lat; // 위도
+	private String lng; // 경도
+
 	private int personnel; // 필요인원
 	private String gender; // 성별
 	private String content; // 본문 내용
@@ -20,9 +25,9 @@ public class Content {
 	}
 
 	public Content(int id, int num, String subject, String talent,
-			String c_date, String s_day, String address, String location,
-			int personnel, String gender, String content, String closed,
-			String type) {
+			String c_date, String s_day, String address, String lat,
+			String lng, int personnel, String gender, String content,
+			String closed, String type) {
 		super();
 		this.id = id;
 		this.num = num;
@@ -31,7 +36,8 @@ public class Content {
 		this.c_date = c_date;
 		this.s_day = s_day;
 		this.address = address;
-		this.location = location;
+		this.lat = lat;
+		this.lng = lng;
 		this.personnel = personnel;
 		this.gender = gender;
 		this.content = content;
@@ -95,12 +101,20 @@ public class Content {
 		this.address = address;
 	}
 
-	public String getLocation() {
-		return location;
+	public String getLat() {
+		return lat;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
+	public void setLat(String lat) {
+		this.lat = lat;
+	}
+
+	public String getLng() {
+		return lng;
+	}
+
+	public void setLng(String lng) {
+		this.lng = lng;
 	}
 
 	public int getPersonnel() {
@@ -141,6 +155,14 @@ public class Content {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 }
