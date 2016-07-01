@@ -16,7 +16,9 @@ public class MemberDao {
 	//증복이메일검사
 	public Member InquiryEmail(String email) {
 		Member mb = null;
+		System.out.println("여기");
 		mb= sqlSessionTemplate.selectOne(namespace+".InquiryEmail", email);
+		System.out.println("두기");
 		return mb;
 	}
 	//회원가입

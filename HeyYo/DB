@@ -49,7 +49,7 @@ values(memseq.nextval,'admin@admin.com','admin','adminN','³²',0101234567, '°ø°³'
 insert into members(id, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, credibility)
 values(memseq.nextval,'abc@naver.com','1','È«±æµ¿','³²',0101234567, '°ø°³','2016-06-16','¼­¿ï°­ºÏ','#À½¾Ç','#Ãã',1);
 
-insert into member_test(num, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, M_like)
+insert into t_members(num, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, M_like)
 values(t_memseq.nextval,'abc@naver.com','1','È«±æµ¿','³²',0101234567, '°ø°³','2016-06-16','¼­¿ï°­ºÏ','#À½¾Ç','#Ãã',1);
  
 commit ;

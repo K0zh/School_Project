@@ -18,8 +18,12 @@
 							class="col-xs-1 control-label glyphicon glyphicon-user"
 							style="margin: auto;"> </label>
 						<div class="col-xs-10">
+<<<<<<< HEAD
 							<input type="email" class="form-control" name="email"
 								placeholder="Email">
+=======
+							<input type="email" class="form-control" name="email" placeholder="Email">
+>>>>>>> branch 'master' of https://github.com/mee88nu/School_Project.git
 						</div>
 					</div>
 					<div class="form-group">
@@ -27,8 +31,12 @@
 							class="col-xs-1 control-label glyphicon glyphicon-lock"
 							style="margin: auto;"> </label>
 						<div class="col-xs-10">
+<<<<<<< HEAD
 							<input type="password" class="form-control" name="pw"
 								placeholder="Password">
+=======
+							<input type="password" class="form-control" name="pw" placeholder="Password">
+>>>>>>> branch 'master' of https://github.com/mee88nu/School_Project.git
 						</div>
 					</div>
 					<div>
@@ -36,6 +44,7 @@
 							value="Login">
 					</div>
 				</form>
+<<<<<<< HEAD
 
 				<!-- 추가한 부분 -->
 				<div class="text-left">
@@ -45,6 +54,17 @@
 
 
 
+=======
+				
+				<!-- 추가한 부분 -->
+				<div class="text-left">
+					<a href="id_test.mb"><font size="1.0">id_test</font></a> /
+					<a href="pw_test.mb"><font size="1.0">pw_test</font></a>
+				</div>
+				
+				
+				
+>>>>>>> branch 'master' of https://github.com/mee88nu/School_Project.git
 				<div class="text-right">
 					<a href="signup.mb"><font size="1.0">Sign up</font></a>
 				</div>

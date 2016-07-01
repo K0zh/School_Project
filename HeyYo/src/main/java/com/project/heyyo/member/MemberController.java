@@ -81,13 +81,11 @@ public class MemberController {
 		} else {
 			if (member.getEmail().trim().equals(mb.getEmail())
 					&& member.getPw().trim().equals(mb.getPw())) {
-				System.out.println("이메일 비번 맞음.");
 
 				session.setAttribute("loginfo", mb);
 				mav.setViewName("redirect:main.do");
 
 			} else {
-				System.out.println("비밀번호가 틀렸습니다");
 				return null;
 			}
 		}
@@ -111,7 +109,6 @@ public class MemberController {
 			// mav.setViewName("");
 		} else {
 			System.out.println("찾은 이름:" + mb.getEmail());
-			mav.addObject("mb", mb);
 			// mav.setViewName("test");
 		}
 		return mav;
@@ -135,6 +132,7 @@ public class MemberController {
 			System.out.println("찾은 비번:" + mb.getPw());
 			mav.addObject("mb", mb);
 			// mav.setViewName("test");
+			mav.setViewName("test");//수정해야됨
 		}
 		return mav;
 	}
