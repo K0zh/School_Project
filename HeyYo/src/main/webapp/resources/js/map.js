@@ -12,15 +12,22 @@ function initMap() {
 					lat : lat_result,
 					lng : lng_result
 				},
-				zoom : 18
+				zoom : 17
 			});
+			
 
 			/* 마커 띄우기 */
 			for (i = 0; i < address.length; i++) {
 				var myLatLng = new google.maps.LatLng(init_lat[i],
 						init_lng[i]);
-				
-				addMarkerWithTimeout(myLatLng, i*500, i, map);
+			
+				if(marker_type[i]=="able"){
+					var marker_icon = "resources/images/blue_marker.png";
+				}
+				else if(marker_type[i]=="need"){
+					var marker_icon = "resources/images/red_marker.png";
+				}
+				addMarkerWithTimeout(myLatLng, i*500, i, map, marker_icon);
 				/*var marker = new google.maps.Marker({
 					position : myLatLng,
 					map : map,
@@ -34,12 +41,12 @@ function initMap() {
 	}
 }
 //딜레이 애니메이션 마커
-function addMarkerWithTimeout(position, timeout, i, map){
+function addMarkerWithTimeout(position, timeout, i, map, marker_icon){
 	window.setTimeout(function(){
 		var marker = new google.maps.Marker({
 			position : position,
 			map : map,
-			icon:"${pageContext.request.contextPath}/resources/marker_images/blue_marker.png",
+			icon : marker_icon,
 			label :{text : String(i+1),
 					color:"white",
 					fontSize:"25px",

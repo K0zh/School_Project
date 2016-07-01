@@ -56,6 +56,7 @@
 		var contentString = new Array();
 		var init_lat = new Array();
 		var init_lng = new Array();
+		var marker_type = new Array();
 
 		<c:forEach items="${contentLists}" var="content" varStatus="status">
 			var str = "";
@@ -80,6 +81,7 @@
 			coordinate.push("${content.LOCATION}") //좌표값
 			init_lat.push("${content.LAT}")
 			init_lng.push("${content.LNG}")
+			marker_type.push("${content.TYPE}")
 
 			contentString.push(str); //마커 정보
 		</c:forEach>
