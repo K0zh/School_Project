@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -42,7 +44,9 @@ public class MainController {
 			@RequestParam(value="type", required = false) String type,
 			@RequestParam(value="talent", required = false) String talent,
 			@RequestParam(value="init_lat", required = false) String init_lat,
-			@RequestParam(value="init_lng", required = false) String init_lng
+			@RequestParam(value="init_lng", required = false) String init_lng,
+			HttpSession session
+		
 			) {
 		LOGGER.info("메인 실행");
 		ModelAndView mav = new ModelAndView();
@@ -50,8 +54,12 @@ public class MainController {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("type", type);
 		map.put("talent", talent);
-		map.put("init_lat", init_lat);
-		map.put("init_lng", init_lng);
+		
+//		float lat = Float.parseFloat(init_lat);
+//		float lng = Float.parseFloat(init_lng);
+		
+//		map.put("init_lat", lat);
+//		map.put("init_lng", lng);
 		
 		List<Content> contentLists = contentDao.getAllContent(map);
 

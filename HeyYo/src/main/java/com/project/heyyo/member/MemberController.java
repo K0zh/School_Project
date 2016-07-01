@@ -55,7 +55,7 @@ public class MemberController {
 			System.out.println("이메일 증복 없음");
 			int insert = memberDao.insert(member);
 			System.out.println("등록 여부:" + insert);
-			mav.setViewName("");
+			mav.setViewName("redirect:main.do");
 		} else {
 			System.out.println("이메일 증복됨");
 			mav.setViewName("SignUpForm");
@@ -77,18 +77,18 @@ public class MemberController {
 
 		if (mb == null) {
 			System.out.println("아이디가 없습니다.");
-			// mav.setViewName("");
+			return null;
 		} else {
 			if (member.getEmail().trim().equals(mb.getEmail())
 					&& member.getPw().trim().equals(mb.getPw())) {
 				System.out.println("이메일 비번 맞음.");
 
 				session.setAttribute("loginfo", mb);
-				// mav.setViewName("");
+				mav.setViewName("redirect:main.do");
 
 			} else {
 				System.out.println("비밀번호가 틀렸습니다");
-				// mav.setViewName("");
+				return null;
 			}
 		}
 

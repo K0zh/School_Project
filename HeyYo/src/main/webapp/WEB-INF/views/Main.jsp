@@ -41,8 +41,8 @@
 		<input type="button" value="필요해요?" onclick="able()"><br> -->
 		
 		
-		test : ${sessionScope.init_lng }
-		test2 : ${sessionScope.init_lat }
+		test : ${sessionScope.loginfo}
+		test2 : ${sessionScope.loginfo.name}
 	</div>
 	<!-- /#wrapper -->
 

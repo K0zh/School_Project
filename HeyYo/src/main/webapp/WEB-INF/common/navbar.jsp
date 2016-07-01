@@ -57,8 +57,15 @@
 		</div>
 		<div class="col-xs-2">
 			<div id="navbar" class="navbar-right">
-				<a class="navbar-brand glyphicon glyphicon-user" href="#"
-					data-toggle="modal" data-target="#loginModal"> </a>
+				<c:choose>
+					<c:when test="${sessionScope.loginfo == null}"> 
+						<a class="navbar-brand glyphicon glyphicon-user" href="#"
+						data-toggle="modal" data-target="#loginModal"> </a>
+					</c:when>
+					<c:otherwise>
+						<div>${sessionScope.loginfo.name} 님 환영 합니다.</div>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 	</div>

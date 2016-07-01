@@ -5,23 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<!-- SideBar CSS -->
-<link href="${pageContext.request.contextPath}/resources/css/sidebar.css" rel="stylesheet">
 
 <!-- 재능 입력 (Tokenfield) CSS -->
 <link href="${pageContext.request.contextPath}/resources/css/bootstrap-tokenfield.css" rel="stylesheet">
 </head>
 
 <body>
-	<!-- Login Modal JSP-->
-	<jsp:include page="/WEB-INF/common/loginmodal.jsp" />
-
-	<!-- Navigation Bar JSP  -->
-	<jsp:include page="/WEB-INF/common/navbar.jsp" />
-
+	
 	<div id="wrapper">
-		<!-- Sidebar -->
-		<jsp:include page="/WEB-INF/common/sidebar.jsp" />
 		<form name="WriteForm" action="write.mb" method="post">
 			<h3>원하는 시간에 재능을 나누세요</h3>
 

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +47,12 @@ public class ContentController {
 
 	// 요청하기 폼 이동
 	@RequestMapping(value = "write.con", method = RequestMethod.GET)
-	public String viewWriteForm() {
+	public String viewWriteForm(HttpSession session) {
+		if(session.getAttribute("id") == "" || session.getAttribute("id") == null) {
+			System.out.println("로그인이 필요한 서비스 입니다.");
+			return "redirect:main.do";
+		}
+		
 		return "ContentWriteForm";
 	}
 

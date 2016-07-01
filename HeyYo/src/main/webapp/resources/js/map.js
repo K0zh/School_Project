@@ -19,16 +19,32 @@ function initMap() {
 			for (i = 0; i < address.length; i++) {
 				var myLatLng = new google.maps.LatLng(init_lat[i],
 						init_lng[i]);
-				var marker = new google.maps.Marker({
+				
+				addMarkerWithTimeout(myLatLng, i*500, i, map);
+				/*var marker = new google.maps.Marker({
 					position : myLatLng,
 					map : map,
+					label : String(i+1),
 					title : address[i]
 				});
-				contentInfo(marker, contentString[i]);
+				contentInfo(marker, contentString[i]);*/
 			}
 		});
 	} else { // HTML5의 GeoLocation을 사용할 수 없을때 실행
 	}
+}
+//딜레이 애니메이션 마커
+function addMarkerWithTimeout(position, timeout, i, map){
+	window.setTimeout(function(){
+		var marker = new google.maps.Marker({
+			position : position,
+			map : map,
+			label : String(i+1),
+			title : address[i],
+			animation: google.maps.Animation.DROP
+		});
+		contentInfo(marker,contentString[i]);
+	}, timeout);
 }
 
 function contentInfo(marker, contentString) {
