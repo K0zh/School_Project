@@ -12,7 +12,7 @@ function initMap() {
 					lat : lat_result,
 					lng : lng_result
 				},
-				zoom : 17
+				zoom : 16
 			});
 			
 
@@ -27,7 +27,7 @@ function initMap() {
 				else if(marker_type[i]=="need"){
 					var marker_icon = "resources/images/red_marker.png";
 				}
-				addMarkerWithTimeout(myLatLng, i*500, i, map, marker_icon);
+				addMarkerWithTimeout(myLatLng, i*300, i, map, marker_icon);
 				/*var marker = new google.maps.Marker({
 					position : myLatLng,
 					map : map,

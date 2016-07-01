@@ -102,6 +102,21 @@ values('1', conseq.nextval, '제목테스트', '컴퓨터', '2016-01-01', '강남역', '37.
 insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
 values('2', conseq.nextval, '제목테스트2', '요리', '2016-03-03', '테스트', '37.498516', '127.027971', '2', '여','테스트테스트테스트2', 'close', 'able');
 
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('3', conseq.nextval, '제목테스트3', '청소', '2016-06-01', '테스트2', '37.498286' , '127.036991', '3', '남','테스트테스트테스트3', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('4', conseq.nextval, '제목테스트4', '네일아트', '2016-07-03', '테스트3', '37.499937', '127.038332', '2', '여','테스트테스트테스트4', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('5', conseq.nextval, '제목테스트5', '배달', '2016-05-01', '테스트4', '37.501404' , '127.030408', '3', '남','테스트테스트테스트5', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('6', conseq.nextval, '제목테스트6', '컴퓨터', '2016-04-04', '테스트5', '37.498765', '127.032704', '2', '여','테스트테스트테스트6', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('7', conseq.nextval, '제목테스트7', '디자인', '2016-07-07', '테스트6', '37.497565' , '127.029764', '3', '남','테스트테스트테스트7', 'open', 'need');
+
 commit ;
 
 

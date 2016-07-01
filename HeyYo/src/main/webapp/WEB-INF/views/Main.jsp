@@ -31,7 +31,7 @@
 		<!-- Sidebar -->
 		<jsp:include page="/WEB-INF/common/sidebar.jsp" />
 		<!-- Map 띄우기 위한 Div -->
-		<div id="map" style="width: 80%; height: 50%; margin: 50px;"></div>
+		<div id="map" style="width: 100%; height: 100%;"></div>
 
 
 		<!-- <input type="button" value="도움 요청하기"
