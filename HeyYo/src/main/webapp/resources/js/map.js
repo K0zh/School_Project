@@ -39,7 +39,12 @@ function addMarkerWithTimeout(position, timeout, i, map){
 		var marker = new google.maps.Marker({
 			position : position,
 			map : map,
-			label : String(i+1),
+			icon:"${pageContext.request.contextPath}/resources/marker_images/blue_marker.png",
+			label :{text : String(i+1),
+					color:"white",
+					fontSize:"25px",
+					fontWeight:"bold"
+			},
 			title : address[i],
 			animation: google.maps.Animation.DROP
 		});
