@@ -1,0 +1,568 @@
+--부산
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('1', conseq.nextval, '제목테스트', '컴퓨터,배달', '2016-01-01', '부산테스트1', '35.157939' , '129.055254', '3', '남','테스트테스트테스트', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('2', conseq.nextval, '제목테스트2', '요리,청소', '2016-03-03', '부산테스트2', '35.157974', '129.037466', '2', '여','테스트테스트테스트2', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('3', conseq.nextval, '제목테스트3', '청소', '2016-06-01', '부산테스트3', '35.188564' , '129.063215', '3', '남','테스트테스트테스트3', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('4', conseq.nextval, '제목테스트4', '네일아트,배달,요리', '2016-07-03', '부산테스트4', '35.151237', '129.047422', '2', '여','테스트테스트테스트4', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('5', conseq.nextval, '제목테스트5', '배달,컴퓨터', '2016-05-01', '부산테스트5', '35.177059' , '129.063902', '3', '남','테스트테스트테스트5', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('6', conseq.nextval, '제목테스트6', '컴퓨터,디자인,컴퓨터', '2016-04-04', '부산테스트6', '35.149834', '128.992147', '2', '여','테스트테스트테스트6', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('7', conseq.nextval, '제목테스트7', '컴퓨터,네일아트', '2016-01-02', '부산테스트7', '35.109400' , '129.105787', '3', '남','테스트테스트테스트7', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('8', conseq.nextval, '제목테스트8', '자전거,럭비', '2016-04-05', '부산테스트8', '35.089738' , '128.990774', '3', '남','테스트테스트테스트8', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('9', conseq.nextval, '제목테스트9', '럭비', '2016-06-06', '부산테스트9', '35.190247' , '129.105444', '3', '남','테스트테스트테스트9', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('10', conseq.nextval, '제목테스트10', '자전거', '2016-05-11', '부산테스트10', '35.158536' , '129.148016', '3', '남','테스트테스트테스트10', 'open', 'need');
+
+
+
+--대구
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('11', conseq.nextval, '제목테스트', '럭비,청소,자전거', '2016-01-01', '대구테스트1', '35.880842' , '128.587297', '3', '남','테스트테스트테스트', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('12', conseq.nextval, '제목테스트2', '자바,컴퓨터', '2016-03-03', '대구테스트2', '35.843002', '128.546442', '2', '여','테스트테스트테스트2', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('13', conseq.nextval, '제목테스트3', '디자인,목공', '2016-06-01', '대구테스트3', '35.840775' , '128.613390', '3', '남','테스트테스트테스트3', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('14', conseq.nextval, '제목테스트4', '네일아트', '2016-07-03', '대구테스트4', '35.879730', '128.621286', '2', '여','테스트테스트테스트4', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('15', conseq.nextval, '제목테스트5', '농구', '2016-05-01', '대구테스트5', '35.866933' , '128.539576', '3', '남','테스트테스트테스트5', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('16', conseq.nextval, '제목테스트6', '미용,농구', '2016-04-04', '대구테스트6', '35.855803', '128.528246', '2', '여','테스트테스트테스트6', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('17', conseq.nextval, '제목테스트7', '물리학', '2016-01-02', '대구테스트7', '35.844811' , '128.505243', '3', '남','테스트테스트테스트7', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('18', conseq.nextval, '제목테스트8', '영어,일본어', '2016-04-05', '대구테스트8', '35.864846' , '128.586782', '3', '남','테스트테스트테스트8', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('19', conseq.nextval, '제목테스트9', '스페인어', '2016-06-06', '대구테스트9', '35.862063' , '128.573050', '3', '남','테스트테스트테스트9', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('20', conseq.nextval, '제목테스트10', '아프리카어', '2016-05-11', '대구테스트10', '35.878061' , '128.555883', '3', '남','테스트테스트테스트10', 'open', 'need');
+
+
+--인천
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('21', conseq.nextval, '제목테스트', '자전거', '2016-01-01', '인천테스트1', '37.476246' , '126.626970', '3', '남','테스트테스트테스트', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('22', conseq.nextval, '제목테스트2', '자바', '2016-03-03', '인천테스트2', '37.460987', '126.628686', '2', '여','테스트테스트테스트2', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('23', conseq.nextval, '제목테스트3', '목공,천문학', '2016-06-01', '인천테스트3', '37.445452' , '126.654779', '3', '남','테스트테스트테스트3', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('24', conseq.nextval, '제목테스트4', '자연과학', '2016-07-03', '인천테스트4', '37.427187', '126.655465', '2', '여','테스트테스트테스트4', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('25', conseq.nextval, '제목테스트5', '한발자전거,드럼', '2016-05-01', '인천테스트5', '37.413826' , '126.687394', '3', '남','테스트테스트테스트5', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('26', conseq.nextval, '제목테스트6', '기타,베이스', '2016-04-04', '인천테스트6', '37.445452', '126.672631', '2', '여','테스트테스트테스트6', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('27', conseq.nextval, '제목테스트7', '베이스', '2016-01-02', '인천테스트7', '37.476246' , '126.697694', '3', '남','테스트테스트테스트7', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('28', conseq.nextval, '제목테스트8', '노래,춤,외모가꾸기', '2016-04-05', '인천테스트8', '37.499674' , '126.669885', '3', '남','테스트테스트테스트8', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('29', conseq.nextval, '제목테스트9', '아랍어', '2016-06-06', '인천테스트9', '37.432094' , '126.746789', '3', '남','테스트테스트테스트9', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('30', conseq.nextval, '제목테스트10', '베이스,기타,드럼', '2016-05-11', '인천테스트10', '37.389826' , '126.707650', '3', '남','테스트테스트테스트10', 'open', 'need');
+
+
+--광주
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('31', conseq.nextval, '제목테스트', '드럼,노래', '2016-01-01', '광주테스트1', '35.161244' , '126.900103', '3', '남','테스트테스트테스트', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('32', conseq.nextval, '제목테스트2', '청소,요리,바느질', '2016-03-03', '광주테스트2', '35.176399', '126.822169', '2', '여','테스트테스트테스트2', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('33', conseq.nextval, '제목테스트3', '실뜨기,십자수', '2016-06-01', '광주테스트3', '35.193516' , '126.819765', '3', '남','테스트테스트테스트3', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('34', conseq.nextval, '제목테스트4', '권투', '2016-07-03', '광주테스트4', '35.140752', '126.858218', '2', '여','테스트테스트테스트4', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('35', conseq.nextval, '제목테스트5', '태권도', '2016-05-01', '광주테스트5', '35.177241' , '126.931002', '3', '남','테스트테스트테스트5', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('36', conseq.nextval, '제목테스트6', '랩', '2016-04-04', '광주테스트6', '35.213433', '126.849291', '2', '여','테스트테스트테스트6', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('37', conseq.nextval, '제목테스트7', '자바,c,c#', '2016-01-02', '광주테스트7', '35.155350' , '126.838648', '3', '남','테스트테스트테스트7', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('38', conseq.nextval, '제목테스트8', '파이썬', '2016-04-05', '광주테스트8', '35.130083' , '126.765177', '3', '남','테스트테스트테스트8', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('39', conseq.nextval, '제목테스트9', '댄스', '2016-06-06', '광주테스트9', '35.158437' , '126.932719', '3', '남','테스트테스트테스트9', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('40', conseq.nextval, '제목테스트10', '베이스,기타,드럼', '2016-05-11', '광주테스트10', '35.208665' , '126.900446', '3', '남','테스트테스트테스트10', 'open', 'need');
+
+--대전
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('41', conseq.nextval, '제목테스트', '랩', '2016-01-01', '대전테스트1', '36.353727' , '127.388111', '3', '남','테스트테스트테스트', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('42', conseq.nextval, '제목테스트2', '바느질,십자수,실뜨기', '2016-03-03', '대전테스트2', '36.328561', '127.381588', '2', '여','테스트테스트테스트2', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('43', conseq.nextval, '제목테스트3', '럭비', '2016-06-01', '대전테스트3', '36.332986' , '127.458149', '3', '남','테스트테스트테스트3', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('44', conseq.nextval, '제목테스트4', '게임', '2016-07-03', '대전테스트4', '36.358980', '127.411457', '2', '여','테스트테스트테스트4', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('45', conseq.nextval, '제목테스트5', '영어', '2016-05-01', '대전테스트5', '36.334646' , '127.396694', '3', '남','테스트테스트테스트5', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('46', conseq.nextval, '제목테스트6', '일본어,여행소개', '2016-04-04', '대전테스트6', '36.316943', '127.403561', '2', '여','테스트테스트테스트6', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('47', conseq.nextval, '제목테스트7', '안드로이드', '2016-01-02', '대전테스트7', '36.322199' , '127.427250', '3', '남','테스트테스트테스트7', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('48', conseq.nextval, '제목테스트8', '기타,베이스,드럼', '2016-04-05', '대전테스트8', '36.316113' , '127.398068', '3', '남','테스트테스트테스트8', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('49', conseq.nextval, '제목테스트9', '드럼', '2016-06-06', '대전테스트9', '36.424203' , '127.390171', '3', '남','테스트테스트테스트9', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('50', conseq.nextval, '제목테스트10', '춤,노래', '2016-05-11', '대전테스트10', '36.300620' , '127.331463', '3', '남','테스트테스트테스트10', 'open', 'need');
+
+--울산
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('51', conseq.nextval, '제목테스트', '자전거,운동', '2016-01-01', '울산테스트1', '35.549740' , '129.255368', '3', '남','테스트테스트테스트', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('52', conseq.nextval, '제목테스트2', '럭비,곤충채집', '2016-03-03', '울산테스트2', '35.538007', '129.254681', '2', '여','테스트테스트테스트2', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('53', conseq.nextval, '제목테스트3', '요리', '2016-06-01', '울산테스트3', '35.494693' , '129.332959', '3', '남','테스트테스트테스트3', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('54', conseq.nextval, '제목테스트4', '중식,한식', '2016-07-03', '울산테스트4', '35.537728', '129.323689', '2', '여','테스트테스트테스트4', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('55', conseq.nextval, '제목테스트5', '일본어', '2016-05-01', '울산테스트5', '35.562588' , '129.344288', '3', '남','테스트테스트테스트5', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('56', conseq.nextval, '제목테스트6', '스페인어', '2016-04-04', '울산테스트6', '35.591908', '129.367291', '2', '여','테스트테스트테스트6', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('57', conseq.nextval, '제목테스트7', '와인감별', '2016-01-02', '울산테스트7', '35.642703' , '129.352871', '3', '남','테스트테스트테스트7', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('58', conseq.nextval, '제목테스트8', '탁구,볼링,당구', '2016-04-05', '울산테스트8', '35.633217' , '129.331929', '3', '남','테스트테스트테스트8', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('59', conseq.nextval, '제목테스트9', '랩', '2016-06-06', '울산테스트9', '35.510904' , '129.424969', '3', '남','테스트테스트테스트9', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('60', conseq.nextval, '제목테스트10', '춤,노래', '2016-05-11', '울산테스트10', '35.643540' , '129.358021', '3', '남','테스트테스트테스트10', 'open', 'need');
+
+--경기
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('61', conseq.nextval, '제목테스트', '자전거', '2016-01-01', '경기테스트1', '37.365964' , '127.110332', '3', '남','테스트테스트테스트', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('62', conseq.nextval, '제목테스트2', '곤충채집', '2016-03-03', '경기테스트2', '37.339765', '126.849406', '2', '여','테스트테스트테스트2', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('63', conseq.nextval, '제목테스트3', '양식,중식', '2016-06-01', '경기테스트3', '37.278597' , '127.014201', '3', '남','테스트테스트테스트3', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('64', conseq.nextval, '제목테스트4', '일식,한식', '2016-07-03', '경기테스트4', '37.313556', '127.030681', '2', '여','테스트테스트테스트4', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('65', conseq.nextval, '제목테스트5', '영어번역', '2016-05-01', '경기테스트5', '37.623106' , '127.225688', '3', '남','테스트테스트테스트5', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('66', conseq.nextval, '제목테스트6', '자바', '2016-04-04', '경기테스트6', '37.725280', '127.049907', '2', '여','테스트테스트테스트6', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('67', conseq.nextval, '제목테스트7', '드럼,기타', '2016-01-02', '경기테스트7', '37.792594' , '127.467387', '3', '남','테스트테스트테스트7', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('68', conseq.nextval, '제목테스트8', '탁구', '2016-04-05', '경기테스트8', '37.317925' , '127.656901', '3', '남','테스트테스트테스트8', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('69', conseq.nextval, '제목테스트9', '농구,축구', '2016-06-06', '경기테스트9', '37.690513' , '126.610454', '3', '남','테스트테스트테스트9', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('70', conseq.nextval, '제목테스트10', '족구,야구', '2016-05-11', '경기테스트10', '37.660079' , '126.659892', '3', '남','테스트테스트테스트10', 'open', 'need');
+
+--강원
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('71', conseq.nextval, '제목테스트', '유제품제조', '2016-01-01', '강원테스트1', '37.931917' , '128.053390', '3', '남','테스트테스트테스트', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('72', conseq.nextval, '제목테스트2', '댄스,노래', '2016-03-03', '강원테스트2', '37.717136', '128.262130', '2', '여','테스트테스트테스트2', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('73', conseq.nextval, '제목테스트3', '자바,파이썬,오라클', '2016-06-01', '강원테스트3', '38.208686' , '128.572494', '3', '남','테스트테스트테스트3', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('74', conseq.nextval, '제목테스트4', '한식', '2016-07-03', '강원테스트4', '37.973066', '128.649398', '2', '여','테스트테스트테스트4', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('75', conseq.nextval, '제목테스트5', '일식', '2016-05-01', '강원테스트5', '37.695407' , '128.830672', '3', '남','테스트테스트테스트5', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('76', conseq.nextval, '제목테스트6', '랩', '2016-04-04', '강원테스트6', '38.184942', '127.652389', '2', '여','테스트테스트테스트6', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('77', conseq.nextval, '제목테스트7', '야구,농구', '2016-01-02', '강원테스트7', '37.407977' , '128.388473', '3', '남','테스트테스트테스트7', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('78', conseq.nextval, '제목테스트8', '탁구', '2016-04-05', '강원테스트8', '37.237612' , '128.654891', '3', '남','테스트테스트테스트8', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('79', conseq.nextval, '제목테스트9', '당구', '2016-06-06', '강원테스트9', '37.217930' , '128.899337', '3', '남','테스트테스트테스트9', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('80', conseq.nextval, '제목테스트10', '패션', '2016-05-11', '강원테스트10', '37.719309' , '128.273116', '3', '남','테스트테스트테스트10', 'open', 'need');
+
+--충북
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('81', conseq.nextval, '제목테스트', '랩', '2016-01-01', '충북테스트1', '36.684564' , '127.519082', '3', '남','테스트테스트테스트', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('82', conseq.nextval, '제목테스트2', '노래', '2016-03-03', '충북테스트2', '36.530228', '127.725075', '2', '여','테스트테스트테스트2', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('83', conseq.nextval, '제목테스트3', '십자수,실뜨기', '2016-06-01', '충북테스트3', '36.669144' , '127.436684', '3', '남','테스트테스트테스트3', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('84', conseq.nextval, '제목테스트4', '아이스하키', '2016-07-03', '충북테스트4', '36.799013', '127.631691', '2', '여','테스트테스트테스트4', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('85', conseq.nextval, '제목테스트5', '스케이트보드', '2016-05-01', '충북테스트5', '36.992307' , '127.920083', '3', '남','테스트테스트테스트5', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('86', conseq.nextval, '제목테스트6', '일본어,영어,아랍어', '2016-04-04', '충북테스트6', '36.965977', '127.876137', '2', '여','테스트테스트테스트6', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('87', conseq.nextval, '제목테스트7', '프랑스어', '2016-01-02', '충북테스트7', '36.578767' , '127.508095', '3', '남','테스트테스트테스트7', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('88', conseq.nextval, '제목테스트8', '일식', '2016-04-05', '충북테스트8', '36.858371' , '127.444924', '3', '남','테스트테스트테스트8', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('89', conseq.nextval, '제목테스트9', '한식,양식', '2016-06-06', '충북테스트9', '36.167435' , '127.829445', '3', '남','테스트테스트테스트9', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('90', conseq.nextval, '제목테스트10', '드럼', '2016-05-11', '충북테스트10', '36.596410' , '127.519082', '3', '남','테스트테스트테스트10', 'open', 'need');
+
+--충남
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('91', conseq.nextval, '제목테스트', '농작', '2016-01-01', '충남테스트1', '36.744778' , '126.307124', '3', '남','테스트테스트테스트', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('92', conseq.nextval, '제목테스트2', '낚시', '2016-03-03', '충남테스트2', '36.839357', '126.603755', '2', '여','테스트테스트테스트2', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('93', conseq.nextval, '제목테스트3', '스케이팅,아이스하키', '2016-06-01', '충남테스트3', '36.256850' , '127.227229', '3', '남','테스트테스트테스트3', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('94', conseq.nextval, '제목테스트4', '보컬', '2016-07-03', '충남테스트4', '36.256850', '126.774043', '2', '여','테스트테스트테스트4', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('95', conseq.nextval, '제목테스트5', '자전거', '2016-05-01', '충남테스트5', '36.345391' , '126.812495', '3', '남','테스트테스트테스트5', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('96', conseq.nextval, '제목테스트6', '드럼,트럼펫', '2016-04-04', '충남테스트6', '36.808577', '127.070674', '2', '여','테스트테스트테스트6', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('97', conseq.nextval, '제목테스트7', '볼링', '2016-01-02', '충남테스트7', '36.788783' , '127.147578', '3', '남','테스트테스트테스트7', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('98', conseq.nextval, '제목테스트8', '일식', '2016-04-05', '충남테스트8', '36.672116' , '127.133845', '3', '남','테스트테스트테스트8', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('99', conseq.nextval, '제목테스트9', '한식,양식', '2016-06-06', '충남테스트9', '36.544239' , '127.306880', '3', '남','테스트테스트테스트9', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('100', conseq.nextval, '제목테스트10', '야구,농구', '2016-05-11', '충남테스트10', '36.134943' , '127.452449', '3', '남','테스트테스트테스트10', 'open', 'need');
+
+--전북
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('101', conseq.nextval, '제목테스트', '노래', '2016-01-01', '전북테스트1', '35.590689' , '126.861277', '3', '남','테스트테스트테스트', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('102', conseq.nextval, '제목테스트2', '연기,축구', '2016-03-03', '전북테스트2', '35.530362', '127.300731', '2', '여','테스트테스트테스트2', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('103', conseq.nextval, '제목테스트3', '스케이팅,아이스하키', '2016-06-01', '전북테스트3', '35.606322' , '127.534190', '3', '남','테스트테스트테스트3', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('104', conseq.nextval, '제목테스트4', '미용,네일아트', '2016-07-03', '전북테스트4', '35.909443', '127.292491', '2', '여','테스트테스트테스트4', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('105', conseq.nextval, '제목테스트5', '제과제빵', '2016-05-01', '전북테스트5', '35.940581' , '126.951915', '3', '남','테스트테스트테스트5', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('106', conseq.nextval, '제목테스트6', '드럼,트럼펫', '2016-04-04', '전북테스트6', '35.717898', '126.732188', '2', '여','테스트테스트테스트6', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('107', conseq.nextval, '제목테스트7', '작곡', '2016-01-02', '전북테스트7', '35.662130' , '126.770640', '3', '남','테스트테스트테스트7', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('108', conseq.nextval, '제목테스트8', '양식,청소', '2016-04-05', '전북테스트8', '35.548241' , '126.907969', '3', '남','테스트테스트테스트8', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('109', conseq.nextval, '제목테스트9', '일본어,영어', '2016-06-06', '전북테스트9', '35.416286' , '127.149669', '3', '남','테스트테스트테스트9', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('110', conseq.nextval, '제목테스트10', '플룻', '2016-05-11', '전북테스트10', '35.503535' , '127.270518', '3', '남','테스트테스트테스트10', 'open', 'need');
+
+--전남
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('111', conseq.nextval, '제목테스트', '연기,춤', '2016-01-01', '전남테스트1', '34.972833' , '126.861277', '3', '남','테스트테스트테스트', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('112', conseq.nextval, '제목테스트2', '청소,', '2016-03-03', '전남테스트2', '35.031328', '126.968595', '2', '여','테스트테스트테스트2', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('113', conseq.nextval, '제목테스트3', '미용', '2016-06-01', '전남테스트3', '35.291796' , '126.768094', '3', '남','테스트테스트테스트3', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('114', conseq.nextval, '제목테스트4', '네일아트', '2016-07-03', '전남테스트4', '35.083038', '126.562100', '2', '여','테스트테스트테스트4', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('115', conseq.nextval, '제목테스트5', '일식,한식', '2016-05-01', '전남테스트5', '35.199829' , '127.215787', '3', '남','테스트테스트테스트5', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('116', conseq.nextval, '제목테스트6', '양식', '2016-04-04', '전남테스트6', '35.338860', '126.812039', '2', '여','테스트테스트테스트6', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('117', conseq.nextval, '제목테스트7', '기타,베이스,키보드', '2016-01-02', '전남테스트7', '34.559936' , '126.600553', '3', '남','테스트테스트테스트7', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('118', conseq.nextval, '제목테스트8', '랩,노래', '2016-04-05', '전남테스트8', '35.035825' , '126.834012', '3', '남','테스트테스트테스트8', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('119', conseq.nextval, '제목테스트9', '가정식', '2016-06-06', '전남테스트9', '34.999835' , '126.485196', '3', '남','테스트테스트테스트9', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('120', conseq.nextval, '제목테스트10', '한식,양식', '2016-05-11', '전남테스트10', '35.273859' , '127.298184', '3', '남','테스트테스트테스트10', 'open', 'need');
+
+--경북
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('121', conseq.nextval, '제목테스트', '기타', '2016-01-01', '경북테스트1', '36.364590' , '128.606313', '3', '남','테스트테스트테스트', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('122', conseq.nextval, '제목테스트2', '요리,청소', '2016-03-03', '경북테스트2', '36.573316', '128.773168', '2', '여','테스트테스트테스트2', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('123', conseq.nextval, '제목테스트3', '한식,일식', '2016-06-01', '경북테스트3', '36.563389' , '128.724416', '3', '남','테스트테스트테스트3', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('124', conseq.nextval, '제목테스트4', '미용,네일아트,지압', '2016-07-03', '경북테스트4', '36.561734', '128.699010', '2', '여','테스트테스트테스트4', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('125', conseq.nextval, '제목테스트5', '볼링,당구', '2016-05-01', '경북테스트5', '36.818867' , '128.613180', '3', '남','테스트테스트테스트5', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('126', conseq.nextval, '제목테스트6', '탁구', '2016-04-04', '경북테스트6', '36.826012', '128.591894', '2', '여','테스트테스트테스트6', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('127', conseq.nextval, '제목테스트7', '노래,키보드', '2016-01-02', '경북테스트7', '36.808972' , '128.624166', '3', '남','테스트테스트테스트7', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('128', conseq.nextval, '제목테스트8', '드럼', '2016-04-05', '경북테스트8', '36.815568' , '128.627599', '3', '남','테스트테스트테스트8', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('129', conseq.nextval, '제목테스트9', '럭비,야구', '2016-06-06', '경북테스트9', '36.664492' , '129.114711', '3', '남','테스트테스트테스트9', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('130', conseq.nextval, '제목테스트10', '한식,양식,일식', '2016-05-11', '경북테스트10', '36.663657' , '129.113005', '3', '남','테스트테스트테스트10', 'open', 'need');
+
+--경남
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('131', conseq.nextval, '제목테스트', '일본어,영어', '2016-01-01', '경남테스트1', '35.105841' , '127.827416', '3', '남','테스트테스트테스트', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('132', conseq.nextval, '제목테스트2', '일식,한식,양식', '2016-03-03', '경남테스트2', '35.155259', '128.113060', '2', '여','테스트테스트테스트2', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('133', conseq.nextval, '제목테스트3', '가정식,청소', '2016-06-01', '경남테스트3', '35.188936' , '128.107567', '3', '남','테스트테스트테스트3', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('134', conseq.nextval, '제목테스트4', '네일아트,미용', '2016-07-03', '경남테스트4', '35.258491', '128.395958', '2', '여','테스트테스트테스트4', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('135', conseq.nextval, '제목테스트5', '볼링', '2016-05-01', '경남테스트5', '35.477981' , '128.742028', '3', '남','테스트테스트테스트5', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('136', conseq.nextval, '제목테스트6', '당구,탁구', '2016-04-04', '경남테스트6', '35.518230', '128.464623', '2', '여','테스트테스트테스트6', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('137', conseq.nextval, '제목테스트7', '자바,C#', '2016-01-02', '경남테스트7', '35.540582' , '128.676110', '3', '남','테스트테스트테스트7', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('138', conseq.nextval, '제목테스트8', '오라클,파이썬', '2016-04-05', '경남테스트8', '35.258491' , '128.851891', '3', '남','테스트테스트테스트8', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('139', conseq.nextval, '제목테스트9', '야구', '2016-06-06', '경남테스트9', '35.397421' , '129.000206', '3', '남','테스트테스트테스트9', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('140', conseq.nextval, '제목테스트10', '키보드,노래,춤', '2016-05-11', '경남테스트10', '35.410853' , '128.950768', '3', '남','테스트테스트테스트10', 'open', 'need');
+
+--제주
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('141', conseq.nextval, '제목테스트', '일본어,영어', '2016-01-01', '제주테스트1', '33.487224' , '126.489829', '3', '남','테스트테스트테스트', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('142', conseq.nextval, '제목테스트2', '일식,한식,양식', '2016-03-03', '제주테스트2', '33.505548', '126.541327', '2', '여','테스트테스트테스트2', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('143', conseq.nextval, '제목테스트3', '가정식,청소', '2016-06-01', '제주테스트3', '33.482643' , '126.470603', '3', '남','테스트테스트테스트3', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('144', conseq.nextval, '제목테스트4', '네일아트,미용', '2016-07-03', '제주테스트4', '33.483216', '126.439704', '2', '여','테스트테스트테스트4', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('145', conseq.nextval, '제목테스트5', '볼링', '2016-05-01', '제주테스트5', '33.516426' , '126.580466', '3', '남','테스트테스트테스트5', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('146', conseq.nextval, '제목테스트6', '당구,탁구', '2016-04-04', '제주테스트6', '33.456868', '126.573600', '2', '여','테스트테스트테스트6', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('147', conseq.nextval, '제목테스트7', '자바,C#', '2016-01-02', '제주테스트7', '33.462596' , '126.411551', '3', '남','테스트테스트테스트7', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('148', conseq.nextval, '제목테스트8', '오라클,파이썬', '2016-04-05', '제주테스트8', '33.527874' , '126.662864', '3', '남','테스트테스트테스트8', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('149', conseq.nextval, '제목테스트9', '야구', '2016-06-06', '제주테스트9', '33.486079' , '126.428717', '3', '남','테스트테스트테스트9', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('150', conseq.nextval, '제목테스트10', '키보드,노래,춤', '2016-05-11', '제주테스트10', '33.561639' , '126.768607', '3', '남','테스트테스트테스트10', 'open', 'need');
+
+
+--서울
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('151', conseq.nextval, '제목테스트', '일본어,영어', '2016-01-01', '서울테스트1', '37.561502' , '126.830213', '3', '남','테스트테스트테스트', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('152', conseq.nextval, '제목테스트2', '일식,한식,양식', '2016-03-03', '서울테스트2', '37.477087', '127.001875', '2', '여','테스트테스트테스트2', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('153', conseq.nextval, '제목테스트3', '가정식,청소', '2016-06-01', '서울테스트3', '37.498880' , '127.126844', '3', '남','테스트테스트테스트3', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('154', conseq.nextval, '제목테스트4', '네일아트,미용', '2016-07-03', '서울테스트4', '37.516855', '126.852186', '2', '여','테스트테스트테스트4', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('155', conseq.nextval, '제목테스트5', '볼링', '2016-05-01', '서울테스트5', '37.516855' , '126.852186', '3', '남','테스트테스트테스트5', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('156', conseq.nextval, '제목테스트6', '당구,탁구', '2016-04-04', '서울테스트6', '37.579461', '126.900938', '2', '여','테스트테스트테스트6', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('157', conseq.nextval, '제목테스트7', '자바,C#', '2016-01-02', '서울테스트7', '37.573475' , '126.912611', '3', '남','테스트테스트테스트7', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('158', conseq.nextval, '제목테스트8', '오라클,파이썬', '2016-04-05', '서울테스트8', '37.550070' , '127.148130', '3', '남','테스트테스트테스트8', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('159', conseq.nextval, '제목테스트9', '야구', '2016-06-06', '서울테스트9', '37.604489' , '126.922224', '3', '남','테스트테스트테스트9', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('160', conseq.nextval, '제목테스트10', '키보드,노래,춤', '2016-05-11', '서울테스트10', '37.562046' , '126.959989', '3', '남','테스트테스트테스트10', 'open', 'need');
+
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('161', conseq.nextval, '제목테스트11', '일본어,영어', '2016-01-01', '서울테스트11', '37.584903' , '126.979215', '3', '남','테스트테스트테스트', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('162', conseq.nextval, '제목테스트12', '일식,한식,양식', '2016-03-03', '서울테스트12', '37.564223', '126.999815', '2', '여','테스트테스트테스트2', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('163', conseq.nextval, '제목테스트13', '가정식,청소', '2016-06-01', '서울테스트13', '37.548437' , '126.998441', '3', '남','테스트테스트테스트3', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('164', conseq.nextval, '제목테스트14', '네일아트,미용', '2016-07-03', '서울테스트14', '37.542448', '126.975782', '2', '여','테스트테스트테스트4', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('165', conseq.nextval, '제목테스트15', '볼링', '2016-05-01', '서울테스트15', '37.537004' , '127.010114', '3', '남','테스트테스트테스트5', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('166', conseq.nextval, '제목테스트16', '당구,탁구', '2016-04-04', '서울테스트16', '37.582182', '127.056806', '2', '여','테스트테스트테스트6', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('167', conseq.nextval, '제목테스트17', '자바,C#', '2016-01-02', '서울테스트17', '37.593064' , '127.080152', '3', '남','테스트테스트테스트7', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('168', conseq.nextval, '제목테스트18', '오라클,파이썬', '2016-04-05', '서울테스트18', '37.646365' , '127.073286', '3', '남','테스트테스트테스트8', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('169', conseq.nextval, '제목테스트19', '야구', '2016-06-06', '서울테스트19', '37.656150' , '127.043760', '3', '남','테스트테스트테스트9', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('170', conseq.nextval, '제목테스트20', '키보드,노래,춤', '2016-05-11', '서울테스트20', '37.639840' , '127.023161', '3', '남','테스트테스트테스트10', 'open', 'need');
+
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('171', conseq.nextval, '제목테스트21', '일본어,영어', '2016-01-01', '서울테스트21', '37.497791' , '126.896131', '3', '남','테스트테스트테스트', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('172', conseq.nextval, '제목테스트22', '일식,한식,양식', '2016-03-03', '서울테스트22', '37.495067', '126.914671', '2', '여','테스트테스트테스트2', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('173', conseq.nextval, '제목테스트23', '가정식,청소', '2016-06-01', '서울테스트23', '37.526113' , '126.966856', '3', '남','테스트테스트테스트3', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('174', conseq.nextval, '제목테스트24', '네일아트,미용', '2016-07-03', '서울테스트24', '37.509230', '126.923597', '2', '여','테스트테스트테스트4', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('175', conseq.nextval, '제목테스트25', '일본어', '2016-05-01', '서울테스트25', '37.490164' , '127.013548', '3', '남','테스트테스트테스트5', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('176', conseq.nextval, '제목테스트26', '당구,탁구', '2016-04-04', '서울테스트26', '37.493977', '126.958616', '2', '여','테스트테스트테스트6', 'close', 'able');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('177', conseq.nextval, '제목테스트27', '자바,C#', '2016-01-02', '서울테스트27', '37.516855' , '127.030714', '3', '남','테스트테스트테스트7', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('178', conseq.nextval, '제목테스트28', '오라클,파이썬', '2016-04-05', '서울테스트28', '37.508685' , '127.043760', '3', '남','테스트테스트테스트8', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('179', conseq.nextval, '제목테스트29', '야구', '2016-06-06', '서울테스트29', '37.503783' , '127.062986', '3', '남','테스트테스트테스트9', 'open', 'need');
+
+insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
+values('180', conseq.nextval, '제목테스트30', '키보드,노래,춤', '2016-05-11', '서울테스트30', '37.487440' , '127.073972', '3', '남','테스트테스트테스트10', 'open', 'need');
