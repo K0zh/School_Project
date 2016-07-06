@@ -77,19 +77,21 @@ public class MemberController {
 
 		if (mb == null) {
 			System.out.println("아이디가 없습니다.");
-			return null;
+			mav.setViewName("redirect:main.do");
 		} else {
 			if (member.getEmail().trim().equals(mb.getEmail())
 					&& member.getPw().trim().equals(mb.getPw())) {
+				
+				System.out.println("아이디 , 비번 맞음");
 
 				session.setAttribute("loginfo", mb);
 				mav.setViewName("redirect:main.do");
 
 			} else {
-				return null;
+				System.out.println("아이디 , 비번 틀림");
+				mav.setViewName("redirect:main.do");
 			}
 		}
-
 		return mav;
 
 	}
@@ -140,5 +142,12 @@ public class MemberController {
 	@RequestMapping(value="user_detail.mb")
 	public String viewUser() {
 		return "UserDetailView";
+	}
+	
+	
+	@RequestMapping(value="logout.mb")
+	public String doActionlogout(HttpSession session) {
+		session.removeAttribute("loginfo");
+		return "forward:main.do";
 	}
 }

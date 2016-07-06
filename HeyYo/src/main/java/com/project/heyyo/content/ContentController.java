@@ -1,16 +1,19 @@
 package com.project.heyyo.content;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
-import javax.swing.JOptionPane;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +30,7 @@ import com.project.heyyo.member.model.MemberDao;
 
 @Controller
 public class ContentController {
-	
+
 	@Autowired
 	@Qualifier("myMemberDao")
 	private MemberDao memberDao;
@@ -47,12 +50,14 @@ public class ContentController {
 
 	// 요청하기 폼 이동
 	@RequestMapping(value = "write.con", method = RequestMethod.GET)
-	public String viewWriteForm(HttpSession session) {
-		if(session.getAttribute("id") == "" || session.getAttribute("id") == null) {
-			System.out.println("로그인이 필요한 서비스 입니다.");
-			return "redirect:main.do";
-		}
+	public String viewWriteForm(HttpSession session, ModelMap model) {
 		
+		if (session.getAttribute("loginfo") == "" || session.getAttribute("loginfo") == null) {
+			model.addAttribute("msg", "로그인이 필요한 서비스 입니다.");
+			model.addAttribute("url", "main.do");
+			return "redirect";
+		}
+
 		return "ContentWriteForm";
 	}
 
@@ -61,20 +66,17 @@ public class ContentController {
 	public String doActionWrite(
 			@ModelAttribute("Content") @Valid Content content,
 			BindingResult bindingResult) {
-
+		
 		// 얻어온 좌표 가공
 		String location = content.getLocation();
-		String[] location_result = location.replace("(", "").replace(")", "").split(",");
+		String[] location_result = location.replace("(", "").replace(")", "")
+				.split(",");
 		content.setLat(location_result[0]);
 		content.setLng(location_result[1]);
-		
-		System.out.println("위도" + content.getLat());
-		System.out.println("경도" + content.getLng());
-		
 
+		
+		System.out.println("type + "  + content.getType());
 		// 가공한 좌표 재설정
-		System.out.println("id: " + content.getId());
-		System.out.println("SDAY" + content.getS_day());
 		contentDao.insertTalentData(content);
 
 		return "redirect:main.do";
@@ -120,20 +122,17 @@ public class ContentController {
 		return "redirect:detail.con?num=" + num;
 	}
 
-	
 	// 요청 수락하기
 	@RequestMapping(value = "agree.con", method = RequestMethod.POST)
 	public ModelAndView doActionAgree(
 			@RequestParam(value = "id_able") int id_able,
 			@RequestParam(value = "id_need") int id_need) {
-		System.out.println(id_able);
-		System.out.println(id_need);
 
 		ModelAndView mav = new ModelAndView();
 
 		Member responseMember = memberDao.selectMemberById(id_able);
 		Member requestMember = memberDao.selectMemberById(id_need);
-		
+
 		mav.addObject("responseMember", responseMember);
 		mav.addObject("requestMember", requestMember);
 		mav.setViewName("matching/MatchingDetail");

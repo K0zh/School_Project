@@ -42,11 +42,6 @@
 					<a href="id_test.mb"><font size="1.0">id_test</font></a> / <a
 						href="pw_test.mb"><font size="1.0">pw_test</font></a>
 				</div>
-
-
-				<div class="text-right">
-					<a href="signup.mb"><font size="1.0">Sign up</font></a>
-				</div>
 			</div>
 		</div>
 		<!-- /.modal-content -->

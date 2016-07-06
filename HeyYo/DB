@@ -80,8 +80,8 @@ create sequence conseq start with 1 increment by 1 nocache ;
 drop table contents purge ;
 
 create table contents(
-	id	 number primary key,
-	num number,
+	id number,
+	num number primary key,
 	subject varchar2(50),
 	talent	varchar2(100),		
 	c_date date default sysdate,

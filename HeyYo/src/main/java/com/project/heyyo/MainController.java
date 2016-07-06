@@ -20,9 +20,9 @@ import com.project.heyyo.content.model.ContentDao;
 
 @Controller
 public class MainController {
-	
+
 	public static final Logger LOGGER = Logger.getLogger(MainController.class);
-	
+
 	@Autowired
 	@Qualifier("myContentDao")
 	private ContentDao contentDao;
@@ -37,35 +37,41 @@ public class MainController {
 		return "Main";
 	}
 
-	
-	//메인 화면 이동
+	// 메인 화면 이동
 	@RequestMapping(value = "main.do", method = RequestMethod.GET)
-	public ModelAndView viewMain(
-			@RequestParam(value="type", required = false) String type,
-			@RequestParam(value="talent", required = false) String talent,
-			@RequestParam(value="init_lat", required = false) String init_lat,
-			@RequestParam(value="init_lng", required = false) String init_lng,
-			HttpSession session
-		
-			) {
+	public ModelAndView viewMain(@RequestParam(value = "type", required = false) String type, @RequestParam(value = "talent", required = false) String talent, @RequestParam(value = "init_lat", required = false) String init_lat,
+			@RequestParam(value = "init_lng", required = false) String init_lng, HttpSession session
+
+	) {
 		LOGGER.info("메인 실행");
 		ModelAndView mav = new ModelAndView();
-		
+
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("type", type);
 		map.put("talent", talent);
-		
-//		float lat = Float.parseFloat(init_lat);
-//		float lng = Float.parseFloat(init_lng);
-		
-//		map.put("init_lat", lat);
-//		map.put("init_lng", lng);
-		
+
 		List<Content> contentLists = contentDao.getAllContent(map);
 
 		System.out.println(contentLists);
 		mav.addObject("contentLists", contentLists);
 		mav.setViewName("Main");
+
+		return mav;
+	}
+
+	@RequestMapping(value = "list.do", method = RequestMethod.GET)
+	public ModelAndView viewList(@RequestParam(value = "type", required = false) String type,
+								 @RequestParam(value = "talent", required = false) String talent,
+								 HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("type", type);
+		map.put("talent", talent);
+
+		List<Content> contentLists = contentDao.getAllContent(map);
+		mav.addObject("contentLists", contentLists);
+		mav.setViewName("List");
 
 		return mav;
 	}
