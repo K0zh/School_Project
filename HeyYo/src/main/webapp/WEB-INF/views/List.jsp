@@ -57,7 +57,7 @@
 				</span>
 			</div>
 			<div class="col-md-3 col-xs-12 input-group pull-left">
-				<input type="button" value="지도로 보기" onclick="location.href='main.do'" class="col-xs-6 btn btn-default"> <input type="button" value="리스트로 보기" onclick="#" class="col-xs-6 btn btn-default">
+				<input type="button" value="지도로 보기" onclick="location.href='main.do'" class="col-xs-6 btn btn-default"> <input type="button" value="리스트로 보기" class="col-xs-6 btn btn-default">
 			</div>
 		</div>
 		<br>
