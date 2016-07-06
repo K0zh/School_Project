@@ -71,6 +71,7 @@
 			<br>
 			<input type="button" value="요청/나눔 등록" onclick="location.href='write.con'" class="col-md-10 col-md-offset-1 col-xs-12 btn btn-primary">
 			<input type="button" value="리스트 열기" onclick="location.href='#menu-toggle" id="menu-toggle">
+			${sessionScope.loginfo}
 		</div>
 		<!-- /#wrapper -->
 	</div>
@@ -115,6 +116,7 @@
 		str = str.replace("$TALENT", "${content.TALENT}")
 		str = str.replace("$S_DAY", "<fmt:formatDate value='${content.S_DAY}' pattern='yyyy년 MM월 dd일'/>")
 		str = str.replace("$NUM", "${content.NUM}")
+		str = str.replace("$ID", "${content.ID}")
 
 		address.push("${content.ADDRESS}"); //주소값
 		coordinate.push("${content.LOCATION}") //좌표값

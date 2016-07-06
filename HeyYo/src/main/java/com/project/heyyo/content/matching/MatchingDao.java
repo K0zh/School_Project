@@ -16,17 +16,13 @@ public class MatchingDao {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 
-	public MatchingDao() {
-		System.out.println("mcDAo");
-	}
-
-	// ¸ÅÄª ½ÅÃ» ÇÏ±â
+	// ï¿½ï¿½Äª ï¿½ï¿½Ã» ï¿½Ï±ï¿½
 	public void insertRequestMatching(Matching matching) {
 		sqlSessionTemplate.insert(namespace + ".InsertRequestMatching",
 				matching);
 	}
 	
-	// ¸ÅÄª ½ÅÃ» ¸®½ºÆ®
+	// ï¿½ï¿½Äª ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½Æ®
 	public List<Matching> selectMatchingByNum(Map<String, Object> num) {
 		List<Matching> lists = new ArrayList<Matching>();
 		lists = sqlSessionTemplate.selectList(namespace + ".SelectMatchingByNum", num);
@@ -35,7 +31,7 @@ public class MatchingDao {
 
 	}
 	
-	// ¸ÅÄª °ÅÀý, Ãë¼Ò 
+	// ï¿½ï¿½Äª ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ 
 	public void deleteRequest(int id) {
 		sqlSessionTemplate.delete(namespace + ".DeleteRequest", id);
 	}

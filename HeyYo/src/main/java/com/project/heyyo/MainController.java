@@ -37,13 +37,13 @@ public class MainController {
 		return "Main";
 	}
 
-	// ¸ÞÀÎ È­¸é ÀÌµ¿
+	// ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ ï¿½Ìµï¿½
 	@RequestMapping(value = "main.do", method = RequestMethod.GET)
 	public ModelAndView viewMain(@RequestParam(value = "type", required = false) String type, @RequestParam(value = "talent", required = false) String talent, @RequestParam(value = "init_lat", required = false) String init_lat,
 			@RequestParam(value = "init_lng", required = false) String init_lng, HttpSession session
 
 	) {
-		LOGGER.info("¸ÞÀÎ ½ÇÇà");
+		LOGGER.info("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		ModelAndView mav = new ModelAndView();
 
 		Map<String, String> map = new HashMap<String, String>();
@@ -52,7 +52,6 @@ public class MainController {
 
 		List<Content> contentLists = contentDao.getAllContent(map);
 
-		System.out.println(contentLists);
 		mav.addObject("contentLists", contentLists);
 		mav.setViewName("Main");
 

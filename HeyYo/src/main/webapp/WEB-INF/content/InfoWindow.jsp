@@ -14,7 +14,7 @@
 		</div>
 	</section>
 	<footer>
-		<a href='detail.con?num=$NUM' class="btn btn-primary">상세보기</a>
+		<a href='detail.con?num=$NUM&id=$ID' class="btn btn-primary">상세보기</a>
 	</footer>
 </div>
 

@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<!-- SideBar CSS -->
-<link href="${pageContext.request.contextPath}/resources/css/list.css" rel="stylesheet">
+<!-- 기본 CSS -->
+<link href="${pageContext.request.contextPath}/resources/common/reset.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/common/default.css" rel="stylesheet">
 <script type="text/javascript">
 	function need() {
 		document.location.href = "main.do?type=need";
@@ -17,11 +18,6 @@
 		document.location.href = "main.do?type=able";
 	}
 </script>
-<style>
-	.container {
-		padding-top : 100px;
-	}
-</style>
 </head>
 <body>
 
@@ -95,7 +91,6 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<a href="#menu-toggle" id="menu-toggle">사이드메뉴</a>
 	</div>
 	</div>
 

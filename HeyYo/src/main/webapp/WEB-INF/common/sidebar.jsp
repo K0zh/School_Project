@@ -19,7 +19,7 @@
 				<a href="detail.con?num=${content.NUM }">
 				<div class="media">
 					<div class="media-left">
-						<img class="media-object" src="${pageContext.request.contextPath}/resources/images/pic01.png" alt="image" width="100px">
+						<img class="media-object" src="${pageContext.request.contextPath}/resources/images/profile/pic01.png" alt="image" width="100px">
 					</div>
 					<div class="media-body">
 						<b>${content.SUBJECT }</b>

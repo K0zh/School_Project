@@ -1,24 +1,24 @@
 package com.project.heyyo.content.model;
 
 public class Content {
-	private int id; // »ç¿ëÀÚ °íÀ¯ ¾ÆÀÌµð°ª
-	private int num; // °Ô½Ã±Û ¼ø¹ø
-	private String subject; // °Ô½Ã±Û Á¦¸ñ
-	private String talent; // ÇÊ¿ä ¶Ç´Â ¿äÃ» Àç´É
-	private String c_date; // ±ÛÀÛ¼ºÀÏ
-	private String s_day; // ¿äÃ»ÀÏ
-	private String address; // ÁÖ¼Ò
+	private int id; // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+	private int num; // ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½
+	private String subject; // ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½
+	private String talent; // ï¿½Ê¿ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½
+	private String c_date; // ï¿½ï¿½ï¿½Û¼ï¿½ï¿½ï¿½
+	private String s_day; // ï¿½ï¿½Ã»ï¿½ï¿½
+	private String address; // ï¿½Ö¼ï¿½
 
-	private String location; // ÀüÃ¼ ÁÂÇ¥
+	private String location; // ï¿½ï¿½Ã¼ ï¿½ï¿½Ç¥
 
-	private String lat; // À§µµ
-	private String lng; // °æµµ
+	private String lat; // ï¿½ï¿½ï¿½ï¿½
+	private String lng; // ï¿½æµµ
 
-	private int personnel; // ÇÊ¿äÀÎ¿ø
-	private String gender; // ¼ºº°
-	private String content; // º»¹® ³»¿ë
-	private String closed; // ¸¶°¨ ±¸ºÐ
-	private String type; // °Ô½Ã±Û ±¸ºÐ
+	private int personnel; // ï¿½Ê¿ï¿½ï¿½Î¿ï¿½
+	private String gender; // ï¿½ï¿½ï¿½ï¿½
+	private String content; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	private String closed; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	private String type; // ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	public Content() {
 		super();
