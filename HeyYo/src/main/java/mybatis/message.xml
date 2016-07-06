@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.heyyo.content.model.Content">
+	<select id="GetAllMessage" resultType="HashMap" parameterType="HashMap">
+
+		select * from message
+			where receiver = #{receiver}
+		order by num desc
+	</select>
+
+	<select id="GetContentByNum" resultType="MyContent"
+		parameterType="int">
+		select * from contents where num = #{num}
+	</select>
+	
+	<!-- 쪽지쓰기 -->
+	<insert id="sendingMessage" parameterType="message">
+		insert into
+		message(num, sender, receiver, ms_content)
+		values
+		(ms_seq.nextval, #{sender}, #{receiver}, #{ms_content})
+	</insert>
+	
+	<!-- 쪽지 읽기 -->
+	<update id="readingMessage" parameterType="int">
+		update message set ms_state= 'y' where num = #{num}
+	</update>
+</mapper>

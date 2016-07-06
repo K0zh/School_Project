@@ -46,7 +46,6 @@ public class MainController {
 			@RequestParam(value="init_lat", required = false) String init_lat,
 			@RequestParam(value="init_lng", required = false) String init_lng,
 			HttpSession session
-		
 			) {
 		LOGGER.info("메인 실행");
 		ModelAndView mav = new ModelAndView();
