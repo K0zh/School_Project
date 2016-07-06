@@ -39,10 +39,13 @@ public class MainController {
 
 	// ���� ȭ�� �̵�
 	@RequestMapping(value = "main.do", method = RequestMethod.GET)
-	public ModelAndView viewMain(@RequestParam(value = "type", required = false) String type, @RequestParam(value = "talent", required = false) String talent, @RequestParam(value = "init_lat", required = false) String init_lat,
-			@RequestParam(value = "init_lng", required = false) String init_lng, HttpSession session
-
-	) {
+	public ModelAndView viewMain(
+			@RequestParam(value="type", required = false) String type,
+			@RequestParam(value="talent", required = false) String talent,
+			@RequestParam(value="init_lat", required = false) String init_lat,
+			@RequestParam(value="init_lng", required = false) String init_lng,
+			HttpSession session
+			) {
 		LOGGER.info("���� ����");
 		ModelAndView mav = new ModelAndView();
 

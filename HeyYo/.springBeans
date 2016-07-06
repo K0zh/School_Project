@@ -10,6 +10,8 @@
 		<config>src/main/webapp/WEB-INF/spring/appServlet/dispatcher-servlet.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/content-servlet.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/member-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/root-context.xml</config>
 	</autoconfigs>
 	<configSets>
