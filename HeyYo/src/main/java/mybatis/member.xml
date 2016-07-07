@@ -25,5 +25,9 @@
 	<select id="SelectMemberById" parameterType="int" resultType="MyMember">
 		select * from members where id = #{id}
 	</select>
+	
+	<select id="SelectMemberIdByEmail" parameterType="String" resultType="int">
+		select id from members where email = #{email}
+	</select>
 
 </mapper>

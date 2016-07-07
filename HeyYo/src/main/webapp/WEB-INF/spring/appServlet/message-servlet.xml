@@ -12,7 +12,7 @@
 
 	<!-- ViewResolver -->
 	<beans:bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/member/message" />
+		<beans:property name="prefix" value="/WEB-INF/message/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 

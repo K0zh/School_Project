@@ -5,7 +5,7 @@
 <mapper namespace="com.project.heyyo.content.model.Content">
 	<select id="GetAllContent" resultType="HashMap" parameterType="HashMap">
 
-		select * from contents
+		select * from contents where rownum &lt; 20
 		
 		<!-- SELECT id, ( 6371 * acos( cos( radians(#{init_lat}) ) * cos( radians( 
 			lat ) ) * cos( radians( lng ) - radians(#{init_lng}) ) + sin( radians(#{init_lat}) 
@@ -18,8 +18,7 @@
 		<if test="talent != null">
 			where talent = #{talent}
 		</if>
-		
-		order by c_date desc
+		order by abs(#{location}-(lat+lng))
 		<!-- <![CDATA[ where distance < 5 ORDER BY distance ]]> -->
 	</select>
 

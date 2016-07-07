@@ -2,29 +2,39 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.project.heyyo.content.model.Content">
-	<select id="GetAllMessage" resultType="HashMap" parameterType="HashMap">
+<mapper namespace="com.project.heyyo.member.message.Message">
+	<!-- 받은 쪽지함 -->
+	<select id="GetReceiveMessage" resultType="HashMap" parameterType="int">
 
 		select * from message
 			where receiver = #{receiver}
-		order by num desc
+		order by ms_num desc
 	</select>
+	<!-- 보낸 쪽지함 -->
+	<select id="GetSendMessage" resultType="HashMap" parameterType="HashMap">
 
-	<select id="GetContentByNum" resultType="MyContent"
-		parameterType="int">
-		select * from contents where num = #{num}
+		select * from message
+			where sender = #{sender}
+		order by ms_num desc
+	</select>
+	
+	<!-- 안읽은 쪽지 개수 -->
+	<select id="GetCntNewMessage" resultType="int" parameterType="int">
+
+		select count(*) from message
+			where receiver = #{receiver} and ms_state='n'
 	</select>
 	
 	<!-- 쪽지쓰기 -->
-	<insert id="sendingMessage" parameterType="message">
+	<insert id="SendingMessage" parameterType="MyMessage">
 		insert into
-		message(num, sender, receiver, ms_content)
+		message(ms_num, sender, receiver, ms_content)
 		values
 		(ms_seq.nextval, #{sender}, #{receiver}, #{ms_content})
 	</insert>
 	
 	<!-- 쪽지 읽기 -->
-	<update id="readingMessage" parameterType="int">
-		update message set ms_state= 'y' where num = #{num}
+	<update id="ReadingMessage" parameterType="int">
+		update message set ms_state= 'y' where ms_num = #{ms_num}
 	</update>
 </mapper>

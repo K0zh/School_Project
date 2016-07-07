@@ -4,80 +4,43 @@
 <!-- 네비게이션 바 -->
 <nav class="navbar navbar-fixed-top navbar-inverse">
 	<div class="container-fluid">
-		<div class="col-xs-2">
-			<div id="navbar" class="text-left">
-				<a class="navbar-brand glyphicon glyphicon-menu-hamburger"
-					href="#menu-toggle" id="menu-toggle"> </a>
-			</div>
-		</div>
-		<div class="col-xs-8" style="border: 10px">
-			<div class="row">
-				<br>
-				<div class="col-lg-6">
-					<div class="input-group">
-						<div class="input-group-btn">
-							<button type="button" class="btn btn-default dropdown-toggle"
-								data-toggle="dropdown" aria-expanded="false">
-								선택 <span class="caret"></span>
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>                        
+      		</button>
+      		<a class="navbar-brand" href="main.do">
+      		<img src="${pageContext.request.contextPath}/resources/images/doum_logo.png" width="80px">
+      		</a>
+      	</div>
+      	<div class="collapse navbar-collapse" id="myNavbar">
+      		<ul class="nav navbar-nav">
+        		<li><a href="#">Page 1</a></li>
+        		<li><a href="#">Page 2</a></li>
+        		<li><a href="#">Page 3</a></li>
+        		<li class="divider"></li>
+      		</ul>
+      		<ul class="nav navbar-nav navbar-right">
+      			<c:choose>
+					<c:when test="${sessionScope.loginfo == null}">
+        				<li><a href="signup.mb"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        				<li><a href="#" data-toggle="modal" data-target="#loginModal">
+        					<span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        			</c:when>
+        			<c:otherwise>
+						<div>
+							<button class="btn btn-primary" type="button" onclick="location.href='receiveList.ms?receiver=${sessionScope.loginfo.id}'">
+  									Messages<span class="badge">${sessionScope.cntNewMessage}</span>
 							</button>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="main.do">전체 보기</a></li>
-								<li><a href="main.do?type=need">필요해요!</a></li>
-								<li><a href="main.do?type=able">필요해요?</a></li>
-								<li class="divider"></li>
-								<li><a href="write.con">요청,나눔글 작성</a></li>
-							</ul>
+							<font color="white">${sessionScope.loginfo.name} 님 환영 합니다.</font>
+							<input type="button" value="myPage" onclick="location.href='myPage.mb'"> 
+							<input type="button" value="로그아웃" onclick="location.href='logout.mb'">
 						</div>
-						<!-- /btn-group -->
-						<input type="text" class="form-control" placeholder="키워드"
-							aria-label="..." name="talent"> <span
-							class="input-group-btn">
-							<button class="btn btn-default" type="button"
-								onclick="talentClick()">
-								<span class="glyphicon glyphicon-search"></span>
-							</button>
-						</span>
-					</div>
-					<!-- /input-group -->
-				</div>
-				<!-- /.col-lg-6 -->
-				<div class="col-lg-6">
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="지역명"
-							name="location"> <span class="input-group-btn">
-							<button class="btn btn-default" type="button"
-								onclick="locationClick()">GO!</button>
-						</span>
-					</div>
-					<!-- /input-group -->
-				</div>
-				<!-- /.col-lg-6 -->
-			</div>
-			<!-- /.row -->
-		</div>
-		<div class="col-xs-2">
-			<div id="navbar" class="navbar-right">
-				<c:choose>
-					<c:when test="${sessionScope.loginfo == null}"> 
-						<a class="navbar-brand glyphicon glyphicon-user" href="#"
-						data-toggle="modal" data-target="#loginModal"> </a>
-					</c:when>
-					<c:otherwise>
-						<div>${sessionScope.loginfo.name} 님 환영 합니다.</div>
 					</c:otherwise>
-				</c:choose>
-			</div>
-		</div>
-	</div>
+        		</c:choose>
+      		</ul>
+    	</div>
+    </div>
 </nav>
 <!-- 네비게이션 바 end -->
-<script type="text/javascript">
-	function talentClick() {
-		var talent = $("input[name=talent]").val();
-		location.href = 'main.do?talent=' + talent;
-	}
-
-	function locationClick() {
-
-	}
-</script>

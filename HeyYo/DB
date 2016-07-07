@@ -1,24 +1,24 @@
 PROJECT DB E-oood
 -------------------------------------------------------------------------------------
--- ȸ�� ���̺�
+-- 회원 테이블
 -------------------------------------------------------------------------------------
 <<<<<<< HEAD
 
--- id ȸ�� ���� ��ȣ 
--- email �̸���(�α��� id)
--- pw ��й�ȣ
--- name �̸�
--- gender ����
--- hp �ڵ��� ��ȣ
--- hpopen ���� ���� ���� 
--- birthday �������
--- address �ּ�	
--- talentDt �� �� �ִ� ���
--- talentGet �ʿ��� ���
--- image ȸ�� �̹���
--- grade number ȸ�� ���
--- credibility �ŷڵ�
--- R_date ������
+-- id 회원 고유 번호 
+-- email 이메일(로그인 id)
+-- pw 비밀번호
+-- name 이름
+-- gender 성별
+-- hp 핸드폰 번호
+-- hpopen 공개 유무 설정 
+-- birthday 생년월일
+-- address 주소	
+-- talentDt 할 수 있는 재능
+-- talentGet 필요한 재능
+-- image 회원 이미지
+-- grade number 회원 등급
+-- credibility 신뢰도
+-- R_date 가입일
 
 
 drop sequence memseq;
@@ -42,38 +42,38 @@ create table members(
 	R_date date default sysdate
 );
 
--- �߰�
+-- 추가
 insert into members(id, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, credibility)
-values(memseq.nextval,'admin@admin.com','admin','adminN','��',0101234567, '����','2016-06-16','���ﰭ��','#����','#��',1);
+values(memseq.nextval,'admin@admin.com','admin','adminN','남',0101234567, '공개','2016-06-16','서울강북','#음악','#춤',1);
 
 insert into members(id, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, credibility)
-values(memseq.nextval,'abc@naver.com','1','ȫ�浿','��',0101234567, '����','2016-06-16','���ﰭ��','#����','#��',1);
+values(memseq.nextval,'abc@naver.com','1','홍길동','남',0101234567, '공개','2016-06-16','서울강북','#음악','#춤',1);
 
-insert into t_members(num, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, M_like)
-values(t_memseq.nextval,'abc@naver.com','1','ȫ�浿','��',0101234567, '����','2016-06-16','���ﰭ��','#����','#��',1);
+insert into members(id, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, credibility)
+values(7,'test@test','test','test','남',0101234567, '공개','2016-06-16','서울강북','#음악','#춤',1);
  
 commit ;
 	
 
 -------------------------------------------------------------------------------------
--- ������ ���̺�
+-- 콘텐츠 테이블
 -------------------------------------------------------------------------------------
 
--- id ����� ȸ���� ���̵� ��
--- num �Խñ� ����
--- subject �Խñ� ����
--- talent ã�� �Ǵ� ��û �Ϸ��� ���
--- c_date �Խñ� �����
--- s_day �����
--- address �ּ�(ex. ���ѹα� ����� ������ ..)
--- lat ����
--- lng �浵
--- location ��ǥ
--- personnel �ʿ��ο�
--- gender ����
--- content ���� ����
--- close ���� ����
--- type �Խ��� ����  
+-- id 등록한 회원의 아이디 값
+-- num 게시글 순번
+-- subject 게시글 제목
+-- talent 찾기 또는 요청 하려는 재능
+-- c_date 게시글 등록일
+-- s_day 약속일
+-- address 주소(ex. 대한민국 서울시 강남구 ..)
+-- lat 위도
+-- lng 경도
+-- location 좌표
+-- personnel 필요인원
+-- gender 성별
+-- content 본문 내용
+-- close 마감 구분
+-- type 게시판 구분  
 
 drop sequence conseq;
 create sequence conseq start with 1 increment by 1 nocache ;
@@ -97,37 +97,37 @@ create table contents(
 );
 -------------------------------------------------------------------------------------
 insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
-values('1', conseq.nextval, '�����׽�Ʈ', '��ǻ��', '2016-01-01', '������', '37.498116' , '127.027571', '3', '��','�׽�Ʈ�׽�Ʈ�׽�Ʈ', 'open', 'need');
+values('1', conseq.nextval, '제목테스트', '컴퓨터', '2016-01-01', '강남역', '37.498116' , '127.027571', '3', '남','테스트테스트테스트', 'open', 'need');
 
 insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
-values('2', conseq.nextval, '�����׽�Ʈ2', '�丮', '2016-03-03', '�׽�Ʈ', '37.498516', '127.027971', '2', '��','�׽�Ʈ�׽�Ʈ�׽�Ʈ2', 'close', 'able');
+values('2', conseq.nextval, '제목테스트2', '요리', '2016-03-03', '테스트', '37.498516', '127.027971', '2', '여','테스트테스트테스트2', 'close', 'able');
 
 insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
-values('3', conseq.nextval, '�����׽�Ʈ3', 'û��', '2016-06-01', '�׽�Ʈ2', '37.498286' , '127.036991', '3', '��','�׽�Ʈ�׽�Ʈ�׽�Ʈ3', 'open', 'need');
+values('3', conseq.nextval, '제목테스트3', '청소', '2016-06-01', '테스트2', '37.498286' , '127.036991', '3', '남','테스트테스트테스트3', 'open', 'need');
 
 insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
-values('4', conseq.nextval, '�����׽�Ʈ4', '���Ͼ�Ʈ', '2016-07-03', '�׽�Ʈ3', '37.499937', '127.038332', '2', '��','�׽�Ʈ�׽�Ʈ�׽�Ʈ4', 'close', 'able');
+values('4', conseq.nextval, '제목테스트4', '네일아트', '2016-07-03', '테스트3', '37.499937', '127.038332', '2', '여','테스트테스트테스트4', 'close', 'able');
 
 insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
-values('5', conseq.nextval, '�����׽�Ʈ5', '���', '2016-05-01', '�׽�Ʈ4', '37.501404' , '127.030408', '3', '��','�׽�Ʈ�׽�Ʈ�׽�Ʈ5', 'open', 'need');
+values('5', conseq.nextval, '제목테스트5', '배달', '2016-05-01', '테스트4', '37.501404' , '127.030408', '3', '남','테스트테스트테스트5', 'open', 'need');
 
 insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
-values('6', conseq.nextval, '�����׽�Ʈ6', '��ǻ��', '2016-04-04', '�׽�Ʈ5', '37.498765', '127.032704', '2', '��','�׽�Ʈ�׽�Ʈ�׽�Ʈ6', 'close', 'able');
+values('6', conseq.nextval, '제목테스트6', '컴퓨터', '2016-04-04', '테스트5', '37.498765', '127.032704', '2', '여','테스트테스트테스트6', 'close', 'able');
 
 insert into contents(id, num, subject, talent, s_day, address, lat, lng, personnel, gender, content, closed, type)
-values('7', conseq.nextval, '�����׽�Ʈ7', '������', '2016-07-07', '�׽�Ʈ6', '37.497565' , '127.029764', '3', '��','�׽�Ʈ�׽�Ʈ�׽�Ʈ7', 'open', 'need');
+values('7', conseq.nextval, '제목테스트7', '디자인', '2016-07-07', '테스트6', '37.497565' , '127.029764', '3', '남','테스트테스트테스트7', 'open', 'need');
 
 commit ;
 
 
 -------------------------------------------------------------------------------------
--- ��Ī ���̺�
+-- 매칭 테이블
 -------------------------------------------------------------------------------------
---m_num ���� ��Ī ��ȣ
---m_id ��û�� ����� id
---m_date ��û �ð�
---introduce �Ұ���
---accept ���� �� ���� 
+--m_num 고유 매칭 번호
+--m_id 신청한 사용자 id
+--m_date 신청 시간
+--introduce 소개글
+--accept 수락 및 거절 
 
 drop table matching purge ;
 create table matching(
@@ -140,7 +140,7 @@ create table matching(
 );
  
 -------------------------------------------------------------------------------------
--- ��Ī �� ���̺�
+-- 매칭 상세 테이블
 -------------------------------------------------------------------------------------
  
 drop table matching purge ;
@@ -151,20 +151,18 @@ create table matching_detail(
 	md_date date default sysdate,
 	state varchar2(10)
 );
-
- 
 -------------------------------------------------------------------------------------
--- ���� ���̺�
+-- 쪽지 테이블
 -------------------------------------------------------------------------------------
  
 drop table message purge ;
 create table message(
 	ms_num number primary key,
-	sender varchar2(20) not null,
-	receiver varchar2(20) not null,
+	sender number not null,
+	receiver number not null,
 	ms_content varchar2(200) not null,
 	ms_date date default sysdate,
-	ms_state varchar2(2) default 'n'
+	ms_state varchar2(10) default 'n'
 );
 
 drop sequence ms_seq;

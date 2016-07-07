@@ -18,7 +18,7 @@
 </select>
 
 <delete id="DeleteRequest" parameterType="int">
-	delete from matching where m_id = #{id}	
+	delete from matching where m_num = #{num}	
 </delete>
 
 </mapper>

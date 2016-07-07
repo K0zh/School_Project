@@ -8,7 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.project.heyyo.content.model.Content;
+import com.project.heyyo.member.message.Message;
 
 
 
@@ -18,31 +18,36 @@ public class MessageDao {
 
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
-	
+
 	//쪽지 쓰기
 	public void sendingMessage(Message message) {
 		sqlSessionTemplate.insert(namespace+".SendingMessage", message);
 	}
 
-	public List<Message> getAllMessage(Map<String, String> map) {
-		
-
+	//안읽은 메세지 개수
+	public int getCntNewMessage(int receiver){
+		System.out.println(receiver);
+		int cnt = sqlSessionTemplate.selectOne(namespace + ".GetCntNewMessage", receiver);
+		System.out.println(cnt);
+		return cnt;
+	}
+	
+	//받은 메세지 리스트
+	public List<Message> getReceiveMessage(int receiver) {
 		List<Message> lists = new ArrayList<Message>();
 		lists = sqlSessionTemplate
-				.selectList(namespace + ".GetAllMessage", map);
+				.selectList(namespace + ".GetReceiveMessage", receiver);
 
 		return lists;
 	}
+	
+	//보낸 메세지 리스트
 
-	public Content getContentByNum(int num) {
-		Content content;
-		content = sqlSessionTemplate.selectOne(namespace + ".GetContentByNum",
-				num);
-		return content;
-	}
+	public List<Message> getSendMessage(Map<String, String> map) {
+		List<Message> lists = new ArrayList<Message>();
+		lists = sqlSessionTemplate
+				.selectList(namespace + ".GetSendMessage", map);
 
-	public void insertTalentData(Content content) {
-
-		sqlSessionTemplate.insert(namespace + ".InsertTalentData", content);
+		return lists;
 	}
 }

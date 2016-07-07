@@ -1,5 +1,7 @@
 package com.project.heyyo.member;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -10,9 +12,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.heyyo.member.message.Message;
+import com.project.heyyo.member.message.MessageDao;
 import com.project.heyyo.member.model.Member;
 import com.project.heyyo.member.model.MemberDao;
 
@@ -22,6 +25,10 @@ public class MemberController {
 	@Autowired
 	@Qualifier("myMemberDao")
 	private MemberDao memberDao;
+	
+	@Autowired
+	@Qualifier("myMessageDao")
+	private MessageDao messageDao;
 
 	@RequestMapping(value = "signup.mb")
 	public String viewSignUpForm() {
@@ -38,101 +45,86 @@ public class MemberController {
 		return "pw_Test";
 	}
 
-	// È¸¿ø°¡ÀÔ ºÎºÐ
+	// È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½
 	@RequestMapping(value = "write.mb", method = RequestMethod.POST)
 	public ModelAndView insertSignUp(
 			@ModelAttribute("Member") @Valid Member member,
 			BindingResult bindingResult) {
 
-		System.out.println(member.getBirthday());
 		ModelAndView mav = new ModelAndView();
 
-		System.out.println("µé¾î¿Â ÀÌ¸ÞÀÏ:" + member.getEmail());
 		Member mb = memberDao.InquiryEmail(member.getEmail().trim());
-		System.out.println("ÀÌ¸ÞÀÏ Áõº¹¿©ºÎ:" + mb);
 
 		if (mb == null) {
-			System.out.println("ÀÌ¸ÞÀÏ Áõº¹ ¾øÀ½");
 			int insert = memberDao.insert(member);
-			System.out.println("µî·Ï ¿©ºÎ:" + insert);
 			mav.setViewName("redirect:main.do");
 		} else {
-			System.out.println("ÀÌ¸ÞÀÏ Áõº¹µÊ");
 			mav.setViewName("SignUpForm");
 		}
 
 		return mav;
 	}
 
-	// ·Î±×ÀÎ ºÎºÐ
+	// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Îºï¿½
 	@RequestMapping(value = "login.mb", method = RequestMethod.POST)
 	public ModelAndView login(Member member, HttpSession session) {
-		System.out.println("·Î±×ÀÎ ÀÌ¸ÞÀÏ:" + member.getEmail());
-		System.out.println("·Î±×ÀÎ ºñ¹ø:" + member.getPw());
 
 		ModelAndView mav = new ModelAndView();
 
 		Member mb = memberDao.InquiryEmail(member.getEmail().trim());
-		System.out.println("ÀÌ¸ÞÀÏ Áõº¹¿©ºÎ:" + mb);
 
 		if (mb == null) {
-			System.out.println("¾ÆÀÌµð°¡ ¾ø½À´Ï´Ù.");
-			return null;
+			
+			mav.setViewName("redirect:main.do");
 		} else {
 			if (member.getEmail().trim().equals(mb.getEmail())
 					&& member.getPw().trim().equals(mb.getPw())) {
-
+				int receiver = memberDao.selectMemberIdByEmail(member.getEmail());
+				int cnt = messageDao.getCntNewMessage(receiver);
+				
 				session.setAttribute("loginfo", mb);
+				session.setAttribute("cntNewMessage", cnt);
 				mav.setViewName("redirect:main.do");
+				
 
 			} else {
-				return null;
+				mav.setViewName("redirect:main.do");
 			}
 		}
-
 		return mav;
 
 	}
 
-	// id Ã£±â
+	// id Ã£ï¿½ï¿½
 	@RequestMapping(value = "idInquiry.mb", method = RequestMethod.POST)
 	public ModelAndView idInquiry(
 			@ModelAttribute("Member") @Valid Member member,
 			BindingResult bindingResult) {
-		System.out.println("ÀÌ¸§:" + member.getName());
-		System.out.println("ÀüÈ­¹øÈ£:" + member.getHp());
 		ModelAndView mav = new ModelAndView();
 
 		Member mb = memberDao.email_test(member);
 		if (mb == null) {
-			System.out.println("ÀÏÄ¡ÇÏ´Â ÀÌ¸ÞÀÏÀÌ ¾ø½À´Ï´Ù.");
 			// mav.setViewName("");
 		} else {
-			System.out.println("Ã£Àº ÀÌ¸§:" + mb.getEmail());
 			// mav.setViewName("test");
 		}
 		return mav;
 	}
 
-	// pw Ã£±â
+	// pw Ã£ï¿½ï¿½
 	@RequestMapping(value = "pwInquiry.mb", method = RequestMethod.POST)
 	public ModelAndView pwInquiry(
 			@ModelAttribute("Member") @Valid Member member,
 			BindingResult bindingResult) {
-		System.out.println("ÀÌ¸ÞÀÏ:" + member.getEmail());
-		System.out.println("ÀÌ¸§:" + member.getName());
-		System.out.println("ÀüÈ­¹øÈ£:" + member.getHp());
 		ModelAndView mav = new ModelAndView();
 
 		Member mb = memberDao.pw_test(member);
 		if (mb == null) {
-			System.out.println("ÀÏÄ¡ÇÏ´Â ÀÌ¸ÞÀÏÀÌ ¾ø½À´Ï´Ù.");
 			// mav.setViewName("");
 		} else {
-			System.out.println("Ã£Àº ºñ¹ø:" + mb.getPw());
 			mav.addObject("mb", mb);
 			// mav.setViewName("test");
-			mav.setViewName("test");//¼öÁ¤ÇØ¾ßµÊ
+			mav.setViewName("test");//ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ßµï¿½
 		}
 		return mav;
 	}
@@ -140,5 +132,12 @@ public class MemberController {
 	@RequestMapping(value="user_detail.mb")
 	public String viewUser() {
 		return "UserDetailView";
+	}
+	
+	
+	@RequestMapping(value="logout.mb")
+	public String doActionlogout(HttpSession session) {
+		session.removeAttribute("loginfo");
+		return "forward:main.do";
 	}
 }

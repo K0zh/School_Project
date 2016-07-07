@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
-import javax.swing.JOptionPane;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +27,7 @@ import com.project.heyyo.member.model.MemberDao;
 
 @Controller
 public class ContentController {
-	
+
 	@Autowired
 	@Qualifier("myMemberDao")
 	private MemberDao memberDao;
@@ -45,54 +45,53 @@ public class ContentController {
 		return "InfoWindow";
 	}
 
-	// ¿äÃ»ÇÏ±â Æû ÀÌµ¿
+	// ï¿½ï¿½Ã»ï¿½Ï±ï¿½ ï¿½ï¿½ ï¿½Ìµï¿½
 	@RequestMapping(value = "write.con", method = RequestMethod.GET)
-	public String viewWriteForm(HttpSession session) {
-		if(session.getAttribute("id") == "" || session.getAttribute("id") == null) {
-			System.out.println("·Î±×ÀÎÀÌ ÇÊ¿äÇÑ ¼­ºñ½º ÀÔ´Ï´Ù.");
-			return "redirect:main.do";
-		}
+	public String viewWriteForm(HttpSession session, ModelMap model) {
 		
+		if (session.getAttribute("loginfo") == "" || session.getAttribute("loginfo") == null) {
+			model.addAttribute("msg", "ë¡œê·¸ì¸ì´ í•„ìš”í•œ ì„œë¹„ìŠ¤ ì…ë‹ˆë‹¤.");
+			model.addAttribute("url", "main.do");
+			return "redirect";
+		}
+
 		return "ContentWriteForm";
 	}
 
-	// ¿äÃ»ÇÏ±â ÄÜÅÙÃ÷ µî·Ï
+	// ï¿½ï¿½Ã»ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	@RequestMapping(value = "write.con", method = RequestMethod.POST)
 	public String doActionWrite(
 			@ModelAttribute("Content") @Valid Content content,
 			BindingResult bindingResult) {
-
-		// ¾ò¾î¿Â ÁÂÇ¥ °¡°ø
+		
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½
 		String location = content.getLocation();
-		String[] location_result = location.replace("(", "").replace(")", "").split(",");
+		String[] location_result = location.replace("(", "").replace(")", "")
+				.split(",");
 		content.setLat(location_result[0]);
 		content.setLng(location_result[1]);
 		
-		System.out.println("À§µµ" + content.getLat());
-		System.out.println("°æµµ" + content.getLng());
-		
-
-		// °¡°øÇÑ ÁÂÇ¥ Àç¼³Á¤
-		System.out.println("id: " + content.getId());
-		System.out.println("SDAY" + content.getS_day());
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ç¼³ï¿½ï¿½
 		contentDao.insertTalentData(content);
 
 		return "redirect:main.do";
 	}
 
-	// ¿äÃ» ³»¿ë »ó¼¼º¸±â
+	// ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ ï¿½ó¼¼ºï¿½ï¿½ï¿½
 	@RequestMapping(value = "detail.con")
 	public ModelAndView viewDetail(@RequestParam(value = "num") int num,
+			@RequestParam(value = "id") int id,
 			HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		Content content = contentDao.getContentByNum(num);
+		Member member = memberDao.selectMemberById(id);
 
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		map.put("num", num);
 		List<Matching> lists = matchingDao.selectMatchingByNum(map);
-
 		mav.addObject("content", content);
+		mav.addObject("member", member);
 		mav.addObject("matchingList", lists);
 
 		mav.setViewName("ContentDetailView");
@@ -106,34 +105,34 @@ public class ContentController {
 			BindingResult bindingResult) {
 
 		int num = matching.getM_num();
+		int id = matching.getM_id();
 		matchingDao.insertRequestMatching(matching);
 
-		return "redirect:detail.con?num=" + num;
+		return "redirect:detail.con?num=" + num + "&id="+id;
 
 	}
 
-	// ¿äÃ» °ÅÀıÇÏ±â
+	// ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 	@RequestMapping(value = "deny.con")
-	public String doActionDeny(@RequestParam(value = "id") int id,
+	public String doActionDeny(@RequestParam(value = "m_id") int m_id,
+			@RequestParam(value = "id") int id,
 			@RequestParam(value = "num") int num) {
-		matchingDao.deleteRequest(id);
-		return "redirect:detail.con?num=" + num;
+		System.out.println("deny ë“¤ì–´ì˜´");
+		matchingDao.deleteRequest(m_id);
+		return "redirect:detail.con?num="+num+"&id="+id;
 	}
 
-	
-	// ¿äÃ» ¼ö¶ôÇÏ±â
+	// ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 	@RequestMapping(value = "agree.con", method = RequestMethod.POST)
 	public ModelAndView doActionAgree(
 			@RequestParam(value = "id_able") int id_able,
 			@RequestParam(value = "id_need") int id_need) {
-		System.out.println(id_able);
-		System.out.println(id_need);
 
 		ModelAndView mav = new ModelAndView();
 
 		Member responseMember = memberDao.selectMemberById(id_able);
 		Member requestMember = memberDao.selectMemberById(id_need);
-		
+
 		mav.addObject("responseMember", responseMember);
 		mav.addObject("requestMember", requestMember);
 		mav.setViewName("matching/MatchingDetail");

@@ -2,8 +2,8 @@ package com.project.heyyo.member.message;
 
 public class Message {
 	private int ms_num;
-	private String sender;
-	private String receiver;
+	private int sender;
+	private int receiver;
 	private String ms_content;
 	private String ms_date;
 	private String ms_state;
@@ -11,7 +11,7 @@ public class Message {
 		super();
 	}
 	
-	public Message(int ms_num, String sender, String receiver,
+	public Message(int ms_num, int sender, int receiver,
 			String ms_content, String ms_date, String ms_state) {
 		super();
 		this.ms_num = ms_num;
@@ -28,16 +28,16 @@ public class Message {
 	public void setMs_num(int ms_num) {
 		this.ms_num = ms_num;
 	}
-	public String getSender() {
+	public int getSender() {
 		return sender;
 	}
-	public void setSender(String sender) {
+	public void setSender(int sender) {
 		this.sender = sender;
 	}
-	public String getReceiver() {
+	public int getReceiver() {
 		return receiver;
 	}
-	public void setReceiver(String receiver) {
+	public void setReceiver(int receiver) {
 		this.receiver = receiver;
 	}
 	public String getMs_date() {
@@ -60,6 +60,4 @@ public class Message {
 	public void setMs_content(String ms_content) {
 		this.ms_content = ms_content;
 	}
-	
-	
 }

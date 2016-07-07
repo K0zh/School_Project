@@ -13,27 +13,25 @@ public class MemberDao {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	
-	//Áõº¹ÀÌ¸ÞÀÏ°Ë»ç
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½Ï°Ë»ï¿½
 	public Member InquiryEmail(String email) {
 		Member mb = null;
-		System.out.println("¿©±â");
 		mb= sqlSessionTemplate.selectOne(namespace+".InquiryEmail", email);
-		System.out.println("µÎ±â");
 		return mb;
 	}
-	//È¸¿ø°¡ÀÔ
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public int insert(Member member) {
 		int cnt = -1;
 		cnt = sqlSessionTemplate.insert(namespace+".M_insert", member);
 		return cnt;
 	}
-	//ÀÌ¸ÞÀÏÃ£±â
+	//ï¿½Ì¸ï¿½ï¿½ï¿½Ã£ï¿½ï¿½
 	public Member email_test(Member member) {
 		Member mb = null;
 		mb= sqlSessionTemplate.selectOne(namespace+".email_test", member);
 		return mb;
 	}
-	//ÆÐ½º¿öµåÃ£±â
+	//ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½
 	public Member pw_test(Member member) {
 		Member mb = null;
 		mb= sqlSessionTemplate.selectOne(namespace+".pw_test", member);
@@ -41,9 +39,13 @@ public class MemberDao {
 	
 	}
 	public Member selectMemberById(int id) {
-		System.out.println("selectMemberById :  " + id);
 		Member mb = sqlSessionTemplate.selectOne(namespace + ".SelectMemberById", id);
 		
 		return mb;
+	}
+	
+	public int selectMemberIdByEmail(String email){
+		int id = sqlSessionTemplate.selectOne(namespace + ".SelectMemberIdByEmail", email);
+		return id;
 	}
 }

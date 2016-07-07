@@ -17,7 +17,6 @@ public class ContentDao {
 
 	public List<Content> getAllContent(Map<String, String> map) {
 		
-		System.out.println(map.get("init_lat"));
 
 		List<Content> lists = new ArrayList<Content>();
 		lists = sqlSessionTemplate

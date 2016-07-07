@@ -27,33 +27,50 @@ public class MessageController {
 	@Qualifier("myMessageDao")
 	private MessageDao messageDao;
 
-	// 쪽지 리스트
-	@RequestMapping(value = "list.ms", method = RequestMethod.GET)
-	public ModelAndView viewMain(
-			@RequestParam(value="receiver", required = false) String receiver,
+	// 받은 쪽지 리스트
+	@RequestMapping(value = "receiveList.ms", method = RequestMethod.GET)
+	public ModelAndView viewReceiveMessageList(
+			@RequestParam(value="receiver", required = false) int receiver,
 			HttpSession session
 			) {
 		ModelAndView mav = new ModelAndView();
 		
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("receiver", receiver);
-		
-		List<Message> messageLists = messageDao.getAllMessage(map);
+		List<Message> messageLists = messageDao.getReceiveMessage(receiver);
 
 		mav.addObject("messageLists", messageLists);
-		mav.setViewName("MessagePage");
+		mav.setViewName("ReceiveMessageList");
 
 		return mav;
 	}
 	
+	// 보낸 쪽지 리스트
+		@RequestMapping(value = "sendList.ms", method = RequestMethod.GET)
+		public ModelAndView viewSendMessageList(
+				@RequestParam(value="sender", required = false) String sender,
+				HttpSession session
+				) {
+			ModelAndView mav = new ModelAndView();
+			
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("sender", sender);
+			
+			List<Message> messageLists = messageDao.getSendMessage(map);
+
+			mav.addObject("messageLists", messageLists);
+			mav.setViewName("SendMessageList");
+
+			return mav;
+		}
+	
 	// 쪽지 form
 	@RequestMapping(value = "write.ms", method = RequestMethod.GET)
-	public String viewMesseageWriteForm(HttpSession session) {
-		if(session.getAttribute("id") == "" || session.getAttribute("id") == null) {
-			System.out.println("로그인이 필요한 서비스 입니다.");
-			return "redirect:main.do";
-		}
-		return "MessageWriteForm";
+	public ModelAndView viewMesseageWriteForm(
+			@RequestParam(value="id", required = false) int id,
+			HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("id",id);
+		mav.setViewName("MessageWriteForm");
+		return mav;
 	}
 
 	// 쪽지 쓰기
