@@ -95,7 +95,7 @@
 
 				</table>
 
-				<c:if test="${sessionScope.id eq content.id}">
+				<%-- <c:if test="${sessionScope.id eq content.id}"> --%>
 				<table class="table table-bordered table-hover">
 					<thead>
 						<tr class="text-center">
@@ -123,7 +123,7 @@
 						</c:forEach>
 					</tbody>
 				</table>
-				</c:if>
+				<%-- </c:if> --%>
 			</div>
 		</div>
 	</div>

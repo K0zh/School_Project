@@ -19,13 +19,15 @@
 				<a href="detail.con?num=${content.NUM }">
 				<div class="media">
 					<div class="media-left">
-						<img class="media-object" src="${pageContext.request.contextPath}/resources/images/profile/pic01.png" alt="image" width="100px">
+						<img class="media-object" src="${pageContext.request.contextPath}/resources/images/profile/pic01.png" alt="image" width="80px">
 					</div>
 					<div class="media-body">
-						<b>${content.SUBJECT }</b>
-						${content.TALENT }
+						${content.SUBJECT }<br>
+						
+						
+						<b>${content.TYPE } : </b>${content.TALENT }
 					</div>
-					${content.C_DATE}
+					등록일 : <fmt:formatDate value="${content.C_DATE}" pattern="yyyy-MM-dd hh:mm"/>
 				</div>
 				</a>
 			</li>

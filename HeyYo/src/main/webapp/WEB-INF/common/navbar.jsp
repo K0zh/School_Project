@@ -11,7 +11,7 @@
         		<span class="icon-bar"></span>                        
       		</button>
       		<a class="navbar-brand" href="main.do">
-      		<img src="${pageContext.request.contextPath}/resources/images/doum_logo.png">
+      		<img src="${pageContext.request.contextPath}/resources/images/doum_logo.png" width="80px">
       		</a>
       	</div>
       	<div class="collapse navbar-collapse" id="myNavbar">

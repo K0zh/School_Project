@@ -36,8 +36,9 @@
 			<!-- 검색 부분 -->
 			<div class="form-inline">
 				<div class="col-md-3 col-md-offset-3 col-xs-12 input-group">
-					<input type="text" class="form-control" placeholder="지역명" name="location"> <span class="input-group-btn">
-						<button class="btn btn-default" type="button" onclick="locationClick()">GO!</button>
+					<input id="location_search" type="textbox" class="form-control" placeholder="지역명" name="location">
+					<span class="input-group-btn">
+						<button id="submit" class="btn btn-default" type="button" onclick="locationClick()">GO!</button>
 					</span>
 				</div>
 				<div class="col-md-3  col-xs-12 input-group pull-right">

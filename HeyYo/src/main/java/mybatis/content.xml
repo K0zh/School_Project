@@ -4,23 +4,30 @@
 
 <mapper namespace="com.project.heyyo.content.model.Content">
 	<select id="GetAllContent" resultType="HashMap" parameterType="HashMap">
+		select * from contents where rownum &lt; 20 
+		<if test="type != null">
+			and type = #{type}
+		</if>
+
+		<if test="talent != null">
+			and talent = #{talent}
+		</if>
+		
+		order by abs(#{location} - (lat+lng))
+	</select>
+	
+	<select id="GetAllContentList" resultType="HashMap" parameterType="HashMap">
 
 		select * from contents
-		
-		<!-- SELECT id, ( 6371 * acos( cos( radians(#{init_lat}) ) * cos( radians( 
-			lat ) ) * cos( radians( lng ) - radians(#{init_lng}) ) + sin( radians(#{init_lat}) 
-			) * sin( radians( lat ) ) ) ) AS distance FROM contents -->
-
 		<if test="type != null">
 			where type = #{type}
 		</if>
 
 		<if test="talent != null">
-			where talent = #{talent}
+			where talent like % #{talent} %
 		</if>
-		
 		order by c_date desc
-		<!-- <![CDATA[ where distance < 5 ORDER BY distance ]]> -->
+		
 	</select>
 
 	<select id="GetContentByNum" resultType="MyContent"
@@ -38,4 +45,16 @@
 		#{personnel}, #{gender}, #{content}, 'open', #{type})
 	</insert>
 
+	<select id="GetTotalCount" resultType="int">
+		select count(*) from contents
+		
+		<if test="type != null">
+			where type = #{type}
+		</if>
+			
+		<if test="talent != null">
+			where talent = #{talent}
+		</if>
+		
+	</select>
 </mapper>

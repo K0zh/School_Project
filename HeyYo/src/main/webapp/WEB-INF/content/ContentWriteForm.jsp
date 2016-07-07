@@ -28,8 +28,8 @@
 			<div class="form-group">
 				<label for="type" class="col-xs-2 control-label">카테고리 </label>
 				<div class="col-xs-2">
-					<select id="type" name="type" class="form-control">
-						<option>선택</option>
+					<select id="type" name="type" class="form-control" required>
+						<option value="">선택</option>
 						<option value="need">필요 해요!</option>
 						<option value="able">필요 해요?</option>
 					</select>
@@ -41,7 +41,7 @@
 			<div class="form-group">
 				<label for="subject" class="col-xs-2 control-label">제목 </label>
 				<div class="col-xs-10 col-md-9">
-					<input type="text" id="subject" name="subject" class="form-control">
+					<input type="text" id="subject" name="subject" class="form-control" required>
 				</div>
 			</div>
 
@@ -57,7 +57,7 @@
 			<div class="form-group">
 				<label for="date" class="col-xs-2 control-label">요청일</label>
 				<div class="col-xs-10 col-md-9">
-					<input type="date" id="s_day" name="s_day" class="form-control">
+					<input type="date" id="s_day" name="s_day" class="form-control" required>
 				</div>
 			</div>
 
@@ -65,7 +65,7 @@
 			<div class="form-group">
 				<label for="location" class="col-xs-2 control-label">지역</label>
 				<div class="col-xs-10 col-md-9">
-					<input type="text" id="address" name="address" class="form-control">
+					<input type="text" id="address" name="address" class="form-control" readonly placeholder="지도를 클릭해주세요" required>
 					<!-- 맵 div -->
 					<div id="map" style="width: 100%; height: 30%; margin-top: 10px;"></div>
 				</div>
@@ -75,7 +75,7 @@
 			<div class="form-group">
 				<label for="personnel" class="col-xs-2 control-label">필요 인원</label>
 				<div class="col-xs-10 col-md-9">
-					<input type="number" id="personnel" name="personnel" class="form-control">
+					<input type="number" id="personnel" name="personnel" class="form-control" required>
 				</div>
 			</div>
 
@@ -83,9 +83,9 @@
 			<div class="form-group">
 				<label for="gender" class="col-xs-2 control-label">성별</label>
 				<div class="col-xs-10 col-md-9">
-					<label class="radio-inline"> <input type="radio" value="남자" id="gender" name="gender">남자
+					<label class="radio-inline"> <input type="radio" value="남자" id="gender" name="gender" >남자
 					</label> <label class="radio-inline"> <input type="radio" value="여자" id="gender" name="gender">여자
-					</label> <label class="radio-inline"> <input type="radio" value="무관" id="gender" name="gender">무관
+					</label> <label class="radio-inline"> <input type="radio" value="무관" id="gender" name="gender" required>무관
 					</label>
 				</div>
 			</div>
@@ -94,7 +94,7 @@
 			<div class="form-group">
 				<label for="content" class="col-xs-2 control-label">내용</label>
 				<div class="col-xs-10 col-md-9">
-					<textarea class="form-control" rows="3" id="content" name="content">테스트</textarea>
+					<textarea class="form-control" rows="3" id="content" name="content" required></textarea>
 				</div>
 			</div>
 

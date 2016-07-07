@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import utility.Paging;
 
 import com.project.heyyo.content.model.Content;
 import com.project.heyyo.content.model.ContentDao;
@@ -64,17 +67,31 @@ public class MainController {
 	@RequestMapping(value = "list.do", method = RequestMethod.GET)
 	public ModelAndView viewList(@RequestParam(value = "type", required = false) String type,
 								 @RequestParam(value = "talent", required = false) String talent,
-								 HttpSession session) {
+								 @RequestParam(value = "pageNumber", required = false ) String pageNumber,
+								 @RequestParam(value = "pageSize", required = false ) String pageSize,
+								 HttpServletRequest request,
+								 HttpSession session ) {
 		ModelAndView mav = new ModelAndView();
 
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("type", type);
-		map.put("talent", talent);
+		map.put("talent",talent);
 
-		List<Content> contentLists = contentDao.getAllContent(map);
-		mav.addObject("contentLists", contentLists);
+		System.out.println("type : " + type);
+		System.out.println("talent : " + talent);
+		
 		mav.setViewName("List");
-
+		
+		String url = request.getContextPath() + "/list.do" ;
+		int totalCount = contentDao.GetTotalCount( map );
+		System.out.println("totalcount : " + totalCount);
+		
+		Paging pageInfo = new Paging( pageNumber, pageSize, totalCount, url, type, talent, null);
+		
+		List<Content> contentLists = contentDao.getAllContentList(pageInfo, map);
+		
+		mav.addObject("contentLists", contentLists);
+		mav.addObject("pageInfo", pageInfo);
 		return mav;
 	}
 
