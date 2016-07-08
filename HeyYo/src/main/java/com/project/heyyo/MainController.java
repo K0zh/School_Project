@@ -45,11 +45,9 @@ public class MainController {
 	public ModelAndView viewMain(
 			@RequestParam(value="type", required = false) String type,
 			@RequestParam(value="talent", required = false) String talent,
-			@RequestParam(value="init_lat", required = false) String init_lat,
-			@RequestParam(value="init_lng", required = false) String init_lng,
 			HttpSession session
 			) {
-		LOGGER.info("���� ����");
+		LOGGER.info("MAIN ");
 		ModelAndView mav = new ModelAndView();
 
 		Map<String, String> map = new HashMap<String, String>();
