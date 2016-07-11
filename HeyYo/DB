@@ -3,7 +3,6 @@ PROJECT DB E-oood
 -- 회원 테이블
 -------------------------------------------------------------------------------------
 -- members로 테이블 만들면 오류가 나서 p_members로 수정.
-<<<<<<< HEAD
 -- id 회원 고유 번호 
 -- email 이메일(로그인 id)
 -- pw 비밀번호
@@ -21,10 +20,10 @@ PROJECT DB E-oood
 -- R_date 가입일
 
 
-drop sequence p_memseq;
-create sequence p_memseq start with 1 increment by 1 nocache ;
-drop table p_members purge;
-create table p_members(
+drop sequence memseq;
+create sequence memseq start with 1 increment by 1 nocache ;
+drop table members purge;
+create table members(
 	id number primary key,
 	email varchar2(30) not null,
 	pw varchar2(30) not null,
@@ -81,8 +80,8 @@ create sequence conseq start with 1 increment by 1 nocache ;
 drop table contents purge ;
 
 create table contents(
-	id	 number primary key,
-	num number,
+	id	 number,
+	num number primary key,
 	subject varchar2(50),
 	talent	varchar2(100),		
 	c_date date default sysdate,

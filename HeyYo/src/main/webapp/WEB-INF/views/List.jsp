@@ -68,13 +68,20 @@
 							<td align="center">${content.NUM }
 							<td>
 								<div class="media-left">
-									<img class="media-object" src="${pageContext.request.contextPath}/resources/images/profile/${content.IMAGE}" alt="image" width="80px">
+									<img class="media-object" src="${pageContext.request.contextPath}/resources/images/profile/${content.IMAGE}" alt="image" width="50px">
 								</div>
 							</td>
 							<td>
 								<div class="media-body">
 									<a href="detail.con?num=${content.NUM }&id=${content.ID}">
-										<h4 class="media-heading">${content.SUBJECT }</h4> ${content.TALENT }
+										<h4 class="media-heading"><b>${content.SUBJECT }</b></h4> 
+										<c:if test="${content.TYPE eq 'able'}">
+											able : 
+										</c:if>
+										<c:if test="${content.TYPE eq 'need'}">
+											need : 
+										</c:if>
+										${content.TALENT }
 									</a>
 								</div>
 							</td>
@@ -86,7 +93,7 @@
 		</div>
 		<br>
 		<input type="button" value="요청/나눔 등록" onclick="location.href='write.con'" class="col-md-8 col-md-offset-2 col-xs-12 btn btn-primary">
-		<div class="text-center">${pageInfo.pagingHtml}</div>
+		<div class="col-md-12 col-xs-12 text-center">${pageInfo.pagingHtml}</div>
 	</div>
 
 

@@ -34,8 +34,8 @@
   									Messages<span class="badge">${sessionScope.cntNewMessage}</span>
 							</button>
 							<font color="white">${sessionScope.loginfo.name} 님 환영 합니다.</font>
-							<input type="button" value="myPage" onclick="location.href='myPage.mb'"> 
-							<input type="button" value="로그아웃" onclick="location.href='logout.mb'">
+							<input type="button" value="myPage" onclick="location.href='myPage.mb'" class="btn btn-default"> 
+							<input type="button" value="로그아웃" onclick="location.href='logout.mb'" class="btn btn-default">
 						</div>
 					</c:otherwise>
         		</c:choose>

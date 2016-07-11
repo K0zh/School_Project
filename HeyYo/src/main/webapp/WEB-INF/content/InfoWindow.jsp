@@ -2,7 +2,7 @@
 <%@include file="/WEB-INF/common/common.jsp"%>
 <div style="width: 200px;">
 	<header>
-		<b>$SUBJECT</b>
+		<h3>$SUBJECT</h3>
 	</header>
 	<section>
 		<div>
@@ -14,7 +14,9 @@
 		</div>
 	</section>
 	<footer>
-		<a href='detail.con?num=$NUM&id=$ID' class="btn btn-primary">상세보기</a>
+		<div class="text-center">
+		<a href='detail.con?num=$NUM&id=$ID' class="btn btn-primary btn-sm">상세보기</a>
+		</div>
 	</footer>
 </div>
 

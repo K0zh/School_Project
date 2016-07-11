@@ -26,28 +26,40 @@
 				<table class="table-bordered" style="width: 100%">
 					<thead>
 						<tr>
-							<th width="10%"><b>${content.num }</b></th>
-							<th width="80%"><b>${content.subject }</b></th>
-							<th width="10%"><b>${content.c_date}</b></th>
+							<td width="10%" align="center"><b>${content.num }</b></td>
+							<td width="80%" align="center"><b>${content.subject }</b></td>
+							<td width="10%" align="center"><b>${content.c_date}</b></td>
 						</tr>
 						<tr>
-							<th>키워드</th>
-							<th colspan="2">${content.talent }</th>
+							<td align="center">
+								<c:if test="${content.type eq 'able' }">
+									필요해요?
+								</c:if>
+								<c:if test="${content.type eq 'need' }">
+									필요해요!
+								</c:if>
+								
+							</td>
+							<th colspan="2">&nbsp;${content.talent }</th>
+					
 					</thead>
 					<tbody>
 						<tr>
 							<td colspan="3" height="300px">
 								<div class="content">
-									<div>${content.content }</div>
+									<div style="margin:20px">${content.content }</div>
 								</div>
 							</td>
 						</tr>
 						<tr>
-							<td colspan="3">
-									<div class="center-block">
-										<input type="button" value="신고 하기" class="btn btn-default">&nbsp;
-										<input type="button" value="쪽지 보내기" class="btn btn-default" onclick="location.href='write.ms?id=${content.id}'">
+							<td colspan="3" align="center">
+							
+									<div class="text-center">
+										<input type="button" value="수정" class="btn btn-default" onclick="location.href='write.ms?id=${content.id}'">
+										<input type="button" value="삭제" class="btn btn-default" onclick="location.href='write.ms?id=${content.id}'">
+										<input type="button" value="신고 하기" class="btn btn-danger btn-xs pull-right" style="margin-top : 3px">&nbsp;
 									</div>
+									
 							</td>
 						</tr>
 					</tbody>
@@ -59,7 +71,7 @@
 			<div>
 				<div class="media">
 					<div class="media-left media-middle">
-						<a href="#"> <img class="media-object" src="..." alt="..." width="100px">
+						<a href="#"> <img class="media-object" src="${pageContext.request.contextPath}/resources/images/profile/${member.image}" alt="IMG" width="100px">
 						</a>
 					</div>
 					<div class="media-body">
@@ -83,11 +95,10 @@
 									<input type="hidden" name="m_name" value="${sessionScope.loginfo.name }"> 
 									<input type="hidden" name="m_id" value="${sessionScope.loginfo.id}">
 									
-										<textarea class="col-md-10 form-control" rows="1" cols="110" name="introduce"  <c:if test="${sessionScope.loginfo == null }">disabled</c:if> >
+										<textarea class="col-md-10 form-control" rows="1" cols="110" name="introduce" <c:if test="${sessionScope.loginfo == null }">disabled</c:if>>
 											<c:if test="${sessionScope.loginfo == null }">로그인이 필요합니다.</c:if>
 										</textarea>
-									
-										<input type="submit" value="신청" class="col-md-1 col-xs-12 btn btn-primary" <c:if test="${sessionScope.loginfo == null }">disabled</c:if>  >
+										<input type="submit" value="신청" class="col-md-1 col-xs-12 btn btn-primary" <c:if test="${sessionScope.loginfo == null }">disabled</c:if>>
 									
 								</div>
 							</form>
@@ -105,7 +116,9 @@
 							<th width="60%">내용</th>
 							<th width="10%">동의</th>
 						</tr>
+					
 					<thead>
+					
 					<tbody>
 						<c:forEach items="${matchingList}" var="matching" varStatus="status">
 							<tr>

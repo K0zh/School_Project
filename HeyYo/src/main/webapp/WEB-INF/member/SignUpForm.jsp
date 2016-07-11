@@ -31,7 +31,7 @@
 
 				<div class="form-group">
 					<label for="InputFile">프로필 이미지</label> 
-					<input type="file" id="InputFile">
+					<input type="file" id="profile_img" name="profile_img" value="">
 					<p class="help-block">프로필 이미지를 선택해주세요</p>
 				</div>
 
@@ -107,7 +107,7 @@
 
 				<input type="submit" value="신청하기" class="btn btn-primary btn-md btn-block">
 			</form>
-		</div>
+		</div>	
 	</div>
 	<!-- /#wrapper -->
 

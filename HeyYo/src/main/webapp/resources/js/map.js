@@ -1,44 +1,33 @@
+var map;
 function initMap() {
-	if (navigator.geolocation) {
-		// 위치정보 얻어옴
-		navigator.geolocation
-				.getCurrentPosition(function(position) {
-					var lat_result = position.coords.latitude, // 위도
-					lng_result = position.coords.longitude;// 경도
+	
+	map = new google.maps.Map(document.getElementById('map'), { // 구글 맵
+		// 좌표 설정
+		center : {
+			lat : lat_result,
+			lng : lng_result
+		},
+		zoom : 16
+	});
 
-					var map;
-					map = new google.maps.Map(document.getElementById('map'), { // 구글 맵
-						// 좌표 설정
-						center : {
-							lat : lat_result,
-							lng : lng_result
-						},
-						zoom : 16
-					});
+	var geocoder = new google.maps.Geocoder();
 
-					var geocoder = new google.maps.Geocoder();
+	document.getElementById('submit').addEventListener('click', function() {
+		console.log("GO 버튼 클릭");
+		geocodeAddress(geocoder, map);
 
-					document.getElementById('submit').addEventListener('click',
-							function() {
-								geocodeAddress(geocoder, map);
+	});
 
-							});
+	/* 마커 띄우기 */
+	for (i = 0; i < address.length; i++) {
+		var myLatLng = new google.maps.LatLng(init_lat[i], init_lng[i]);
 
-					/* 마커 띄우기 */
-					for (i = 0; i < address.length; i++) {
-						var myLatLng = new google.maps.LatLng(init_lat[i],
-								init_lng[i]);
-
-						if (marker_type[i] == "able") {
-							var marker_icon = "resources/images/blue_marker.png";
-						} else if (marker_type[i] == "need") {
-							var marker_icon = "resources/images/red_marker.png";
-						}
-						addMarkerWithTimeout(myLatLng, i * 300, i, map,
-								marker_icon);
-					}
-				});
-	} else { // HTML5의 GeoLocation을 사용할 수 없을때 실행
+		if (marker_type[i] == "able") {
+			var marker_icon = "resources/images/blue_marker.png";
+		} else if (marker_type[i] == "need") {
+			var marker_icon = "resources/images/red_marker.png";
+		}
+		addMarkerWithTimeout(myLatLng, i * 300, i, map, marker_icon);
 	}
 }
 
@@ -49,21 +38,16 @@ function geocodeAddress(geocoder, resultsMap) {
 	}, function(results, status) {
 		if (status === google.maps.GeocoderStatus.OK) {
 			resultsMap.setCenter(results[0].geometry.location);
-			deleteMarkers();
-			
-			/*$.ajax({
-		        url : "/location.do",
-		        type: "get",
-		        data : { "id" : $("#id").val() },
-		        success : function(responseData){
-		            $("#ajax").remove();
-		            var data = JSON.parse(responseData);
-		            if(!data){
-		                return false;
-		            }
-		        }
-		    });*/
+			var location_val = String(results[0].geometry.location);
+			var location_replace = location_val.replace("(", "").replace(")",
+					"");
+			var location_split = location_replace.split(",");
+			var location_result = Number(location_split[0])
+					+ Number(location_split[1]);
 
+			console.log(location_result);
+
+			document.location.href = "location.do?location=" + location_result+"&lat="+location_split[0]+"&lng="+Number(location_split[1]);
 		} else {
 			alert('Geocode was not successful for the following reason: '
 					+ status);
@@ -87,8 +71,7 @@ function addMarkerWithTimeout(position, timeout, i, map, marker_icon) {
 			title : address[i],
 			animation : google.maps.Animation.DROP
 		});
-		
-		
+
 		contentInfo(marker, contentString[i]);
 	}, timeout);
 }
@@ -107,7 +90,7 @@ function contentInfo(marker, contentString) {
 	});
 }
 
-//마커 초기화 부분
+// 마커 초기화 부분
 function setMapOnAll(map) {
 	for (var i = 0; i < markers.length; i++) {
 		markers[i].setMap(map);

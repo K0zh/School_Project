@@ -58,7 +58,7 @@ if (navigator.geolocation) {
 		
 		var now_location = lat_result + lng_result;
 		
-		document.location.href="main.do?location="+now_location;
+		document.location.href="main.do?location="+now_location+"&lat="+lat_result+"&lng="+lng_result;
 	});
 }
 	
