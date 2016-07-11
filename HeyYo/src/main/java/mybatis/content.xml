@@ -5,8 +5,10 @@
 <mapper namespace="com.project.heyyo.content.model.Content">
 	<select id="GetAllContent" resultType="HashMap" parameterType="HashMap">
 		<!-- select * from contents where rownum &lt; 20 -->
-		
- 		SELECT m.image, c.id, c.num, c.subject, c.talent, c.c_date, c.s_day, c.address, c.lat, c.lng, c.personnel, c.gender, c.content, c.closed, c.type  FROM members m inner join contents c on c.id = m.id where rownum &lt; 20 
+		SELECT m.image, c.id, c.num, c.subject, c.talent, c.c_date, c.s_day,
+		c.address, c.lat, c.lng, c.personnel, c.gender, c.content, c.closed,
+		c.type FROM members m inner join contents c on c.id = m.id where
+		rownum &lt; 20
 		<if test="type != null">
 			and type = #{type}
 		</if>
@@ -14,13 +16,18 @@
 		<if test="talent != null">
 			and talent like '%' || #{talent} || '%'
 		</if>
-		
+
 		<!-- order by abs(#{location} - (lat+lng)) -->
 	</select>
-	
-	<select id="GetAllContentList" resultType="HashMap" parameterType="HashMap">
 
-		select * from contents
+	<select id="GetAllContentList" resultType="HashMap"
+		parameterType="HashMap">
+
+		SELECT m.image, c.id, c.num, c.subject, c.talent, c.c_date, c.s_day,
+		c.address, c.lat, c.lng, c.personnel, c.gender, c.content, c.closed,
+		c.type FROM members m inner join contents c on c.id = m.id
+
+
 		<if test="type != null">
 			where type = #{type}
 		</if>
@@ -28,8 +35,8 @@
 		<if test="talent != null">
 			where talent like '%' || #{talent} || '%'
 		</if>
-		order by c_date desc
 		
+		order by c.c_date desc
 	</select>
 
 	<select id="GetContentByNum" resultType="MyContent"
@@ -49,14 +56,14 @@
 
 	<select id="GetTotalCount" resultType="int">
 		select count(*) from contents
-		
+
 		<if test="type != null">
 			where type = #{type}
 		</if>
-			
+
 		<if test="talent != null">
 			where talent = #{talent}
 		</if>
-		
+
 	</select>
 </mapper>

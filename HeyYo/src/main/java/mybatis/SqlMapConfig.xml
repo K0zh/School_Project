@@ -14,10 +14,12 @@
 		<typeAlias alias="MyMember" type="com.project.heyyo.member.model.Member"/>
 		<typeAlias alias="MyContent" type="com.project.heyyo.content.model.Content"/>
 		<typeAlias alias="MyMatching" type="com.project.heyyo.content.matching.Matching"/>
+		<typeAlias alias="MyMessage" type="com.project.heyyo.member.message.Message"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/member.xml"/>
 		<mapper resource="mybatis/content.xml"/>
 		<mapper resource="mybatis/matching.xml"/> 
+		<mapper resource="mybatis/message.xml"/> 
 	</mappers>
 </configuration>

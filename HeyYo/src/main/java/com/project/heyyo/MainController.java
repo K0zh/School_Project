@@ -35,7 +35,7 @@ public class MainController {
 		return "initPage";
 	}
 
-	@RequestMapping(value = "home.do")
+	@RequestMapping(value = "main.do")
 	public String home2() {
 		return "Main";
 	}
@@ -45,14 +45,17 @@ public class MainController {
 	public ModelAndView viewMain(
 			@RequestParam(value="type", required = false) String type,
 			@RequestParam(value="talent", required = false) String talent,
+			@RequestParam(value="location", required = false) String location,
 			HttpSession session
 			) {
 		LOGGER.info("MAIN들어옴");
 		ModelAndView mav = new ModelAndView();
 
 		Map<String, String> map = new HashMap<String, String>();
+		System.out.println(location);
 		map.put("type", type);
 		map.put("talent", talent);
+		map.put("location",location);
 
 		List<Content> contentLists = contentDao.getAllContent(map);
 

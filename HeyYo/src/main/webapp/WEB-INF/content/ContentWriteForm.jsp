@@ -37,14 +37,6 @@
 				
 				</div>
 			</div>
-			
-			<!-- 콘텐츠 이미지 -->
-			<div class="form-group">
-				<label for="type" class="col-xs-2 control-label">카테고리 </label>
-				<div class="col-xs-2">
-					<input type="text" id="subject" name="image" class="form-control">				
-				</div>
-			</div>
 		
 			<!-- 제목 -->
 			<div class="form-group">

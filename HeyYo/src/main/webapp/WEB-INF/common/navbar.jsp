@@ -30,6 +30,9 @@
         			</c:when>
         			<c:otherwise>
 						<div>
+							<button class="btn btn-primary" type="button" onclick="location.href='receiveList.ms?receiver=${sessionScope.loginfo.id}'">
+  									Messages<span class="badge">${sessionScope.cntNewMessage}</span>
+							</button>
 							<font color="white">${sessionScope.loginfo.name} 님 환영 합니다.</font>
 							<input type="button" value="myPage" onclick="location.href='myPage.mb'"> 
 							<input type="button" value="로그아웃" onclick="location.href='logout.mb'">

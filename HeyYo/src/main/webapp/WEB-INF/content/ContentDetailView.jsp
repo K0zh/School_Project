@@ -46,7 +46,7 @@
 							<td colspan="3">
 									<div class="center-block">
 										<input type="button" value="신고 하기" class="btn btn-default">&nbsp;
-										<input type="button" value="쪽지 보내기" class="btn btn-default">
+										<input type="button" value="쪽지 보내기" class="btn btn-default" onclick="location.href='write.ms?id=${content.id}'">
 									</div>
 							</td>
 						</tr>
