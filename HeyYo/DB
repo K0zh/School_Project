@@ -2,8 +2,8 @@ PROJECT DB E-oood
 -------------------------------------------------------------------------------------
 -- 회원 테이블
 -------------------------------------------------------------------------------------
+-- members로 테이블 만들면 오류가 나서 p_members로 수정.
 <<<<<<< HEAD
-
 -- id 회원 고유 번호 
 -- email 이메일(로그인 id)
 -- pw 비밀번호
@@ -21,10 +21,10 @@ PROJECT DB E-oood
 -- R_date 가입일
 
 
-drop sequence memseq;
-create sequence memseq start with 1 increment by 1 nocache ;
-drop table members purge;
-create table members(
+drop sequence p_memseq;
+create sequence p_memseq start with 1 increment by 1 nocache ;
+drop table p_members purge;
+create table p_members(
 	id number primary key,
 	email varchar2(30) not null,
 	pw varchar2(30) not null,
@@ -43,13 +43,13 @@ create table members(
 );
 
 -- 추가
-insert into members(id, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, credibility)
+insert into p_members(id, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, credibility)
 values(memseq.nextval,'admin@admin.com','admin','adminN','남',0101234567, '공개','2016-06-16','서울강북','#음악','#춤',1);
 
-insert into members(id, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, credibility)
+insert into p_members(id, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, credibility)
 values(memseq.nextval,'abc@naver.com','1','홍길동','남',0101234567, '공개','2016-06-16','서울강북','#음악','#춤',1);
 
-insert into members(id, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, credibility)
+insert into p_members(id, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, credibility)
 values(7,'test@test','test','test','남',0101234567, '공개','2016-06-16','서울강북','#음악','#춤',1);
  
 commit ;
@@ -74,6 +74,7 @@ commit ;
 -- content 본문 내용
 -- close 마감 구분
 -- type 게시판 구분  
+
 
 drop sequence conseq;
 create sequence conseq start with 1 increment by 1 nocache ;

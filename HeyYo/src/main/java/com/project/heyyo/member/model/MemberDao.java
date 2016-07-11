@@ -13,25 +13,26 @@ public class MemberDao {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	
-	//�����̸��ϰ˻�
+	
 	public Member InquiryEmail(String email) {
 		Member mb = null;
+		System.out.println("����");
 		mb= sqlSessionTemplate.selectOne(namespace+".InquiryEmail", email);
 		return mb;
 	}
-	//ȸ������
+
 	public int insert(Member member) {
 		int cnt = -1;
 		cnt = sqlSessionTemplate.insert(namespace+".M_insert", member);
 		return cnt;
 	}
-	//�̸���ã��
+	
 	public Member email_test(Member member) {
 		Member mb = null;
 		mb= sqlSessionTemplate.selectOne(namespace+".email_test", member);
 		return mb;
 	}
-	//�н�����ã��
+	
 	public Member pw_test(Member member) {
 		Member mb = null;
 		mb= sqlSessionTemplate.selectOne(namespace+".pw_test", member);
@@ -40,7 +41,6 @@ public class MemberDao {
 	}
 	public Member selectMemberById(int id) {
 		Member mb = sqlSessionTemplate.selectOne(namespace + ".SelectMemberById", id);
-		
 		return mb;
 	}
 	

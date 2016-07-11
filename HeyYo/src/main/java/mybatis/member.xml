@@ -4,26 +4,27 @@
 
 <mapper namespace="com.project.heyyo.member.model.Member">
 
-	<select id="InquiryEmail" resultType="MyMember">
-		select * from members where	email like #{email}
+	<select id="InquiryEmail" resultType="MyMember" >
+	select * from p_members where email like #{email}
 	</select>
 
 	<insert id="M_insert" parameterType="MyMember">
-		insert into members(id,	email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet) 
+		insert into p_members(id,email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet) 
 		values(memseq.nextval, #{email}, #{pw}, #{name}, #{gender}, #{hp}, #{hpopen}, #{birthday}, #{address}, #{talentDt}, #{talentGet})		
 	</insert>
 
 	<select id="email_test" resultType="MyMember">
-		select * from members where
+		select * from p_members where
 		name=#{name} and hp=#{hp}
 	</select>
 
 	<select id="pw_test" resultType="MyMember">
-		select * from members where email=#{email} and name=#{name}
+		select * from p_members where email=#{email} and name=#{name}
 	</select>
 
+
 	<select id="SelectMemberById" parameterType="int" resultType="MyMember">
-		select * from members where id = #{id}
+		select * from p_members where id = #{id}
 	</select>
 	
 	<select id="SelectMemberIdByEmail" parameterType="String" resultType="int">
