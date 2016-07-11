@@ -32,7 +32,7 @@ public class MainController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
-		return "index";
+		return "initPage";
 	}
 
 	@RequestMapping(value = "home.do")
@@ -47,7 +47,7 @@ public class MainController {
 			@RequestParam(value="talent", required = false) String talent,
 			HttpSession session
 			) {
-		LOGGER.info("MAIN ");
+		LOGGER.info("MAIN들어옴");
 		ModelAndView mav = new ModelAndView();
 
 		Map<String, String> map = new HashMap<String, String>();
@@ -73,7 +73,7 @@ public class MainController {
 
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("type", type);
-		map.put("talent",talent);
+		map.put("talent", talent);
 
 		System.out.println("type : " + type);
 		System.out.println("talent : " + talent);
@@ -93,8 +93,8 @@ public class MainController {
 		return mav;
 	}
 
-	@RequestMapping(value = "test.do")
-	public String Test() {
-		return "test";
+	@RequestMapping(value = "location.do")
+	public void viewLocation() {
+		
 	}
 }

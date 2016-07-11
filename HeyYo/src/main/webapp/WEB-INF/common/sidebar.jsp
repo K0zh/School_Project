@@ -16,10 +16,10 @@
 	<ul class="sidebar-nav">
 		<c:forEach items="${contentLists}" var="content" varStatus="status">
 			<li>
-				<a href="detail.con?num=${content.NUM }">
+				<a href="detail.con?num=${content.NUM }&id=${content.ID}">
 				<div class="media">
 					<div class="media-left">
-						<img class="media-object" src="${pageContext.request.contextPath}/resources/images/profile/pic01.png" alt="image" width="80px">
+						<img class="media-object" src="${pageContext.request.contextPath}/resources/images/profile/${content.IMAGE}" alt="image" width="80px">
 					</div>
 					<div class="media-body">
 						${content.SUBJECT }<br>

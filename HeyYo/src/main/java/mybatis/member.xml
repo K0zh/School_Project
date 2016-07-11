@@ -9,8 +9,8 @@
 	</select>
 
 	<insert id="M_insert" parameterType="MyMember">
-		insert into members(id,	email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet) 
-		values(memseq.nextval, #{email}, #{pw}, #{name}, #{gender}, #{hp}, #{hpopen}, #{birthday}, #{address}, #{talentDt}, #{talentGet})		
+		insert into members(id,	email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, image) 
+		values(memseq.nextval, #{email}, #{pw}, #{name}, #{gender}, #{hp}, #{hpopen}, #{birthday}, #{address}, #{talentDt}, #{talentGet}, #{image})
 	</insert>
 
 	<select id="email_test" resultType="MyMember">

@@ -3,10 +3,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<!-- SideBar CSS -->
-<link href="${pageContext.request.contextPath}/resources/css/sidebar.css" rel="stylesheet">
+<!-- 기본 CSS -->
+<link href="${pageContext.request.contextPath}/resources/common/default.css" rel="stylesheet">
 
 <!-- 재능 입력 (Tokenfield) CSS -->
 <link href="${pageContext.request.contextPath}/resources/css/bootstrap-tokenfield.css" rel="stylesheet">
@@ -17,7 +18,7 @@
 
 	<!-- Navigation Bar JSP  -->
 	<jsp:include page="/WEB-INF/common/navbar.jsp" />
-
+	<div class="container">
 	<div id="wrapper">
 		<!-- Sidebar -->
 		<jsp:include page="/WEB-INF/common/sidebar.jsp" />
@@ -34,6 +35,14 @@
 						<option value="able">필요 해요?</option>
 					</select>
 				
+				</div>
+			</div>
+			
+			<!-- 콘텐츠 이미지 -->
+			<div class="form-group">
+				<label for="type" class="col-xs-2 control-label">카테고리 </label>
+				<div class="col-xs-2">
+					<input type="text" id="subject" name="image" class="form-control">				
 				</div>
 			</div>
 		
@@ -113,6 +122,7 @@
 		</form>
 	</div>
 	<!-- /#wrapper -->
+	</div>
 
 
 

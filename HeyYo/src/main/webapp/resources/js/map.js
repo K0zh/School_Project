@@ -15,13 +15,14 @@ function initMap() {
 						},
 						zoom : 16
 					});
-					
+
 					var geocoder = new google.maps.Geocoder();
 
-					document.getElementById('submit').addEventListener('click', function() {
-						geocodeAddress(geocoder, map);
-						
-					});
+					document.getElementById('submit').addEventListener('click',
+							function() {
+								geocodeAddress(geocoder, map);
+
+							});
 
 					/* 마커 띄우기 */
 					for (i = 0; i < address.length; i++) {
@@ -48,6 +49,21 @@ function geocodeAddress(geocoder, resultsMap) {
 	}, function(results, status) {
 		if (status === google.maps.GeocoderStatus.OK) {
 			resultsMap.setCenter(results[0].geometry.location);
+			deleteMarkers();
+			
+			/*$.ajax({
+		        url : "/location.do",
+		        type: "get",
+		        data : { "id" : $("#id").val() },
+		        success : function(responseData){
+		            $("#ajax").remove();
+		            var data = JSON.parse(responseData);
+		            if(!data){
+		                return false;
+		            }
+		        }
+		    });*/
+
 		} else {
 			alert('Geocode was not successful for the following reason: '
 					+ status);
@@ -71,6 +87,8 @@ function addMarkerWithTimeout(position, timeout, i, map, marker_icon) {
 			title : address[i],
 			animation : google.maps.Animation.DROP
 		});
+		
+		
 		contentInfo(marker, contentString[i]);
 	}, timeout);
 }
@@ -87,4 +105,20 @@ function contentInfo(marker, contentString) {
 	marker.addListener('click', function() {
 		infowindow.open(marker.get('map'), marker);
 	});
+}
+
+//마커 초기화 부분
+function setMapOnAll(map) {
+	for (var i = 0; i < markers.length; i++) {
+		markers[i].setMap(map);
+	}
+}
+
+function clearMarkers() {
+	setMapOnAll(null);
+}
+
+function deleteMarkers() {
+	clearMarkers();
+	markers = [];
 }

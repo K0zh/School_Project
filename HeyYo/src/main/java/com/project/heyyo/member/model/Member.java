@@ -1,7 +1,11 @@
 package com.project.heyyo.member.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Member {
-	// 테이블 목록
+
+	private MultipartFile uploadfile;
+	
 	private int id;
 	private String email;
 	private String pw;
@@ -22,11 +26,10 @@ public class Member {
 		super();
 	}
 
-	public Member(int id, String email, String pw, String name, String gender,
-			String hp, String hpopen, String birthday, String address,
-			String talentDt, String talentGet, String image, int grade,
+	public Member(MultipartFile uploadfile, int id, String email, String pw, String name, String gender, String hp, String hpopen, String birthday, String address, String talentDt, String talentGet, String image, int grade,
 			int credibility, String r_date) {
 		super();
+		this.uploadfile = uploadfile;
 		this.id = id;
 		this.email = email;
 		this.pw = pw;
@@ -43,6 +46,8 @@ public class Member {
 		this.credibility = credibility;
 		R_date = r_date;
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -164,4 +169,13 @@ public class Member {
 		R_date = r_date;
 	}
 
+	public MultipartFile getUploadfile() {
+		return uploadfile;
+	}
+
+	public void setUploadfile(MultipartFile uploadfile) {
+		this.uploadfile = uploadfile;
+	}
+
+	
 }

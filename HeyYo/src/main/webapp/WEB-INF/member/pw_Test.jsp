@@ -15,17 +15,17 @@
 		
 		<div class="form-group">
     		<label>이메일</label>
-    		<input type="email" class="form-control" name="email" placeholder="이메일을 입력하세요">
+    		<input type="email" class="form-control" name="email" placeholder="이메일을 입력하세요" required>
   		</div>
 		
 		<div class="form-group">
     		<label>이름</label>
-    		<input type="text" class="form-control" name="name" placeholder="이름을 입력하세요">
+    		<input type="text" class="form-control" name="name" placeholder="이름을 입력하세요" required>
   		</div>
   		
 		<div class="form-group">
     		<label>휴대폰번호</label>
-    		<input type="text" class="form-control" name="hp" placeholder="01072266086">
+    		<input type="text" class="form-control" name="hp" placeholder="01072266086" required>
   		</div>
 			
 		<input type="submit" value="pw찾기" class="btn btn-primary btn-md btn-block">

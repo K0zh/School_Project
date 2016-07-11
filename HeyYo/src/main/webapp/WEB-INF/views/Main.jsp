@@ -32,7 +32,6 @@
 			<!-- Sidebar -->
 			<jsp:include page="/WEB-INF/common/sidebar.jsp" />
 			<br>
-			
 			<!-- 검색 부분 -->
 			<div class="form-inline">
 				<div class="col-md-3 col-md-offset-3 col-xs-12 input-group">
@@ -51,7 +50,6 @@
 							<li><a href="main.do?type=need">필요해요!</a></li>
 							<li><a href="main.do?type=able">필요해요?</a></li>
 							<li class="divider"></li>
-							<li><a href="write.con">요청,나눔글 작성</a></li>
 						</ul>
 					</div>
 					<!-- /btn-group -->
@@ -70,9 +68,8 @@
 			<!-- Map 띄우기 위한 Div -->
 			<div id="map" style="width: 100%; height: 60%;" class="center-block"></div>
 			<br>
-			<input type="button" value="요청/나눔 등록" onclick="location.href='write.con'" class="col-md-10 col-md-offset-1 col-xs-12 btn btn-primary">
-			<input type="button" value="리스트 열기" onclick="location.href='#menu-toggle" id="menu-toggle">
-			${sessionScope.loginfo}
+			<input type="button" value="요청/나눔 등록" onclick="location.href='write.con'" class="col-md-8 col-md-offset-2 col-xs-12 btn btn-primary">
+			<input type="button" value="사이드 바" onclick="location.href='#menu-toggle" id="menu-toggle" class="col-md-2 col-xs-12 btn btn-default">
 		</div>
 		<!-- /#wrapper -->
 	</div>
@@ -140,10 +137,6 @@
 	function talentClick() {
 		var talent = $("input[name=talent]").val();
 		location.href = 'main.do?talent=' + talent;
-	}
-
-	function locationClick() {
-
 	}
 </script>
 

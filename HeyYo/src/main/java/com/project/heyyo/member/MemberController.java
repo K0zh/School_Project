@@ -1,5 +1,8 @@
 package com.project.heyyo.member;
 
+import java.io.File;
+import java.io.IOException;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.heyyo.member.model.Member;
@@ -38,18 +42,32 @@ public class MemberController {
 		return "pw_Test";
 	}
 
-	// È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½
 	@RequestMapping(value = "write.mb", method = RequestMethod.POST)
 	public ModelAndView insertSignUp(
 			@ModelAttribute("Member") @Valid Member member,
-			BindingResult bindingResult) {
+			@RequestParam("profile_img") MultipartFile profile_img,
+			BindingResult bindingResult) throws IllegalStateException, IOException {
 
+		System.out.println("write.mb µé¾î¿È");
+		System.out.println(member.getAddress());
 		ModelAndView mav = new ModelAndView();
-
+		
 		Member mb = memberDao.InquiryEmail(member.getEmail().trim());
-
+		
 		if (mb == null) {
+			
+			if(profile_img.getOriginalFilename() != "") {
+				String fileName = profile_img.getOriginalFilename();
+				File file = new File("D:/Spring_workspace/HeyYo/src/main/webapp/resources/images/profile/" + fileName);
+				profile_img.transferTo(file);
+				member.setImage(fileName);
+			} else {
+				member.setImage("default_img.png");
+			}
+			
 			int insert = memberDao.insert(member);
+			System.out.println(insert);
+			
 			mav.setViewName("redirect:main.do");
 		} else {
 			mav.setViewName("SignUpForm");
@@ -58,7 +76,6 @@ public class MemberController {
 		return mav;
 	}
 
-	// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Îºï¿½
 	@RequestMapping(value = "login.mb", method = RequestMethod.POST)
 	public ModelAndView login(Member member, HttpSession session) {
 

@@ -8,16 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <!-- 기본 CSS -->
-<link href="${pageContext.request.contextPath}/resources/common/reset.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/common/default.css" rel="stylesheet">
-<script type="text/javascript">
-	function need() {
-		document.location.href = "main.do?type=need";
-	}
-	function able() {
-		document.location.href = "main.do?type=able";
-	}
-</script>
 </head>
 <body>
 
@@ -42,11 +33,10 @@
 							선택 <span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="main.do">전체 보기</a></li>
-							<li><a href="main.do?type=need">필요해요!</a></li>
-							<li><a href="main.do?type=able">필요해요?</a></li>
+							<li><a href="list.do">전체 보기</a></li>
+							<li><a href="list.do?type=need">필요해요!</a></li>
+							<li><a href="list.do?type=able">필요해요?</a></li>
 							<li class="divider"></li>
-							<li><a href="write.con">요청,나눔글 작성</a></li>
 						</ul>
 					</div>
 					<!-- /btn-group -->
@@ -65,38 +55,40 @@
 			<table class="table table-bordered table-hover" style="width: 100%; margin: auto;">
 				<thead>
 					<tr>
-						<th width="10%">글 번호</th>
+						<th width="8%">글 번호</th>
 						<th width="10%">프로필</th>
-						<th width="70%">내용</th>
-						<th width="10%">등록일</th>
+						<th width="65%">내용</th>
+						<th width="17%">등록일</th>
 					</tr>
 				</thead>
 				<tbody>
+
 					<c:forEach items="${contentLists}" var="content" varStatus="status">
 						<tr>
 							<td align="center">${content.NUM }
 							<td>
 								<div class="media-left">
-									<img class="media-object" src="${pageContext.request.contextPath}/resources/images/profile/pic01.png" alt="image" width="100px">
+									<img class="media-object" src="${pageContext.request.contextPath}/resources/images/profile/${content.IMAGE}" alt="image" width="80px">
 								</div>
 							</td>
 							<td>
 								<div class="media-body">
-									<h4 class="media-heading">${content.SUBJECT }</h4>
-									${content.TALENT }
+									<a href="detail.con?num=${content.NUM }&id=${content.ID}">
+										<h4 class="media-heading">${content.SUBJECT }</h4> ${content.TALENT }
+									</a>
 								</div>
 							</td>
-							<td><fmt:formatDate value="${content.C_DATE }" pattern="yyyy년 MM월 dd일 mm:ss" /></td>
+							<td><fmt:formatDate value="${content.C_DATE }" pattern="yyyy년 MM월 dd일" /></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
-		<div class="text-center">
-				${pageInfo.pagingHtml}
-		</div>
+		<br>
+		<input type="button" value="요청/나눔 등록" onclick="location.href='write.con'" class="col-md-8 col-md-offset-2 col-xs-12 btn btn-primary">
+		<div class="text-center">${pageInfo.pagingHtml}</div>
 	</div>
-	
+
 
 	<!-- 사이드바 토글 Script -->
 	<script>
@@ -105,6 +97,13 @@
 			e.preventDefault();
 			$("#wrapper").toggleClass("toggled");
 		});
+	</script>
+
+	<script type="text/javascript">
+		function talentClick() {
+			var talent = $("input[name=talent]").val();
+			location.href = 'list.do?talent=' + talent;
+		}
 	</script>
 
 </body>

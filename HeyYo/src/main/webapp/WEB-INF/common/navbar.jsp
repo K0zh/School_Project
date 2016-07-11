@@ -10,7 +10,7 @@
         		<span class="icon-bar"></span>
         		<span class="icon-bar"></span>                        
       		</button>
-      		<a class="navbar-brand" href="main.do">
+      		<a class="navbar-brand" href="/heyyo">
       		<img src="${pageContext.request.contextPath}/resources/images/doum_logo.png" width="80px">
       		</a>
       	</div>
