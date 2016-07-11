@@ -10,7 +10,7 @@
         		<span class="icon-bar"></span>
         		<span class="icon-bar"></span>                        
       		</button>
-      		<a class="navbar-brand" href="/heyyo">
+      		<a class="navbar-brand" href="main.do">
       		<img src="${pageContext.request.contextPath}/resources/images/doum_logo.png" width="80px">
       		</a>
       	</div>
@@ -34,8 +34,8 @@
   									Messages<span class="badge">${sessionScope.cntNewMessage}</span>
 							</button>
 							<font color="white">${sessionScope.loginfo.name} 님 환영 합니다.</font>
-							<input type="button" value="myPage" onclick="location.href='myPage.mb'" class="btn btn-default"> 
-							<input type="button" value="로그아웃" onclick="location.href='logout.mb'" class="btn btn-default">
+							<input class="btn btn-primary" type="button" value="myPage" onclick="location.href='myPage.mb?id=${sessionScope.loginfo.id}'"> 
+							<input class="btn btn-primary" type="button" value="로그아웃" onclick="location.href='logout.mb'">
 						</div>
 					</c:otherwise>
         		</c:choose>

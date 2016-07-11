@@ -18,9 +18,9 @@
 			and talent like '%' || #{talent} || '%'
 		</if>
 		
-		order by c.num desc
+		
 		<if test="location != null">
-			and	abs(#{location} - (lat+lng))
+			order by abs(#{location} - (lat+lng))
 		</if>
 		
 		

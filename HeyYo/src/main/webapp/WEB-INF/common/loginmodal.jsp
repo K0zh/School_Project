@@ -38,9 +38,9 @@
 				</form>
 
 				<!-- 추가한 부분 -->
-				<div class="text-right">
-					<a href="id_test.mb"><font size="1.0">아이디 찾기</font></a> / <a
-						href="pw_test.mb"><font size="1.0">비밀번호 찾기</font></a>
+				<div class="text-left">
+					<a href="id_test.mb"><font size="1.0">id_test</font></a> / <a
+						href="pw_test.mb"><font size="1.0">pw_test</font></a>
 				</div>
 			</div>
 		</div>

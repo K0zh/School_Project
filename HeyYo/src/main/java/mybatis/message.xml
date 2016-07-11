@@ -7,20 +7,35 @@
 	<select id="GetReceiveMessage" resultType="HashMap" parameterType="int">
 
 		select * from message
-			where receiver = #{receiver}
+			where receiver = #{receiver} 
+			and ms_receiver_delete = 'n'
 		order by ms_num desc
 	</select>
 	<!-- 보낸 쪽지함 -->
-	<select id="GetSendMessage" resultType="HashMap" parameterType="HashMap">
+	<select id="GetSendMessage" resultType="HashMap" parameterType="int">
 
 		select * from message
-			where sender = #{sender}
+			where sender = #{sender} 
+			and ms_sender_delete = 'n' 
 		order by ms_num desc
 	</select>
 	
+	<!-- 보낸 쪽지 삭제 -->
+	<update id="DeleteSendMessage" parameterType="int">
+		update message set ms_sender_delete = 'y'
+			where ms_num = #{ms_num}
+	
+	</update>
+	
+	<!-- 받은 쪽지 삭제 -->
+	<update id="DeleteReceiveMessage" parameterType="int">
+		update message set ms_receiver_delete = 'y'
+			where ms_num = #{ms_num}
+	
+	</update>
+	
 	<!-- 안읽은 쪽지 개수 -->
 	<select id="GetCntNewMessage" resultType="int" parameterType="int">
-
 		select count(*) from message
 			where receiver = #{receiver} and ms_state='n'
 	</select>
@@ -28,13 +43,17 @@
 	<!-- 쪽지쓰기 -->
 	<insert id="SendingMessage" parameterType="MyMessage">
 		insert into
-		message(ms_num, sender, receiver, ms_content)
-		values
-		(ms_seq.nextval, #{sender}, #{receiver}, #{ms_content})
+			message(ms_num, sender, receiver, ms_content)
+			values(ms_seq.nextval, #{sender}, #{receiver}, #{ms_content})
 	</insert>
 	
 	<!-- 쪽지 읽기 -->
+	<select id="SelectMessageByNum" resultType="MyMessage">
+		select * from message where ms_num = #{ms_num}
+	</select>
+	
 	<update id="ReadingMessage" parameterType="int">
-		update message set ms_state= 'y' where ms_num = #{ms_num}
+		update message set ms_state= 'y'
+			where ms_num = #{ms_num}
 	</update>
 </mapper>

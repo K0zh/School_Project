@@ -162,8 +162,11 @@ create table message(
 	receiver number not null,
 	ms_content varchar2(200) not null,
 	ms_date date default sysdate,
-	ms_state varchar2(10) default 'n'
+	ms_state varchar2(10) default 'n',
+	ms_sender_delete varchar2(10) default 'n',
+	ms_receiver_delete varchar2(10) default 'n'
 );
+
 
 drop sequence ms_seq;
 create sequence ms_seq start with 1 increment by 1 nocache ;

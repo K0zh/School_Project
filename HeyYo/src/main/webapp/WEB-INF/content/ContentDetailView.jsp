@@ -55,9 +55,10 @@
 							<td colspan="3" align="center">
 							
 									<div class="text-center">
-										<input type="button" value="수정" class="btn btn-default" onclick="location.href='write.ms?id=${content.id}'">
-										<input type="button" value="삭제" class="btn btn-default" onclick="location.href='write.ms?id=${content.id}'">
+										<input type="button" value="수정" class="btn btn-default" onclick="location.href='updateContent.con?num=${content.num}'">
+										<input type="button" value="삭제" class="btn btn-default" onclick="location.href='deleteContent.con?id=${content.id}'">
 										<input type="button" value="신고 하기" class="btn btn-danger btn-xs pull-right" style="margin-top : 3px">&nbsp;
+										<input type="button" value="쪽지 보내기" class="btn btn-default" onclick="location.href='write.ms?id=${content.id}'">
 									</div>
 									
 							</td>

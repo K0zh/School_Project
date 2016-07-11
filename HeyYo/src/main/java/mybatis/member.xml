@@ -25,5 +25,18 @@
 	<select id="SelectMemberById" parameterType="int" resultType="MyMember">
 		select * from members where id = #{id}
 	</select>
+	
+	<select id="SelectMemberIdByEmail" parameterType="String" resultType="int">
+		select id from members where email = #{email}
+	</select>
+	
+	<update id="UpdateMember" parameterType = "MyMember">
+		update members set pw=#{pw}, name=#{name},hp= #{hp}, hpopen=#{hpopen}, birthday=#{birthday}, address=#{address}, talentDt=#{talentDt}, talentGet=#{talentGet} 
+		where id=#{id}
+	</update>
+	
+	<delete id="DeleteMember" parameterType="int">
+		delete from members where id = #{id}
+	</delete>
 
 </mapper>

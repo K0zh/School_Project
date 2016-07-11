@@ -19,6 +19,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.heyyo.member.model.Member;
 import com.project.heyyo.member.model.MemberDao;
+import com.project.heyyo.member.message.Message;
+import com.project.heyyo.member.message.MessageDao;
 
 @Controller
 public class MemberController {
@@ -26,6 +28,10 @@ public class MemberController {
 	@Autowired
 	@Qualifier("myMemberDao")
 	private MemberDao memberDao;
+
+	@Autowired
+	@Qualifier("myMessageDao")
+	private MessageDao messageDao;
 
 	@RequestMapping(value = "signup.mb")
 	public String viewSignUpForm() {
@@ -48,7 +54,7 @@ public class MemberController {
 			@RequestParam("profile_img") MultipartFile profile_img,
 			BindingResult bindingResult) throws IllegalStateException, IOException {
 
-		System.out.println("write.mb 들어옴");
+		System.out.println("write.mb �뱾�뼱�샂");
 		System.out.println(member.getAddress());
 		ModelAndView mav = new ModelAndView();
 		
@@ -85,14 +91,18 @@ public class MemberController {
 		Member mb = memberDao.InquiryEmail(member.getEmail().trim());
 
 		if (mb == null) {
+			
 			mav.setViewName("redirect:main.do");
 		} else {
 			if (member.getEmail().trim().equals(mb.getEmail())
 					&& member.getPw().trim().equals(mb.getPw())) {
+				int receiver = memberDao.selectMemberIdByEmail(member.getEmail());
+				int cnt = messageDao.getCntNewMessage(receiver);
 				
-
 				session.setAttribute("loginfo", mb);
+				session.setAttribute("cntNewMessage", cnt);
 				mav.setViewName("redirect:main.do");
+				
 
 			} else {
 				mav.setViewName("redirect:main.do");
@@ -102,7 +112,7 @@ public class MemberController {
 
 	}
 
-	// id 찾占쏙옙
+	// id 李얍뜝�룞�삕
 	@RequestMapping(value = "idInquiry.mb", method = RequestMethod.POST)
 	public ModelAndView idInquiry(
 			@ModelAttribute("Member") @Valid Member member,
@@ -118,7 +128,7 @@ public class MemberController {
 		return mav;
 	}
 
-	// pw 찾占쏙옙
+	// pw 李얍뜝�룞�삕
 	@RequestMapping(value = "pwInquiry.mb", method = RequestMethod.POST)
 	public ModelAndView pwInquiry(
 			@ModelAttribute("Member") @Valid Member member,
@@ -131,7 +141,7 @@ public class MemberController {
 		} else {
 			mav.addObject("mb", mb);
 			// mav.setViewName("test");
-			mav.setViewName("test");//占쏙옙占쏙옙占쌔야듸옙
+			mav.setViewName("test");//�뜝�룞�삕�뜝�룞�삕�뜝�뙏�빞�벝�삕
 		}
 		return mav;
 	}
