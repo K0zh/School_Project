@@ -37,9 +37,9 @@
 					<tr>
 					<td width="15%"><a href="write.ms?id=${message.RECEIVER }">
 					${message.RECEIVER}</a></td>
-					<td width="40%"><a href="detailMessage.ms?messageType=send&ms_num=${message.MS_NUM }">
-					${message.MS_CONTENT}</a></td>
-					<td width="10%">${message.MS_DATE}</td>
+					<td width="40%"><a href="detailMessage.ms?messageType=send&ms_num=${message.MSNUM }">
+					${message.MSCONTENT}</a></td>
+					<td width="10%">${message.MSDATE}</td>
 					</tr>
 				
 				</c:forEach>

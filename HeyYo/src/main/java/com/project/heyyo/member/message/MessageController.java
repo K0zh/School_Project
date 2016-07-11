@@ -74,10 +74,10 @@ public class MessageController {
 			@ModelAttribute("Message") @Valid Message message,
 			BindingResult bindingResult) {
 		
-		System.out.println("쪽지번호" + message.getMs_num());
+		System.out.println("쪽지번호" + message.getMsnum());
 		System.out.println("보내는 사람" + message.getSender());
 		System.out.println("받는 사람" + message.getReceiver());
-		System.out.println("쪽지 내용" + message.getMs_content());
+		System.out.println("쪽지 내용" + message.getMscontent());
 
 		messageDao.sendingMessage(message);
 
@@ -87,28 +87,23 @@ public class MessageController {
 	//쪽지 상세보기
 	@RequestMapping(value="detailMessage.ms", method = RequestMethod.GET)
 	public ModelAndView viewDetail(
-			@RequestParam(value="ms_num") int ms_num,
+			@RequestParam(value="msnum") int msnum,
 			@RequestParam(value="messageType") String messageType,
 			HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		System.out.println(messageType);
 		
 		if(messageType.equals("receive")){
-			System.out.println(ms_num+"번 쪽지 읽음");
-			messageDao.readingMessage(ms_num);
+			System.out.println(msnum+"번 쪽지 읽음");
+			messageDao.readingMessage(msnum);
 		}
-		Message message = new Message();
-		message = messageDao.selectMessageByNum(ms_num);
-		System.out.println(message.getMs_content());
-		System.out.println(message.getMs_date());
-		System.out.println(message.getMs_num());
-		System.out.println(message.getMs_state());
-		System.out.println(message.getSender());
-		//System.out.println("쪽지 상세 보기" + message.getMs_num() +"번 쪽지" );
+		String mscontent = messageDao.selectMsContent(msnum);
+		Message message = messageDao.selectMessage(msnum);
+		
 		mav.addObject("message",message);
+		mav.addObject("mscontent",mscontent);
 		mav.addObject("messageType",messageType);
 		mav.setViewName("DetailMessageForm");
-
 		return mav;
 	}
 
@@ -117,25 +112,25 @@ public class MessageController {
 	@RequestMapping(value= "delete.ms")
 	public ModelAndView deleteMessage (
 			@RequestParam(value="messageType", required = false) String messageType,
-			@RequestParam(value="ms_num", required = false) int ms_num,
+			@RequestParam(value="msnum", required = false) int msnum,
 			@RequestParam(value="sender", required = false) int sender,
 			@RequestParam(value="receiver", required = false) int receiver,
 			HttpSession session) {
 
 		ModelAndView mav = new ModelAndView();
 		System.out.println("삭제하려는 메세지 타입 : "+messageType);
-		System.out.println(ms_num+"번 쪽지");
+		System.out.println(msnum+"번 쪽지");
 		if(messageType.equals("send")){
-			System.out.println("보낸 쪽지 삭제 : "+ms_num+"번 쪽지");
-			messageDao.deleteSendMessage(ms_num);
+			System.out.println("보낸 쪽지 삭제 : "+msnum+"번 쪽지");
+			messageDao.deleteSendMessage(msnum);
 			List<Message> messageLists = messageDao.getSendMessage(sender);
 
 			mav.addObject("messageLists", messageLists);
 			mav.setViewName("SendMessageList");
 			return mav;
 		}else if(messageType.equals("receive")){
-			System.out.println("받은 쪽지 삭제 : "+ms_num+"번 쪽지");
-			messageDao.deleteReceiveMessage(ms_num);
+			System.out.println("받은 쪽지 삭제 : "+msnum+"번 쪽지");
+			messageDao.deleteReceiveMessage(msnum);
 
 			List<Message> messageLists = messageDao.getReceiveMessage(receiver);
 

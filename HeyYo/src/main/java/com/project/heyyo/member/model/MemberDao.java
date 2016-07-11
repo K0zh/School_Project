@@ -48,4 +48,13 @@ public class MemberDao {
 		int id = sqlSessionTemplate.selectOne(namespace + ".SelectMemberIdByEmail", email);
 		return id;
 	}
+	
+	//Á¤º¸¼öÁ¤
+		public void modifyMemberInfo(Member member){
+			sqlSessionTemplate.update(namespace + ".UpdateMember", member);
+		}
+		//È¸¿øÅ»Åð
+		public void deleteMember(int id){
+			sqlSessionTemplate.delete(namespace+ ".DeleteMember", id);
+		}
 }

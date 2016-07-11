@@ -50,29 +50,26 @@ public class MessageDao {
 	}
 	
 	//보낸 쪽지 삭제
-	public void deleteSendMessage(int ms_num){
-		sqlSessionTemplate.update(namespace+".DeleteSendMessage", ms_num);
+	public void deleteSendMessage(int msnum){
+		sqlSessionTemplate.update(namespace+".DeleteSendMessage", msnum);
 	}
 	
 	//받은 쪽지 삭제
-	public void deleteReceiveMessage(int ms_num){
-		sqlSessionTemplate.update(namespace+".DeleteReceiveMessage", ms_num);
+	public void deleteReceiveMessage(int msnum){
+		sqlSessionTemplate.update(namespace+".DeleteReceiveMessage", msnum);
 	}
 	
 	//쪽지 읽기
-	public Message selectMessageByNum(int ms_num){
-		System.out.println("test" + ms_num);
-		Message message = new Message();
-		message= sqlSessionTemplate.selectOne(namespace+".SelectMessageByNum", ms_num);
-		System.out.println(message.getMs_content());
-		System.out.println(message.getMs_date());
-		System.out.println(message.getMs_num());
-		System.out.println(message.getMs_state());
-		System.out.println(message.getSender());
-		System.out.println("끝");
+	public Message selectMessage(int msnum){
+		Message message = sqlSessionTemplate.selectOne(namespace+".SelectMessage", msnum);
 		return message;
 	}
-	public void readingMessage(int ms_num){
-		sqlSessionTemplate.update(namespace+".ReadingMessage",ms_num);
+	
+	public String selectMsContent(int msnum){
+		String mscontent= sqlSessionTemplate.selectOne(namespace+".SelectMsContent", msnum);
+		return mscontent;
+	}
+	public void readingMessage(int msnum){
+		sqlSessionTemplate.update(namespace+".ReadingMessage",msnum);
 	}
 }

@@ -36,7 +36,7 @@ cnt[15] = new Array('전체', '거제시', '김해시', '마산시', '밀양시'
 cnt[16] = new Array('전체', '서귀포시', '제주시', '남제주군', '북제주군');
 
 
-function change(add) {
+function Change(add) {
 	sel = document.WriteForm.address2
 	for (i = sel.length - 1; i >= 0; i--) {
 		sel.options[i] = null

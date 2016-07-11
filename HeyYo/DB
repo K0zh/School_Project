@@ -48,8 +48,8 @@ values(memseq.nextval,'admin@admin.com','admin','adminN','남',0101234567, '공�
 insert into p_members(id, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, credibility)
 values(memseq.nextval,'abc@naver.com','1','홍길동','남',0101234567, '공개','2016-06-16','서울강북','#음악','#춤',1);
 
-insert into p_members(id, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, credibility)
-values(7,'test@test','test','test','남',0101234567, '공개','2016-06-16','서울강북','#음악','#춤',1);
+insert into members(id, email, pw, name, gender, hp, hpopen, birthday, address, talentDt, talentGet, credibility)
+values(5,'test@test','test','test','남',0101234567, '공개','2016-06-16','부산사상구','#음악','#춤',1);
  
 commit ;
 	
@@ -157,14 +157,14 @@ create table matching_detail(
  
 drop table message purge ;
 create table message(
-	ms_num number primary key,
+	msnum number primary key,
 	sender number not null,
 	receiver number not null,
-	ms_content varchar2(200) not null,
-	ms_date date default sysdate,
-	ms_state varchar2(10) default 'n',
-	ms_sender_delete varchar2(10) default 'n',
-	ms_receiver_delete varchar2(10) default 'n'
+	mscontent varchar2(200) not null,
+	msdate date default sysdate,
+	msstate varchar2(10) default 'n',
+	mssenderdelete varchar2(10) default 'n',
+	msreceiverdelete varchar2(10) default 'n'
 );
 
 

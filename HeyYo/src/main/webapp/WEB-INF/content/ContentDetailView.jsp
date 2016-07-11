@@ -9,9 +9,29 @@
 <!-- 기본 CSS -->
 <link href="${pageContext.request.contextPath}/resources/common/reset.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/common/default.css" rel="stylesheet">
+
+<script src="resources/js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	function updateContent(){
+		if($("input[name=conid]").val()==$("input[name=logid]").val()){
+			document.location.href='updateForm.con?num=${content.num}';		
+		}else{
+			alert("본인 글만 수정 가능합니다.");
+		}
+	}
+	
+	function deleteContent(){
+		if($("input[name=conid]").val()==$("input[name=logid]").val()){
+			document.location.href='deleteContent.con?num=${content.num}';		
+		}else{
+			alert("본인 글만 삭제 가능합니다.");
+		}
+	}
+</script>
 </head>
 <body>
-
+	<input type="hidden" name="logid" value="${sessionScope.loginfo.id}">
+	<input type="hidden" name="conid" value="${content.id }"> 
 	<!-- Login Modal JSP-->
 	<jsp:include page="/WEB-INF/common/loginmodal.jsp" />
 
@@ -55,8 +75,8 @@
 							<td colspan="3" align="center">
 							
 									<div class="text-center">
-										<input type="button" value="수정" class="btn btn-default" onclick="location.href='updateContent.con?num=${content.num}'">
-										<input type="button" value="삭제" class="btn btn-default" onclick="location.href='deleteContent.con?id=${content.id}'">
+										<input type="button" value="수정" class="btn btn-default" onclick="updateContent()">
+										<input type="button" value="삭제" class="btn btn-default" onclick="deleteContent()">
 										<input type="button" value="신고 하기" class="btn btn-danger btn-xs pull-right" style="margin-top : 3px">&nbsp;
 										<input type="button" value="쪽지 보내기" class="btn btn-default" onclick="location.href='write.ms?id=${content.id}'">
 									</div>

@@ -8,7 +8,7 @@
 		
 		SELECT m.image, c.id, c.num, c.subject, c.talent, c.c_date, c.s_day,
 		c.address, c.lat, c.lng, c.personnel, c.gender, c.content, c.closed,
-		c.type FROM members m inner join contents c on c.id = m.id where rownum &lt; 5
+		c.type FROM members m inner join contents c on c.id = m.id where rownum &lt; 20
 		
 		<if test="type != null">
 			and type = #{type}
@@ -77,4 +77,20 @@
 		</if>
 
 	</select>
+	
+	<select id="GetNumberById" resultType="int"
+		parameterType="int">
+		select num from contents where id = #{id}
+	</select>
+	
+	<update id="UpdateContent" parameterType = "MyContent">
+		update contents set subject=#{subject}, talent=#{talent}, s_day=#{s_day}, address=#{address}, lat=#{lat}, lng=#{lng},
+		personnel=#{personnel}, gender=#{gender}, content=#{content}, open='open', type=#{type}
+		where id=#{id}
+	</update>
+	
+	<delete id="DeleteContent" parameterType="int">
+		delete from contents where num = #{num}
+	</delete>
+	
 </mapper>

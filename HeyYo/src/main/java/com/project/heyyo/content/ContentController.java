@@ -45,12 +45,12 @@ public class ContentController {
 		return "InfoWindow";
 	}
 
-	// ��û�ϱ� �� �̵�
+	// 占쏙옙청占싹깍옙 占쏙옙 占싱듸옙
 	@RequestMapping(value = "write.con", method = RequestMethod.GET)
 	public String viewWriteForm(HttpSession session, ModelMap model) {
 		
 		if (session.getAttribute("loginfo") == "" || session.getAttribute("loginfo") == null) {
-			model.addAttribute("msg", "로그인이 필요한 서비스 입니다.");
+			model.addAttribute("msg", "濡쒓렇�씤�씠 �븘�슂�븳 �꽌鍮꾩뒪 �엯�땲�떎.");
 			model.addAttribute("url", "main.do");
 			return "redirect";
 		}
@@ -58,26 +58,26 @@ public class ContentController {
 		return "ContentWriteForm";
 	}
 
-	// ��û�ϱ� ������ ���
+	// 占쏙옙청占싹깍옙 占쏙옙占쏙옙占쏙옙 占쏙옙占�
 	@RequestMapping(value = "write.con", method = RequestMethod.POST)
 	public String doActionWrite(
 			@ModelAttribute("Content") @Valid Content content,
 			BindingResult bindingResult) {
 		
-		// ���� ��ǥ ����
+		// 占쏙옙占쏙옙 占쏙옙표 占쏙옙占쏙옙
 		String location = content.getLocation();
 		String[] location_result = location.replace("(", "").replace(")", "")
 				.split(",");
 		content.setLat(location_result[0]);
 		content.setLng(location_result[1]);
 		
-		// ������ ��ǥ �缳��
+		// 占쏙옙占쏙옙占쏙옙 占쏙옙표 占썹설占쏙옙
 		contentDao.insertTalentData(content);
 
 		return "redirect:main.do";
 	}
 
-	// ��û ���� �󼼺���
+	// 占쏙옙청 占쏙옙占쏙옙 占쏢세븝옙占쏙옙
 	@RequestMapping(value = "detail.con")
 	public ModelAndView viewDetail(@RequestParam(value = "num") int num,
 			@RequestParam(value = "id") int id,
@@ -112,17 +112,17 @@ public class ContentController {
 
 	}
 
-	// ��û �����ϱ�
+	// 占쏙옙청 占쏙옙占쏙옙占싹깍옙
 	@RequestMapping(value = "deny.con")
 	public String doActionDeny(@RequestParam(value = "m_id") int m_id,
 			@RequestParam(value = "id") int id,
 			@RequestParam(value = "num") int num) {
-		System.out.println("deny 들어옴");
+		System.out.println("deny �뱾�뼱�샂");
 		matchingDao.deleteRequest(m_id);
 		return "redirect:detail.con?num="+num+"&id="+id;
 	}
 
-	// ��û �����ϱ�
+	// 占쏙옙청 占쏙옙占쏙옙占싹깍옙
 	@RequestMapping(value = "agree.con", method = RequestMethod.POST)
 	public ModelAndView doActionAgree(
 			@RequestParam(value = "id_able") int id_able,
@@ -139,4 +139,45 @@ public class ContentController {
 
 		return mav;
 	}
+	
+	@RequestMapping(value="updateForm.con")
+	public ModelAndView updateContent(@RequestParam(value="num", required = false) int num,
+				HttpSession session
+				) {
+			ModelAndView mav = new ModelAndView();
+			
+			Content content = contentDao.getContentByNum(num);
+ 
+			mav.addObject("content", content);
+			mav.setViewName("ContentUpdateForm");
+ 
+			return mav;
+		}
+	
+	@RequestMapping(value = "updateContent.con", method = RequestMethod.POST)
+	public String doActionUpdate(
+			@ModelAttribute("Content") @Valid Content content,
+			BindingResult bindingResult) {
+		
+		// 占쏙옙占쏙옙 占쏙옙표 占쏙옙占쏙옙
+		String location = content.getLocation();
+		String[] location_result = location.replace("(", "").replace(")", "")
+				.split(",");
+		content.setLat(location_result[0]);
+		content.setLng(location_result[1]);
+		
+		// 占쏙옙占쏙옙占쏙옙 占쏙옙표 占썹설占쏙옙
+		contentDao.insertTalentData(content);
+
+		return "redirect:main.do";
+	}
+	
+	
+	@RequestMapping(value = "deleteContent.con")
+	public String doActionDelete(HttpSession session,
+			@RequestParam(value="num", required = false) int num){
+		contentDao.deleteContent(num);
+		
+		return "redirect:main.do";
+		}
 }

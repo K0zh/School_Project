@@ -54,5 +54,20 @@ public class ContentDao {
 
 		return lists;
 	}
+	
+	public int getNumberById(int id){
+		int num;
+		num = sqlSessionTemplate.selectOne(namespace+".GetNumberById",id);
+		return num;
+	}
+	
+	//정보수정
+		public void modifyContent(Content content){
+			sqlSessionTemplate.update(namespace + ".UpdateContent", content);
+		}
+		//글 삭제
+		public void deleteContent(int num){
+			sqlSessionTemplate.delete(namespace + ".DeleteContent", num);
+		}
 
 }

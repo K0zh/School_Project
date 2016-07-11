@@ -27,7 +27,7 @@
     	<label>받는 사람 : </label>${id}
     	<input type="hidden" id ="receiver" name="receiver" value="${id}">
   		</div>
-		<textarea class="form-control" rows="5" placeholder="내용을 입력하세요" name="ms_content" id="ms_content"></textarea><br>
+		<textarea class="form-control" rows="5" placeholder="내용을 입력하세요" name="mscontent" id="mscontent"></textarea><br>
 		<input type="submit" value="쪽지보내기" class="btn btn-primary btn-md btn-block">
 		</form>
 	</div>

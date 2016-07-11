@@ -8,52 +8,56 @@
 
 		select * from message
 			where receiver = #{receiver} 
-			and ms_receiver_delete = 'n'
-		order by ms_num desc
+			and msreceiverdelete = 'n'
+		order by msnum desc
 	</select>
 	<!-- 보낸 쪽지함 -->
 	<select id="GetSendMessage" resultType="HashMap" parameterType="int">
 
 		select * from message
 			where sender = #{sender} 
-			and ms_sender_delete = 'n' 
-		order by ms_num desc
+			and mssenderdelete = 'n' 
+		order by msnum desc
 	</select>
 	
 	<!-- 보낸 쪽지 삭제 -->
 	<update id="DeleteSendMessage" parameterType="int">
-		update message set ms_sender_delete = 'y'
-			where ms_num = #{ms_num}
+		update message set mssenderdelete = 'y'
+			where msnum = #{msnum}
 	
 	</update>
 	
 	<!-- 받은 쪽지 삭제 -->
 	<update id="DeleteReceiveMessage" parameterType="int">
-		update message set ms_receiver_delete = 'y'
-			where ms_num = #{ms_num}
+		update message set msreceiverdelete = 'y'
+			where msnum = #{msnum}
 	
 	</update>
 	
 	<!-- 안읽은 쪽지 개수 -->
 	<select id="GetCntNewMessage" resultType="int" parameterType="int">
 		select count(*) from message
-			where receiver = #{receiver} and ms_state='n'
+			where receiver = #{receiver} and msstate='n'
 	</select>
 	
 	<!-- 쪽지쓰기 -->
 	<insert id="SendingMessage" parameterType="MyMessage">
 		insert into
-			message(ms_num, sender, receiver, ms_content)
-			values(ms_seq.nextval, #{sender}, #{receiver}, #{ms_content})
+			message(msnum, sender, receiver, mscontent)
+			values(ms_seq.nextval, #{sender}, #{receiver}, #{mscontent})
 	</insert>
 	
 	<!-- 쪽지 읽기 -->
-	<select id="SelectMessageByNum" resultType="MyMessage">
-		select * from message where ms_num = #{ms_num}
+	<select id="SelectMessage" parameterType="int" resultType="MyMessage">
+		select * from message where msnum = #{msnum}
+	</select>
+	
+	<select id="SelectMsContent" parameterType="int" resultType="String">
+		select mscontent from message where msnum = #{msnum}
 	</select>
 	
 	<update id="ReadingMessage" parameterType="int">
-		update message set ms_state= 'y'
-			where ms_num = #{ms_num}
+		update message set msstate= 'y'
+			where msnum = #{msnum}
 	</update>
 </mapper>

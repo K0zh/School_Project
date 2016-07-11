@@ -111,6 +111,21 @@ public class MemberController {
 		return mav;
 
 	}
+	
+	@RequestMapping(value="myPage.mb")
+	public ModelAndView viewUser(@RequestParam(value="id", required = false) int id,
+				HttpSession session
+				) {
+			ModelAndView mav = new ModelAndView();
+ 
+ 
+			Member mem = memberDao.selectMemberById(id);
+ 
+			mav.addObject("mem", mem);
+			mav.setViewName("UserDetailView");
+ 
+			return mav;
+		}
 
 	// id 李얍뜝�룞�삕
 	@RequestMapping(value = "idInquiry.mb", method = RequestMethod.POST)
@@ -146,10 +161,57 @@ public class MemberController {
 		return mav;
 	}
 	
-	@RequestMapping(value="user_detail.mb")
-	public String viewUser() {
-		return "UserDetailView";
+	@RequestMapping(value="updateForm.mb")
+	public ModelAndView updateInfo(@RequestParam(value="id", required = false) int id,
+				HttpSession session
+				) {
+			ModelAndView mav = new ModelAndView();
+ 
+			Member mem = memberDao.selectMemberById(id);
+ 
+			mav.addObject("mem", mem);
+			mav.setViewName("UserUpdateForm");
+ 
+			return mav;
+		}
+	@RequestMapping(value = "updateMember.mb", method = RequestMethod.POST)
+	public ModelAndView updateMember(
+			@ModelAttribute("Member") @Valid Member member,
+			BindingResult bindingResult) {
+
+		memberDao.modifyMemberInfo(member);
+
+		ModelAndView mav = new ModelAndView();
+		 
+		mav.addObject("mem", member);
+		mav.setViewName("UserDetailView");
+		
+		return mav;
 	}
+	
+	@RequestMapping(value="deleteForm.mb")
+	public ModelAndView deleteForm(@RequestParam(value="id", required = false) int id,
+				HttpSession session
+				) {
+			ModelAndView mav = new ModelAndView();
+ 
+			Member mem = memberDao.selectMemberById(id);
+ 
+			mav.addObject("mem", mem);
+			mav.setViewName("UserDeleteForm");
+ 
+			return mav;
+		}
+	@RequestMapping(value="deleteMember.mb")
+	public ModelAndView deleteMember(@RequestParam(value="id", required = false) int id,
+				HttpSession session
+				) {
+			memberDao.deleteMember(id);
+			System.out.println(id+" 멤버 탈퇴 성공");
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName("redirect:main.do");
+			return mav;
+		}
 	
 	
 	@RequestMapping(value="logout.mb")

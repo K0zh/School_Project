@@ -9,6 +9,9 @@
 <link
 	href="${pageContext.request.contextPath}/resources/css/sidebar.css"
 	rel="stylesheet">
+<script type="text/javascript">
+	alert("${message.msnum}");
+</script>
 </head>
 <body>
 <jsp:include page="/WEB-INF/common/loginmodal.jsp" />
@@ -28,9 +31,9 @@
     	<label>받는 사람</label>
     	<input type="text" class="form-control" name="receiver" value="${message.receiver}" readonly>
   		</div>
-		<textarea class="form-control" rows="5" name="ms_content" readonly>${message.ms_num}</textarea><br>
+		<textarea class="form-control" rows="5" name="mscontent" readonly>${message.mscontent}</textarea><br>
 		<input type="button" value="삭제" class="btn btn-primary btn-md btn-block"
-				onclick="location.href='delete.ms?messageType=${messageType}&ms_num=${message.ms_num}&sender=${message.sender}&receiver=${message.receiver}'">
+				onclick="location.href='delete.ms?messageType=${messageType}&msnum=${message.msnum}&sender=${message.sender}&receiver=${message.receiver}'">
 		</form>
 	</div>
 </body>

@@ -1,86 +1,95 @@
 package com.project.heyyo.member.message;
 
 public class Message {
-	private int ms_num;
+	private int msnum;
 	private int sender;
 	private int receiver;
-	private String ms_content;
-	private String ms_date;
-	private String ms_state;
-	private String ms_sender_delete;
-	private String ms_receiver_delete;
+	private String mscontent;
+	private String msdate;
+	private String msstate;
+	private String mssenderdelete;
+	private String msreceiverdelete;
 	
 	public Message() {
 		super();
 	}
-	public Message(int ms_num, int sender, int receiver, String ms_content,
-			String ms_date, String ms_state, String ms_sender_delete,
-			String ms_receiver_delete) {
+	
+	public Message(int msnum, int sender, int receiver, String mscontent,
+			String msdate, String msstate, String mssenderdelete,
+			String msreceiverdelete) {
 		super();
-		this.ms_num = ms_num;
+		this.msnum = msnum;
 		this.sender = sender;
 		this.receiver = receiver;
-		this.ms_content = ms_content;
-		this.ms_date = ms_date;
-		this.ms_state = ms_state;
-		this.ms_sender_delete = ms_sender_delete;
-		this.ms_receiver_delete = ms_receiver_delete;
+		this.mscontent = mscontent;
+		this.msdate = msdate;
+		this.msstate = msstate;
+		this.mssenderdelete = mssenderdelete;
+		this.msreceiverdelete = msreceiverdelete;
 	}
-	public int getMs_num() {
-		return ms_num;
+
+	public int getMsnum() {
+		return msnum;
 	}
-	public void setMs_num(int ms_num) {
-		this.ms_num = ms_num;
+
+	public void setMsnum(int msnum) {
+		this.msnum = msnum;
 	}
+
 	public int getSender() {
 		return sender;
 	}
+
 	public void setSender(int sender) {
 		this.sender = sender;
 	}
+
 	public int getReceiver() {
 		return receiver;
 	}
+
 	public void setReceiver(int receiver) {
 		this.receiver = receiver;
 	}
-	public String getMs_content() {
-		return ms_content;
+
+	public String getMscontent() {
+		return mscontent;
 	}
-	public void setMs_content(String ms_content) {
-		this.ms_content = ms_content;
+
+	public void setMscontent(String mscontent) {
+		this.mscontent = mscontent;
 	}
-	public String getMs_date() {
-		return ms_date;
+
+	public String getMsdate() {
+		return msdate;
 	}
-	public void setMs_date(String ms_date) {
-		this.ms_date = ms_date;
+
+	public void setMsdate(String msdate) {
+		this.msdate = msdate;
 	}
-	public String getMs_state() {
-		return ms_state;
+
+	public String getMsstate() {
+		return msstate;
 	}
-	public void setMs_state(String ms_state) {
-		this.ms_state = ms_state;
+
+	public void setMsstate(String msstate) {
+		this.msstate = msstate;
 	}
-	public String getMs_sender_delete() {
-		return ms_sender_delete;
+
+	public String getMssender_delete() {
+		return mssenderdelete;
 	}
-	public void setMs_sender_delete(String ms_sender_delete) {
-		this.ms_sender_delete = ms_sender_delete;
+
+	public void setMssender_delete(String mssenderdelete) {
+		this.mssenderdelete = mssenderdelete;
 	}
-	public String getMs_receiver_delete() {
-		return ms_receiver_delete;
+
+	public String getMsreceiver_delete() {
+		return msreceiverdelete;
 	}
-	public void setMs_receiver_delete(String ms_receiver_delete) {
-		this.ms_receiver_delete = ms_receiver_delete;
-	}
-	@Override
-	public String toString() {
-		return "Message [ms_num=" + ms_num + ", sender=" + sender
-				+ ", receiver=" + receiver + ", ms_content=" + ms_content
-				+ ", ms_date=" + ms_date + ", ms_state=" + ms_state
-				+ ", ms_sender_delete=" + ms_sender_delete
-				+ ", ms_receiver_delete=" + ms_receiver_delete + "]";
+
+	public void setMsreceiver_delete(String msreceiverdelete) {
+		this.msreceiverdelete = msreceiverdelete;
 	}
 	
 }
