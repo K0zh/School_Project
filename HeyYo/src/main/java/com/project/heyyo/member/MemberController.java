@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -127,36 +128,47 @@ public class MemberController {
 			return mav;
 		}
 
-	// id 李얍뜝�룞�삕
+	
 	@RequestMapping(value = "idInquiry.mb", method = RequestMethod.POST)
 	public ModelAndView idInquiry(
 			@ModelAttribute("Member") @Valid Member member,
-			BindingResult bindingResult) {
+			BindingResult bindingResult,ModelMap model) {
 		ModelAndView mav = new ModelAndView();
-
+		
 		Member mb = memberDao.email_test(member);
+		System.out.println(mb);
 		if (mb == null) {
-			// mav.setViewName("");
+			model.addAttribute("msg", "찾는 아이디가 없습니다.");
+			model.addAttribute("url", "main.do");
+			mav.setViewName("redirect");
 		} else {
-			// mav.setViewName("test");
+			model.addAttribute("msg", "찾으시는 이메일은 "+mb.getEmail()+" 입니다.");
+			model.addAttribute("url", "main.do");
+			mav.setViewName("redirect");
 		}
 		return mav;
 	}
 
-	// pw 李얍뜝�룞�삕
 	@RequestMapping(value = "pwInquiry.mb", method = RequestMethod.POST)
 	public ModelAndView pwInquiry(
 			@ModelAttribute("Member") @Valid Member member,
-			BindingResult bindingResult) {
+			BindingResult bindingResult,ModelMap model) {
 		ModelAndView mav = new ModelAndView();
+		System.out.println(member.getName());
+		System.out.println(member.getHp());
 
 		Member mb = memberDao.pw_test(member);
+		System.out.println(mb);
+		
 		if (mb == null) {
-			// mav.setViewName("");
+			model.addAttribute("msg", "찾는 비밀번호가 없습니다.");
+			model.addAttribute("url", "main.do");
+			mav.setViewName("redirect");
 		} else {
 			mav.addObject("mb", mb);
-			// mav.setViewName("test");
-			mav.setViewName("test");//�뜝�룞�삕�뜝�룞�삕�뜝�뙏�빞�벝�삕
+			model.addAttribute("msg", "찾으시는 비밀번호는 "+mb.getPw()+" 입니다.");
+			model.addAttribute("url", "main.do");
+			mav.setViewName("redirect");
 		}
 		return mav;
 	}
